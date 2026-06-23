@@ -100,22 +100,37 @@ def pick_topic(used: set) -> tuple:
 
 
 def call_gemini(api_key: str, prompt: str) -> str:
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={api_key}"
+    models = [
+        "gemini-2.0-flash-lite",
+        "gemini-2.0-flash",
+        "gemini-1.5-flash",
+        "gemini-1.5-flash-latest",
+    ]
     payload = json.dumps({
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {"temperature": 0.7, "maxOutputTokens": 2048}
     }).encode("utf-8")
 
-    req = urllib.request.Request(
-        url,
-        data=payload,
-        headers={"Content-Type": "application/json"},
-        method="POST"
-    )
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        result = json.loads(resp.read().decode("utf-8"))
+    last_error = None
+    for model in models:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
+        req = urllib.request.Request(
+            url,
+            data=payload,
+            headers={"Content-Type": "application/json"},
+            method="POST"
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                result = json.loads(resp.read().decode("utf-8"))
+                print(f"모델 '{model}' 사용 성공")
+                return result["candidates"][0]["content"]["parts"][0]["text"]
+        except urllib.error.HTTPError as e:
+            body = e.read().decode("utf-8", errors="replace")
+            print(f"모델 '{model}' 실패 ({e.code}): {body[:300]}", file=sys.stderr)
+            last_error = e
 
-    return result["candidates"][0]["content"]["parts"][0]["text"]
+    raise RuntimeError(f"모든 모델 실패. 마지막 에러: {last_error}")
 
 
 def generate_post(category: str, topic: str) -> dict:
