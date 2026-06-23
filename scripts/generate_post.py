@@ -99,20 +99,39 @@ def pick_topic(used: set) -> tuple:
     return category, random.choice(TOPIC_POOL[category])
 
 
-def call_gemini(api_key: str, prompt: str) -> str:
-    models = [
-        "gemini-2.0-flash-lite",
-        "gemini-2.0-flash",
-        "gemini-1.5-flash",
-        "gemini-1.5-flash-latest",
+def list_available_models(api_key: str) -> list:
+    url = f"https://generativelanguage.googleapis.com/v1beta/models?key={api_key}"
+    req = urllib.request.Request(url, method="GET")
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        result = json.loads(resp.read().decode("utf-8"))
+    models = result.get("models", [])
+    # generateContent를 지원하는 flash/pro 모델만 선택
+    candidates = [
+        m["name"].replace("models/", "")
+        for m in models
+        if "generateContent" in m.get("supportedGenerationMethods", [])
+        and any(k in m["name"] for k in ["flash", "pro"])
+        and "vision" not in m["name"]
+        and "embedding" not in m["name"]
     ]
+    # 최신 모델 우선 (이름 역순 정렬: gemini-2.5 > gemini-2.0 > gemini-1.5)
+    candidates.sort(reverse=True)
+    print(f"사용 가능한 모델: {candidates[:5]}")
+    return candidates
+
+
+def call_gemini(api_key: str, prompt: str) -> str:
+    models = list_available_models(api_key)
+    if not models:
+        raise RuntimeError("사용 가능한 Gemini 모델이 없습니다.")
+
     payload = json.dumps({
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {"temperature": 0.7, "maxOutputTokens": 2048}
     }).encode("utf-8")
 
     last_error = None
-    for model in models:
+    for model in models[:5]:
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
         req = urllib.request.Request(
             url,
@@ -127,7 +146,7 @@ def call_gemini(api_key: str, prompt: str) -> str:
                 return result["candidates"][0]["content"]["parts"][0]["text"]
         except urllib.error.HTTPError as e:
             body = e.read().decode("utf-8", errors="replace")
-            print(f"모델 '{model}' 실패 ({e.code}): {body[:300]}", file=sys.stderr)
+            print(f"모델 '{model}' 실패 ({e.code}): {body[:200]}", file=sys.stderr)
             last_error = e
 
     raise RuntimeError(f"모든 모델 실패. 마지막 에러: {last_error}")
