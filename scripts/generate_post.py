@@ -1,6 +1,6 @@
 """
 자동 블로그 포스트 생성기
-- Gemini API로 한국어 블로그 글 생성
+- Gemini REST API로 한국어 블로그 글 생성 (패키지 설치 불필요)
 - data/auto-posts.json에 추가
 - GitHub Actions에서 실행: 주 3회 (월/수/금)
 """
@@ -9,16 +9,17 @@ import json
 import os
 import re
 import sys
+import urllib.request
+import urllib.error
 from datetime import date
 from pathlib import Path
-from google import genai
 
 REPO_ROOT = Path(__file__).parent.parent
 AUTO_POSTS_FILE = REPO_ROOT / "data" / "auto-posts.json"
+USED_TOPICS_FILE = REPO_ROOT / "data" / ".used-topics.json"
 
 CATEGORIES = ["IT 리뷰", "생활정보", "재테크"]
 
-# 각 카테고리별 주제 풀 (Gemini가 선택)
 TOPIC_POOL = {
     "IT 리뷰": [
         "스마트폰 배터리 오래 쓰는 실전 팁",
@@ -29,13 +30,13 @@ TOPIC_POOL = {
         "홈 WiFi 속도 높이는 방법",
         "SSD vs HDD 차이와 선택 기준",
         "4K 모니터 추천 및 구매 가이드",
-        "클라우드 스토리지 비교 (구글드라이브 vs 원드라이브 vs iCloud)",
+        "클라우드 스토리지 비교 구글드라이브 원드라이브 iCloud",
         "중고 스마트폰 살 때 주의할 점",
         "갤럭시 탭 vs 아이패드 실사용 비교",
-        "AI 번역기 비교 (파파고 vs DeepL vs ChatGPT)",
+        "AI 번역기 비교 파파고 DeepL ChatGPT",
         "유튜브 프리미엄 가격 대비 가치 분석",
         "넷플릭스 vs 웨이브 vs 티빙 비교",
-        "스마트 홈 입문 가이드 (구글홈, 스마트씽스)",
+        "스마트 홈 입문 가이드",
     ],
     "생활정보": [
         "여름 전기요금 아끼는 에어컨 사용법",
@@ -59,11 +60,11 @@ TOPIC_POOL = {
         "파킹통장으로 이자 최대로 받는 법",
         "청년 정부 지원금 한번에 정리",
         "연말정산 환급액 늘리는 절세 전략",
-        "ETF 처음 시작하는 법 (증권사 선택부터)",
+        "ETF 처음 시작하는 법 증권사 선택부터",
         "월세 vs 전세 지금은 어떤 게 나을까",
         "재테크 초보가 피해야 할 실수 5가지",
         "CMA 통장 제대로 활용하는 방법",
-        "소액 투자 시작하기 (1만원으로 시작)",
+        "소액 투자 시작하기 1만원으로 시작",
         "국민연금 수령액 높이는 전략",
         "청년 주택드림 청약통장 완전 분석",
         "신용카드 포인트 현금화하는 방법",
@@ -73,43 +74,48 @@ TOPIC_POOL = {
     ],
 }
 
-ALREADY_WRITTEN_SLUGS_FILE = REPO_ROOT / "data" / ".used-topics.json"
-
 
 def load_used_topics() -> set:
-    if ALREADY_WRITTEN_SLUGS_FILE.exists():
-        return set(json.loads(ALREADY_WRITTEN_SLUGS_FILE.read_text(encoding="utf-8")))
+    if USED_TOPICS_FILE.exists():
+        return set(json.loads(USED_TOPICS_FILE.read_text(encoding="utf-8")))
     return set()
 
 
 def save_used_topic(topic: str):
     used = load_used_topics()
     used.add(topic)
-    ALREADY_WRITTEN_SLUGS_FILE.write_text(
+    USED_TOPICS_FILE.write_text(
         json.dumps(list(used), ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
 
-def pick_topic(used: set) -> tuple[str, str]:
+def pick_topic(used: set) -> tuple:
     import random
     for category in random.sample(CATEGORIES, len(CATEGORIES)):
         available = [t for t in TOPIC_POOL[category] if t not in used]
         if available:
             return category, random.choice(available)
-    # 모든 주제 소진 시 랜덤 선택
     category = random.choice(CATEGORIES)
     return category, random.choice(TOPIC_POOL[category])
 
 
-def to_slug(text: str) -> str:
-    text = text.lower()
-    text = re.sub(r"[^\w\s-]", "", text)
-    text = re.sub(r"[\s_]+", "-", text)
-    text = re.sub(r"-+", "-", text).strip("-")
-    # 한글이 있으면 간략한 영문 slug 생성 불가 → 날짜 기반으로 대체
-    if re.search(r"[가-힣]", text):
-        return f"post-{date.today().isoformat()}"
-    return text[:60]
+def call_gemini(api_key: str, prompt: str) -> str:
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={api_key}"
+    payload = json.dumps({
+        "contents": [{"parts": [{"text": prompt}]}],
+        "generationConfig": {"temperature": 0.7, "maxOutputTokens": 2048}
+    }).encode("utf-8")
+
+    req = urllib.request.Request(
+        url,
+        data=payload,
+        headers={"Content-Type": "application/json"},
+        method="POST"
+    )
+    with urllib.request.urlopen(req, timeout=60) as resp:
+        result = json.loads(resp.read().decode("utf-8"))
+
+    return result["candidates"][0]["content"]["parts"][0]["text"]
 
 
 def generate_post(category: str, topic: str) -> dict:
@@ -117,8 +123,6 @@ def generate_post(category: str, topic: str) -> dict:
     if not api_key:
         print("ERROR: GEMINI_API_KEY 환경변수가 없습니다.", file=sys.stderr)
         sys.exit(1)
-
-    client = genai.Client(api_key=api_key)
 
     prompt = f"""당신은 한국 블로그 작가입니다. 아래 주제로 블로그 글을 작성해주세요.
 
@@ -131,7 +135,7 @@ def generate_post(category: str, topic: str) -> dict:
   "title": "SEO에 최적화된 제목 (50자 이내)",
   "slug": "영문-소문자-하이픈-slug (예: wifi-speed-tips)",
   "excerpt": "독자를 끌어당기는 요약문 (100자 이내)",
-  "readTime": 읽는데 걸리는 분(숫자),
+  "readTime": 5,
   "imageKeyword": "picsum.photos seed 용 영문 키워드 1단어",
   "paragraphs": [
     "첫 번째 단락 (150~200자)",
@@ -149,15 +153,11 @@ def generate_post(category: str, topic: str) -> dict:
 - 자연스러운 한국어 문체
 - 단락마다 새로운 정보 포함"""
 
-    response = client.models.generate_content(model="gemini-2.0-flash", contents=prompt)
-    text = response.text.strip()
-
-    # ```json ... ``` 블록 제거
+    text = call_gemini(api_key, prompt)
+    text = text.strip()
     text = re.sub(r"^```(?:json)?\s*", "", text)
-    text = re.sub(r"\s*```$", "", text)
-
-    data = json.loads(text)
-    return data
+    text = re.sub(r"\s*```\s*$", "", text)
+    return json.loads(text)
 
 
 def load_auto_posts() -> list:
@@ -185,8 +185,7 @@ def main():
     existing_posts = load_auto_posts()
     existing_slugs = {p["slug"] for p in existing_posts}
 
-    slug = data.get("slug", to_slug(topic))
-    # slug 중복 방지
+    slug = data.get("slug", f"post-{date.today().isoformat()}")
     if slug in existing_slugs:
         slug = f"{slug}-{date.today().isoformat()}"
 
