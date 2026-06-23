@@ -105,16 +105,17 @@ def list_available_models(api_key: str) -> list:
     with urllib.request.urlopen(req, timeout=30) as resp:
         result = json.loads(resp.read().decode("utf-8"))
     models = result.get("models", [])
-    # generateContent를 지원하는 flash/pro 모델만 선택
+    # gemini flash 모델만 선택 (무료, 텍스트 생성)
     candidates = [
         m["name"].replace("models/", "")
         for m in models
         if "generateContent" in m.get("supportedGenerationMethods", [])
-        and any(k in m["name"] for k in ["flash", "pro"])
+        and m["name"].startswith("models/gemini-")
+        and "flash" in m["name"]
         and "vision" not in m["name"]
         and "embedding" not in m["name"]
+        and "tts" not in m["name"]
     ]
-    # 최신 모델 우선 (이름 역순 정렬: gemini-2.5 > gemini-2.0 > gemini-1.5)
     candidates.sort(reverse=True)
     print(f"사용 가능한 모델: {candidates[:5]}")
     return candidates
@@ -127,7 +128,7 @@ def call_gemini(api_key: str, prompt: str) -> str:
 
     payload = json.dumps({
         "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0.7, "maxOutputTokens": 2048}
+        "generationConfig": {"temperature": 0.7, "maxOutputTokens": 4096}
     }).encode("utf-8")
 
     last_error = None
