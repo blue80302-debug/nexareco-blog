@@ -11,7 +11,7 @@ import re
 import sys
 from datetime import date
 from pathlib import Path
-import google.generativeai as genai
+from google import genai
 
 REPO_ROOT = Path(__file__).parent.parent
 AUTO_POSTS_FILE = REPO_ROOT / "data" / "auto-posts.json"
@@ -118,8 +118,7 @@ def generate_post(category: str, topic: str) -> dict:
         print("ERROR: GEMINI_API_KEY 환경변수가 없습니다.", file=sys.stderr)
         sys.exit(1)
 
-    genai.configure(api_key=api_key)
-    model = genai.GenerativeModel("gemini-1.5-flash")
+    client = genai.Client(api_key=api_key)
 
     prompt = f"""당신은 한국 블로그 작가입니다. 아래 주제로 블로그 글을 작성해주세요.
 
@@ -150,7 +149,7 @@ def generate_post(category: str, topic: str) -> dict:
 - 자연스러운 한국어 문체
 - 단락마다 새로운 정보 포함"""
 
-    response = model.generate_content(prompt)
+    response = client.models.generate_content(model="gemini-2.0-flash", contents=prompt)
     text = response.text.strip()
 
     # ```json ... ``` 블록 제거

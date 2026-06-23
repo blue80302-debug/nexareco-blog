@@ -26,7 +26,7 @@ jobs:
           python-version: "3.11"
 
       - name: 의존성 설치
-        run: pip install google-generativeai
+        run: pip install google-genai
 
       - name: 블로그 포스트 자동 생성
         run: python scripts/generate_post.py
