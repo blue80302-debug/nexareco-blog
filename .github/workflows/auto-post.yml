@@ -1,0 +1,42 @@
+name: 자동 블로그 포스트 생성
+
+on:
+  schedule:
+    # 월/수/금 오전 10시 KST (UTC 01:00)
+    - cron: "0 1 * * 1,3,5"
+  workflow_dispatch:
+    # 수동 실행 버튼 (GitHub Actions 탭에서 "Run workflow" 클릭)
+
+permissions:
+  contents: write
+
+jobs:
+  generate-post:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Python 설치
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 의존성 설치
+        run: pip install google-generativeai
+
+      - name: 블로그 포스트 자동 생성
+        run: python scripts/generate_post.py
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: 변경사항 커밋 & 푸시
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "auto: AI 블로그 포스트 자동 생성 (${{ github.run_number }})"
+          file_pattern: "data/auto-posts.json data/.used-topics.json"
+          commit_user_name: "nexareco-bot"
+          commit_user_email: "bot@nexareco.com"

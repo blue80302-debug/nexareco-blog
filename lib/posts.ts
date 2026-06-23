@@ -1,3 +1,5 @@
+import autoPostsJson from "@/data/auto-posts.json";
+
 export type Category = "IT 리뷰" | "생활정보" | "재테크";
 
 export type Post = {
@@ -11,7 +13,7 @@ export type Post = {
   imageUrl: string;
 };
 
-export const posts: Post[] = [
+const posts: Post[] = [
   // ── IT 리뷰 ──────────────────────────────────────────────
   {
     slug: "galaxy-s25-ultra-review",
@@ -359,12 +361,21 @@ export const posts: Post[] = [
   },
 ];
 
+const autoPosts = autoPostsJson as Post[];
+const existingSlugs = new Set(posts.map((p) => p.slug));
+const mergedPosts: Post[] = [
+  ...posts,
+  ...autoPosts.filter((p) => !existingSlugs.has(p.slug)),
+].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+export { mergedPosts as posts };
+
 export function getPostBySlug(slug: string): Post | undefined {
-  return posts.find((p) => p.slug === slug);
+  return mergedPosts.find((p) => p.slug === slug);
 }
 
 export function getPostsByCategory(category: Category): Post[] {
-  return posts.filter((p) => p.category === category);
+  return mergedPosts.filter((p) => p.category === category);
 }
 
 export const categories: Category[] = ["IT 리뷰", "생활정보", "재테크"];
