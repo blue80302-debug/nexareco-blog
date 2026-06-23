@@ -2,25 +2,73 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground: #111111;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+    system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
+    "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Blogger 콘텐츠 스타일 */
+.blogger-content {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: #374151;
+}
+.blogger-content p {
+  margin-bottom: 1.5rem;
+}
+.blogger-content h1,
+.blogger-content h2,
+.blogger-content h3 {
+  font-weight: 700;
+  color: #111827;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+.blogger-content h2 { font-size: 1.4rem; }
+.blogger-content h3 { font-size: 1.15rem; }
+.blogger-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  margin: 1.5rem 0;
+}
+.blogger-content a {
+  color: #111827;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.blogger-content ul,
+.blogger-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.blogger-content li {
+  margin-bottom: 0.5rem;
+}
+.blogger-content blockquote {
+  border-left: 3px solid #e5e7eb;
+  padding-left: 1.25rem;
+  color: #6b7280;
+  margin: 1.5rem 0;
+}
+.blogger-content pre,
+.blogger-content code {
+  background: #f9fafb;
+  border-radius: 0.375rem;
+  padding: 0.2em 0.4em;
+  font-size: 0.9em;
 }
