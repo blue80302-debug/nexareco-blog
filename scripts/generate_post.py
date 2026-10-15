@@ -89,12 +89,31 @@ def save_used_topic(topic: str):
     )
 
 
+def generate_new_topic(api_key: str, category: str, used: set) -> str:
+    used_in_cat = [t for t in used if any(t in TOPIC_POOL.get(c, []) for c in CATEGORIES)]
+    existing = TOPIC_POOL.get(category, [])
+    prompt = f"""아래는 '{category}' 카테고리의 기존 블로그 주제 목록입니다:
+{chr(10).join(f'- {t}' for t in existing)}
+
+이 목록과 겹치지 않는 새로운 블로그 주제 1개를 제안해주세요.
+- 한국 독자에게 실용적인 주제
+- 15~25자 이내
+- 주제명만 출력하세요. 다른 텍스트 없이."""
+    return call_gemini(api_key, prompt).strip().strip('"').strip("- ")
+
+
 def pick_topic(used: set) -> tuple:
     import random
     for category in random.sample(CATEGORIES, len(CATEGORIES)):
         available = [t for t in TOPIC_POOL[category] if t not in used]
         if available:
             return category, random.choice(available)
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if api_key:
+        category = random.choice(CATEGORIES)
+        topic = generate_new_topic(api_key, category, used)
+        print(f"토픽 풀 소진 — AI가 새 주제 생성: {topic}")
+        return category, topic
     category = random.choice(CATEGORIES)
     return category, random.choice(TOPIC_POOL[category])
 
@@ -179,14 +198,17 @@ def generate_post(category: str, topic: str) -> dict:
     "네 번째 단락 (150~200자)",
     "다섯 번째 단락 (150~200자)",
     "결론 단락 (100~150자)"
-  ]
+  ],
+  "markdown": "## 소제목1\\n\\n본문 단락...\\n\\n## 소제목2\\n\\n본문 단락...\\n\\n### 하위 소제목\\n\\n- 리스트 항목1\\n- 리스트 항목2\\n\\n## 결론\\n\\n결론 단락..."
 }}
 
 작성 기준:
 - 실용적이고 구체적인 정보 위주
 - 광고성 문구 없이 독자에게 도움이 되는 내용
 - 자연스러운 한국어 문체
-- 단락마다 새로운 정보 포함"""
+- 단락마다 새로운 정보 포함
+- markdown 필드: h2/h3 소제목, 리스트(- 또는 1.), **굵은글씨**를 활용해 구조적으로 작성
+- markdown에 최소 3개 이상의 h2 소제목을 포함"""
 
     text = call_gemini(api_key, prompt)
     text = text.strip()
@@ -234,6 +256,8 @@ def main():
         "readTime": int(data.get("readTime", 5)),
         "imageUrl": f"https://picsum.photos/seed/{data.get('imageKeyword', slug)}/800/500",
     }
+    if data.get("markdown"):
+        new_post["contentMarkdown"] = data["markdown"]
 
     existing_posts.insert(0, new_post)
     save_auto_posts(existing_posts)

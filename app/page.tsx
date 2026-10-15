@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import PostCard from "@/components/PostCard";
+import NewsletterSignup from "@/components/NewsletterSignup";
 import { posts, categories } from "@/lib/posts";
 
 export default function Home() {
@@ -108,6 +109,10 @@ export default function Home() {
             글 더보기 →
           </Link>
         </div>
+      </section>
+
+      <section className="pb-16">
+        <NewsletterSignup />
       </section>
     </div>
   );

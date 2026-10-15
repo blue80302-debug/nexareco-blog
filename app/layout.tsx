@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import SearchModal from "@/components/SearchModal";
+import Analytics from "@/components/Analytics";
 import { posts } from "@/lib/posts";
 import Link from "next/link";
 
@@ -57,6 +59,12 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
+        <Analytics />
+        <Script
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6668425393052932"
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+        />
         <Suspense>
           <Header />
           <SearchModal posts={posts} />

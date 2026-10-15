@@ -7,6 +7,7 @@ export type Post = {
   title: string;
   excerpt: string;
   content: string[];
+  contentMarkdown?: string;
   category: Category;
   date: string;
   readTime: number;

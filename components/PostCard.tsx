@@ -5,7 +5,7 @@ import type { Post } from "@/lib/posts";
 export default function PostCard({ post }: { post: Post }) {
   return (
     <Link href={`/blog/${post.slug}`} className="group block">
-      <article className="overflow-hidden rounded-xl bg-white hover:shadow-md transition-shadow duration-300">
+      <article className="overflow-hidden rounded-xl bg-white dark:bg-gray-900 hover:shadow-md transition-shadow duration-300">
         <div className="relative aspect-video overflow-hidden">
           <Image
             src={post.imageUrl}
@@ -19,10 +19,10 @@ export default function PostCard({ post }: { post: Post }) {
           <span className="inline-block text-xs font-medium text-gray-400 tracking-widest uppercase mb-2">
             {post.category}
           </span>
-          <h2 className="text-base font-semibold text-gray-900 leading-snug mb-2 line-clamp-2 group-hover:text-gray-600 transition-colors">
+          <h2 className="text-base font-semibold text-gray-900 dark:text-white leading-snug mb-2 line-clamp-2 group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors">
             {post.title}
           </h2>
-          <p className="text-sm text-gray-500 line-clamp-2 leading-relaxed mb-3">
+          <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 leading-relaxed mb-3">
             {post.excerpt}
           </p>
           <div className="flex items-center gap-3 text-xs text-gray-400">

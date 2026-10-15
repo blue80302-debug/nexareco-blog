@@ -5,6 +5,9 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import ReadingProgressBar from "@/components/ReadingProgressBar";
 import ShareButtons from "@/components/ShareButtons";
+import MarkdownContent from "@/components/MarkdownContent";
+import AdSlot from "@/components/AdSlot";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -108,11 +111,17 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <Image src={post.imageUrl} alt={post.title} fill className="object-cover" priority sizes="(max-width: 768px) 100vw, 768px" />
       </div>
 
-      <div className="space-y-6">
-        {post.content.map((paragraph, i) => (
-          <p key={i} className="text-base leading-8 text-gray-700 dark:text-gray-300">{paragraph}</p>
-        ))}
-      </div>
+      {post.contentMarkdown ? (
+        <MarkdownContent content={post.contentMarkdown} />
+      ) : (
+        <div className="space-y-6">
+          {post.content.map((paragraph, i) => (
+            <p key={i} className="text-base leading-8 text-gray-700 dark:text-gray-300">{paragraph}</p>
+          ))}
+        </div>
+      )}
+
+      <AdSlot />
 
       <div className="mt-16 pt-8 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
         <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">
@@ -121,9 +130,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <ShareButtons title={post.title} url={`https://nexareco.com/blog/${post.slug}`} />
       </div>
 
+      <div className="mt-12">
+        <NewsletterSignup />
+      </div>
+
       {related.length > 0 && (
         <section className="mt-16">
-          <h2 className="text-lg font-bold text-gray-900 mb-6">관련 글</h2>
+          <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-6">관련 글</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {related.map((r) => (
               <Link key={r.slug} href={`/blog/${r.slug}`} className="group block p-4 rounded-xl border border-gray-100 hover:border-gray-300 transition-colors">
