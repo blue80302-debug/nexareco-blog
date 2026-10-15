@@ -57,13 +57,32 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             description: post.excerpt,
             image: post.imageUrl,
             datePublished: post.date,
-            author: { "@type": "Organization", name: "NEXARECO" },
+            dateModified: post.date,
+            author: {
+              "@type": "Organization",
+              name: "NEXARECO",
+              url: "https://nexareco.com/about",
+            },
             publisher: {
               "@type": "Organization",
               name: "NEXARECO",
               url: "https://nexareco.com",
             },
             mainEntityOfPage: `https://nexareco.com/blog/${post.slug}`,
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "홈", item: "https://nexareco.com" },
+              { "@type": "ListItem", position: 2, name: post.category, item: `https://nexareco.com/blog?category=${encodeURIComponent(post.category)}` },
+              { "@type": "ListItem", position: 3, name: post.title },
+            ],
           }),
         }}
       />
@@ -77,7 +96,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <span className="inline-block text-xs font-medium text-gray-400 tracking-widest uppercase mb-4">{post.category}</span>
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-6">{post.title}</h1>
         <div className="flex items-center gap-3 text-sm text-gray-400">
-          <time>{post.date}</time>
+          <Link href="/about" className="hover:text-gray-700 dark:hover:text-gray-200 transition-colors">NEXARECO</Link>
+          <span>·</span>
+          <time dateTime={post.date}>{post.date}</time>
           <span>·</span>
           <span>{post.readTime}분 읽기</span>
         </div>

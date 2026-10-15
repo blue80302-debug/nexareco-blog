@@ -6,26 +6,30 @@ import SearchModal from "@/components/SearchModal";
 import { posts } from "@/lib/posts";
 import Link from "next/link";
 
+const siteDescription =
+  "스마트폰 추천, 전기세 절약법, ETF 적립식 투자까지. IT 리뷰·생활정보·재테크를 쉽고 실용적으로 정리하는 NEXARECO 블로그입니다.";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://nexareco.com"),
   title: {
-    default: "NEXARECO — IT 리뷰 · 생활정보 · 재테크",
-    template: "%s | NEXARECO",
+    default: "NEXARECO 블로그 — IT 리뷰 · 생활정보 · 재테크 실용 가이드",
+    template: "%s | NEXARECO 블로그",
   },
-  description:
-    "IT 제품 리뷰, 생활정보, 재테크 입문 콘텐츠를 다루는 실용 블로그입니다.",
-  keywords: ["IT 리뷰", "생활정보", "재테크", "ETF 투자", "스마트폰 추천"],
+  description: siteDescription,
+  keywords: ["IT 리뷰", "생활정보", "재테크", "ETF 투자", "스마트폰 추천", "블로그"],
   openGraph: {
     type: "website",
     locale: "ko_KR",
-    siteName: "NEXARECO",
-    title: "NEXARECO — IT 리뷰 · 생활정보 · 재테크",
-    description: "IT 제품 리뷰, 생활정보, 재테크 입문 콘텐츠를 다루는 실용 블로그입니다.",
+    siteName: "NEXARECO 블로그",
+    title: "NEXARECO 블로그 — IT 리뷰 · 생활정보 · 재테크 실용 가이드",
+    description: siteDescription,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "NEXARECO 블로그" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "NEXARECO — IT 리뷰 · 생활정보 · 재테크",
-    description: "IT 제품 리뷰, 생활정보, 재테크 입문 콘텐츠를 다루는 실용 블로그입니다.",
+    title: "NEXARECO 블로그 — IT 리뷰 · 생활정보 · 재테크 실용 가이드",
+    description: siteDescription,
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
@@ -33,6 +37,7 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true },
   },
   alternates: {
+    canonical: "https://nexareco.com",
     types: { "application/rss+xml": "/feed.xml" },
   },
 };
