@@ -1,6 +1,13 @@
 import PostCard from "@/components/PostCard";
 import { posts, categories } from "@/lib/posts";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "글 목록",
+  description: "IT 리뷰, 생활정보, 재테크 관련 모든 블로그 글을 확인하세요.",
+  alternates: { canonical: "https://nexareco.com/blog" },
+};
 
 export default async function BlogPage({
   searchParams,

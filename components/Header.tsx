@@ -1,26 +1,35 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useState } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
-  { href: "/blog?category=IT+리뷰", label: "IT 리뷰" },
-  { href: "/blog?category=생활정보", label: "생활정보" },
-  { href: "/blog?category=재테크", label: "재테크" },
-  { href: "/about", label: "소개" },
+  { href: "/blog?category=IT+리뷰", label: "IT 리뷰", matchCategory: "IT 리뷰" },
+  { href: "/blog?category=생활정보", label: "생활정보", matchCategory: "생활정보" },
+  { href: "/blog?category=재테크", label: "재테크", matchCategory: "재테크" },
+  { href: "/about", label: "소개", matchCategory: null },
 ];
 
 export default function Header() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const isActive = (link: (typeof navLinks)[number]) => {
+    if (link.matchCategory) {
+      return pathname === "/blog" && searchParams.get("category") === link.matchCategory;
+    }
+    return pathname === link.href;
+  };
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-950/90 backdrop-blur-sm border-b border-gray-100 dark:border-gray-800">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link
           href="/"
-          className="text-xl font-bold tracking-widest text-gray-900 hover:text-gray-600 transition-colors"
+          className="text-xl font-bold tracking-widest text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
         >
           NEXARECO
         </Link>
@@ -30,15 +39,16 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm tracking-wide transition-colors hover:text-gray-900 ${
-                pathname === link.href
-                  ? "text-gray-900 font-medium"
-                  : "text-gray-500"
+              className={`text-sm tracking-wide transition-colors hover:text-gray-900 dark:hover:text-white ${
+                isActive(link)
+                  ? "text-gray-900 dark:text-white font-medium"
+                  : "text-gray-500 dark:text-gray-400"
               }`}
             >
               {link.label}
             </Link>
           ))}
+          <ThemeToggle />
         </nav>
 
         <button

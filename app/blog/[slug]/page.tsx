@@ -3,6 +3,8 @@ import Link from "next/link";
 import { getPostBySlug, posts } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import ReadingProgressBar from "@/components/ReadingProgressBar";
+import ShareButtons from "@/components/ShareButtons";
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -12,7 +14,27 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) return {};
-  return { title: post.title, description: post.excerpt };
+  return {
+    title: post.title,
+    description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      publishedTime: post.date,
+      images: [{ url: post.imageUrl, width: 800, height: 500, alt: post.title }],
+      url: `https://nexareco.com/blog/${post.slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [post.imageUrl],
+    },
+    alternates: {
+      canonical: `https://nexareco.com/blog/${post.slug}`,
+    },
+  };
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -24,6 +46,27 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return (
     <article className="max-w-3xl mx-auto px-6 py-12">
+      <ReadingProgressBar />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: post.title,
+            description: post.excerpt,
+            image: post.imageUrl,
+            datePublished: post.date,
+            author: { "@type": "Organization", name: "NEXARECO" },
+            publisher: {
+              "@type": "Organization",
+              name: "NEXARECO",
+              url: "https://nexareco.com",
+            },
+            mainEntityOfPage: `https://nexareco.com/blog/${post.slug}`,
+          }),
+        }}
+      />
       <nav className="flex items-center gap-2 text-xs text-gray-400 mb-8">
         <Link href="/" className="hover:text-gray-700">홈</Link>
         <span>›</span>
@@ -32,7 +75,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
       <header className="mb-10">
         <span className="inline-block text-xs font-medium text-gray-400 tracking-widest uppercase mb-4">{post.category}</span>
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-6">{post.title}</h1>
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-6">{post.title}</h1>
         <div className="flex items-center gap-3 text-sm text-gray-400">
           <time>{post.date}</time>
           <span>·</span>
@@ -46,14 +89,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
       <div className="space-y-6">
         {post.content.map((paragraph, i) => (
-          <p key={i} className="text-base leading-8 text-gray-700">{paragraph}</p>
+          <p key={i} className="text-base leading-8 text-gray-700 dark:text-gray-300">{paragraph}</p>
         ))}
       </div>
 
-      <div className="mt-16 pt-8 border-t border-gray-100">
-        <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors">
+      <div className="mt-16 pt-8 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
+        <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors">
           ← 목록으로 돌아가기
         </Link>
+        <ShareButtons title={post.title} url={`https://nexareco.com/blog/${post.slug}`} />
       </div>
 
       {related.length > 0 && (
