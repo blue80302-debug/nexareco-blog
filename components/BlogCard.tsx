@@ -14,6 +14,18 @@ const categoryKeys: Record<string, string> = {
   "software-services": "categorySoftware",
 };
 
+const categoryGradients: Record<string, string> = {
+  "ai-tools": "from-purple-500 via-indigo-500 to-blue-500",
+  "tech-gadgets": "from-blue-500 via-cyan-500 to-teal-500",
+  "software-services": "from-green-500 via-emerald-500 to-teal-500",
+};
+
+const categoryIcons: Record<string, string> = {
+  "ai-tools": "🤖",
+  "tech-gadgets": "📱",
+  "software-services": "💻",
+};
+
 export default function BlogCard({ post }: { post: PostMeta }) {
   const t = useTranslations("blog");
 
@@ -22,9 +34,14 @@ export default function BlogCard({ post }: { post: PostMeta }) {
       href={`/blog/${post.slug}`}
       className="group block overflow-hidden rounded-xl border border-gray-200 bg-white transition hover:shadow-lg"
     >
-      <div className="aspect-[16/9] bg-gray-100 overflow-hidden">
-        <div className="h-full w-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-gray-400 text-sm">
-          {post.coverImage ? post.title : "No image"}
+      <div className={`aspect-[16/9] bg-gradient-to-br ${categoryGradients[post.category] ?? "from-gray-400 to-gray-600"} overflow-hidden flex items-center justify-center relative`}>
+        <span className="text-5xl opacity-30 group-hover:scale-110 transition-transform duration-300">
+          {categoryIcons[post.category] ?? "📝"}
+        </span>
+        <div className="absolute inset-0 flex items-end p-4">
+          <span className="text-white/80 text-xs font-medium drop-shadow-md">
+            {post.title}
+          </span>
         </div>
       </div>
       <div className="p-5">
