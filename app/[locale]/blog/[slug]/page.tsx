@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import {
   getPostBySlug,
   getPostSlugs,
@@ -105,7 +106,7 @@ export default async function BlogPostPage({ params }: Props) {
       <AdSense slot="placeholder" format="horizontal" />
 
       <div className="mdx-content">
-        <MDXRemote source={post.content} components={mdxComponents} />
+        <MDXRemote source={post.content} components={mdxComponents} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
       </div>
 
       <AdSense slot="placeholder" format="rectangle" />
