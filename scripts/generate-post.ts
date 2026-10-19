@@ -1,8 +1,8 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
 
-const GEMINI_URL =
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent";
+const ANTHROPIC_URL = "https://api.anthropic.com/v1/messages";
+const MODEL = "claude-sonnet-5-5-20261015";
 
 const LOCALES = ["ko", "en", "ja", "es"] as const;
 type Locale = (typeof LOCALES)[number];
@@ -31,7 +31,8 @@ function buildPrompt(
 
   return `당신은 IT 제품을 직접 사용해본 블로거입니다.
 
-아래 제품들을 비교하는 블로그 리뷰를 ${LOCALE_LABELS[locale]} 언어로 작성해주세요.
+먼저 웹 검색을 통해 아래 제품들의 최신 가격, 스펙, 사용자 리뷰를 조사하세요.
+그 다음, 조사한 실제 데이터를 기반으로 비교 리뷰를 ${LOCALE_LABELS[locale]} 언어로 작성해주세요.
 
 제품: ${topic.products.join(", ")}
 포맷: ${topic.format} (comparison/top-list/buying-guide)
@@ -44,7 +45,7 @@ function buildPrompt(
 - 장단점 명확히
 - 확실한 결론 (이런 사람은 A, 저런 사람은 B)
 - "이 글에서는 ~에 대해 알아보겠습니다" 같은 상투적 표현 금지
-- 실제 데이터 기반 (가격, 스펙 등)
+- 웹 검색에서 얻은 실제 데이터(가격, 스펙, 벤치마크) 활용
 - 출처 자연스럽게 언급
 
 MDX frontmatter 포함:
@@ -65,39 +66,62 @@ function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+interface ContentBlock {
+  type: string;
+  text?: string;
+}
+
+interface AnthropicResponse {
+  content: ContentBlock[];
+  stop_reason: string;
+}
+
 async function generateContent(prompt: string, maxRetries = 3): Promise<string> {
-  const apiKey = process.env.GEMINI_API_KEY;
+  const apiKey = process.env.CLAUDE_API_KEY;
   if (!apiKey) {
     throw new Error(
-      "GEMINI_API_KEY 환경변수가 설정되지 않았습니다. .env 파일 또는 환경변수를 확인하세요."
+      "CLAUDE_API_KEY 환경변수가 설정되지 않았습니다."
     );
   }
 
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
-    const response = await fetch(`${GEMINI_URL}?key=${apiKey}`, {
+    const response = await fetch(ANTHROPIC_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": apiKey,
+        "anthropic-version": "2023-06-01",
+      },
       body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: { temperature: 0.8, maxOutputTokens: 8192 },
+        model: MODEL,
+        max_tokens: 8192,
+        temperature: 0.8,
+        tools: [
+          {
+            type: "web_search_20250305",
+            name: "web_search",
+            max_uses: 5,
+          },
+        ],
+        messages: [{ role: "user", content: prompt }],
       }),
     });
 
     if (response.ok) {
-      const data = (await response.json()) as {
-        candidates: Array<{
-          content: { parts: Array<{ text: string }> };
-        }>;
-      };
+      const data = (await response.json()) as AnthropicResponse;
 
-      const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      const textBlocks = data.content.filter(
+        (block) => block.type === "text" && block.text
+      );
+      const text = textBlocks.map((block) => block.text).join("\n");
+
       if (!text) {
-        throw new Error("Gemini API 응답에서 텍스트를 추출할 수 없습니다.");
+        throw new Error("Claude API 응답에서 텍스트를 추출할 수 없습니다.");
       }
       return text;
     }
 
-    if (response.status === 503 || response.status === 429) {
+    if (response.status === 529 || response.status === 429) {
       const waitSec = attempt * 15;
       console.log(`    API 과부하 (${response.status}), ${waitSec}초 후 재시도... (${attempt}/${maxRetries})`);
       await sleep(waitSec * 1000);
@@ -105,10 +129,10 @@ async function generateContent(prompt: string, maxRetries = 3): Promise<string> 
     }
 
     const errorBody = await response.text();
-    throw new Error(`Gemini API 오류 (${response.status}): ${errorBody}`);
+    throw new Error(`Claude API 오류 (${response.status}): ${errorBody}`);
   }
 
-  throw new Error(`Gemini API 재시도 ${maxRetries}회 초과`);
+  throw new Error(`Claude API 재시도 ${maxRetries}회 초과`);
 }
 
 async function main(): Promise<void> {
