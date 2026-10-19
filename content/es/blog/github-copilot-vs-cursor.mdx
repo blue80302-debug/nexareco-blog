@@ -1,0 +1,112 @@
+---
+title: "GitHub Copilot vs Cursor: Duelo de Herramientas de Programación con IA"
+excerpt: "Después de meses usando ambas herramientas, te cuento cuál vale más la pena según tu caso. La respuesta no es tan obvia como parece."
+category: "ai-tools"
+format: "comparison"
+date: "2026-10-14"
+coverImage: "/images/posts/github-copilot-vs-cursor.jpg"
+products: ["GitHub Copilot", "Cursor"]
+---
+
+## Siendo honestos, no esperaba que Cursor me convenciera
+
+Llevo usando GitHub Copilot desde que salió. Cambió mi forma de programar — así de simple. Entonces cuando empecé a ver a medio Twitter hablando de Cursor, pensé: "Es un fork de VS Code con IA pegada. ¿Qué tan diferente puede ser?"
+
+Bastante diferente, resulta. Después de más de seis meses alternando entre las dos herramientas en proyectos reales, puedo decir que cada una tiene su terreno. Aquí va mi comparación honesta.
+
+## Precios al día de hoy
+
+Empecemos por el bolsillo. Estos son los precios según las páginas oficiales a finales de 2026.
+
+| Plan | GitHub Copilot | Cursor |
+|------|---------------|--------|
+| Gratis | 2,000 completados/mes | 2,000 completados + 50 solicitudes premium/mes |
+| Individual | $10/mes | $20/mes (Pro) |
+| Business | $19/mes/usuario | $40/mes/usuario |
+| Estudiantes/OSS | Gratis | Sin descuento especial |
+| Modelos | GPT-4o, Claude, etc. | GPT-4o, Claude, modelos propios |
+
+Copilot gana en precio, claramente. Si eres estudiante o contribuyes a proyectos open source, es gratis — difícil competir con eso. Cursor cuesta el doble para individuales, así que tiene que justificar ese precio extra. ¿Lo hace? Sigue leyendo.
+
+## Calidad del autocompletado
+
+Las dos herramientas te sugieren código con Tab, pero la experiencia es sutilmente distinta.
+
+**Copilot** es rapidísimo con completados línea por línea. No estorba, fluye con tu forma de escribir. Es como un autocompletado inteligente que entiende tu código. Funciona en VS Code, JetBrains y Neovim, así que no estás atado a un solo editor.
+
+**Cursor** es más agresivo. Lee más contexto alrededor y suele sugerir bloques de varias líneas a la vez. Al principio desconcierta, pero cuando te acostumbras, hay momentos donde piensas "¿cómo supo exactamente lo que iba a escribir?". Es casi inquietante.
+
+Para completados inline puros, están muy parejos. Copilot es más rápido; Cursor es más ambicioso.
+
+## Chat y capacidades de agente
+
+Aquí es donde la diferencia se nota de verdad.
+
+El chat de Copilot vive en la barra lateral. Puedes hacer preguntas sobre tu código, pedir explicaciones, solicitar correcciones rápidas. El modo Agente (añadido en 2025) permite ejecutar comandos de terminal y editar múltiples archivos — un avance importante. Pero comparado con Cursor, todavía se siente como IA añadida *al* editor, no construida *dentro* de él.
+
+El **Composer** de Cursor es otra cosa. Le dices "refactoriza este componente para usar React Server Components" y modifica cinco archivos a la vez, mostrándote un diff limpio de cada uno. Puedes aceptar o rechazar cambio por cambio. Como indexa todo tu proyecto al abrirlo, entiende la estructura completa del código.
+
+El archivo `.cursorrules` es otro detalle inteligente: lo pones en la raíz del proyecto con tus convenciones de código y el AI las sigue.
+
+## Edición multi-archivo
+
+El desarrollo real implica tocar varios archivos para una sola funcionalidad. Aquí es donde más se separan.
+
+| Función | GitHub Copilot | Cursor |
+|---------|---------------|--------|
+| Edición multi-archivo | Vía modo Agente | Nativo con Composer |
+| Vista previa de diff | Soportado | Diffs inline por archivo |
+| Rollback | Undo por archivo | Rollback por conjunto de cambios |
+| Terminal integrado | Agente ejecuta comandos | Terminal AI integrado |
+| Indexación del código | Limitada | Indexación completa del proyecto |
+
+Composer maneja los cambios multi-archivo como una operación atómica. Revisas los diffs, aceptas o rechazas por archivo, y si algo no cuadra, deshaces todo el conjunto. Está muy bien diseñado.
+
+## Ventajas y desventajas
+
+### GitHub Copilot
+
+**Ventajas:**
+- Mitad de precio que Cursor ($10 vs $20/mes)
+- Gratis para estudiantes y contribuidores open source
+- Funciona en VS Code, JetBrains, Neovim — no te ata a un editor
+- Integración profunda con GitHub (resúmenes de PR, sugerencias de code review)
+- Completados inline rápidos y no intrusivos
+
+**Desventajas:**
+- Comprensión del codebase general más débil
+- Edición multi-archivo limitada al modo Agente
+- La experiencia de chat se siente añadida, no integrada
+
+### Cursor
+
+**Ventajas:**
+- Indexación completa del proyecto para sugerencias con contexto
+- Composer hace que la edición multi-archivo sea natural
+- `.cursorrules` para personalizar el comportamiento de la IA por proyecto
+- Diseñado como editor AI-nativo — todo se siente integrado
+- Completado Tab agresivo que lee contexto amplio
+
+**Desventajas:**
+- $20/mes sin descuento para estudiantes
+- Solo funciona como fork de VS Code — nada de JetBrains o Neovim
+- Puede consumir bastante memoria durante la indexación
+- Se retrasa un poco en las actualizaciones de VS Code
+
+## Veredicto: ¿Cuál elegir?
+
+**Elige Copilot si:**
+- Usas JetBrains, Neovim u otro editor que no sea VS Code
+- Eres estudiante o contribuyes a proyectos open source (es gratis)
+- Tu equipo vive en el ecosistema GitHub
+- Quieres asistencia IA sólida sin cambiar tu flujo de trabajo
+
+**Elige Cursor si:**
+- Prefieres dirigir a la IA para que escriba código en vez de teclear todo tú
+- Trabajas con codebases grandes donde el contexto importa
+- Haces refactorizaciones y cambios multi-archivo constantemente
+- Usas VS Code y no te molesta cambiar a su fork
+
+Personalmente, uso Copilot en el trabajo (la empresa paga Business) y Cursor para mis proyectos personales. Si me obligaran a quedarme con uno solo, últimamente me inclino por Cursor. La experiencia del Composer y la comprensión del codebase crean una forma fundamentalmente distinta de programar — se siente menos como "programar con ayuda de IA" y más como "programar junto con la IA".
+
+Pero Copilot a $10/mes sigue siendo la mejor relación calidad-precio en herramientas de programación con IA. Para muchos desarrolladores, eso es exactamente lo que necesitan.

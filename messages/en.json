@@ -1,0 +1,55 @@
+{
+  "common": {
+    "siteName": "NEXARECO",
+    "tagline": "Your next purchase, compared here",
+    "readMore": "Read more",
+    "buyNow": "Buy now",
+    "minutes": "min"
+  },
+  "nav": {
+    "home": "Home",
+    "blog": "Blog",
+    "aiTools": "AI Tools",
+    "techGadgets": "Tech & Gadgets",
+    "software": "Software",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "comparison": {
+    "winner": "Winner",
+    "specs": "Specs",
+    "pros": "Pros",
+    "cons": "Cons",
+    "verdict": "Verdict"
+  },
+  "blog": {
+    "title": "Blog",
+    "allCategories": "All",
+    "categoryAiTools": "AI Tools",
+    "categoryTechGadgets": "Tech & Gadgets",
+    "categorySoftware": "Software",
+    "readTime": "{minutes} min read",
+    "relatedPosts": "Related Posts",
+    "checkPrice": "Check Price",
+    "noPosts": "No posts yet.",
+    "affiliateDisclosure": "This post contains affiliate links. We may earn a commission if you make a purchase through these links."
+  },
+  "home": {
+    "latestReviews": "Latest Reviews",
+    "viewAll": "View All",
+    "exploreReviews": "Explore Reviews",
+    "categoryIntro": "Categories",
+    "aiToolsDesc": "Compare AI tools like ChatGPT, Gemini and more",
+    "techGadgetsDesc": "Smartwatches, earbuds, smartphones compared",
+    "softwareDesc": "OTT, cloud storage, productivity apps compared",
+    "metaTitle": "NEXARECO - Your next purchase, compared here",
+    "metaDescription": "Honest comparison reviews of AI tools, tech gadgets, and software services"
+  },
+  "footer": {
+    "about": "About",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "© 2026 NEXARECO. All rights reserved."
+  }
+}

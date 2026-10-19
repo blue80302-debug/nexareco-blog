@@ -1,0 +1,55 @@
+{
+  "common": {
+    "siteName": "NEXARECO",
+    "tagline": "다음에 살 제품, 여기서 비교하세요",
+    "readMore": "더 보기",
+    "buyNow": "지금 구매",
+    "minutes": "분"
+  },
+  "nav": {
+    "home": "홈",
+    "blog": "블로그",
+    "aiTools": "AI 도구",
+    "techGadgets": "테크 & 가젯",
+    "software": "소프트웨어",
+    "about": "소개",
+    "contact": "문의하기"
+  },
+  "comparison": {
+    "winner": "승자",
+    "specs": "사양",
+    "pros": "장점",
+    "cons": "단점",
+    "verdict": "결론"
+  },
+  "blog": {
+    "title": "블로그",
+    "allCategories": "전체",
+    "categoryAiTools": "AI 도구",
+    "categoryTechGadgets": "테크 & 가젯",
+    "categorySoftware": "소프트웨어",
+    "readTime": "{minutes}분 읽기",
+    "relatedPosts": "관련 글",
+    "checkPrice": "최저가 확인",
+    "noPosts": "아직 작성된 글이 없습니다.",
+    "affiliateDisclosure": "이 글에는 제휴 링크가 포함되어 있습니다. 링크를 통해 구매하시면 소정의 수수료를 받을 수 있습니다."
+  },
+  "home": {
+    "latestReviews": "최신 리뷰",
+    "viewAll": "전체 보기",
+    "exploreReviews": "리뷰 보기",
+    "categoryIntro": "카테고리",
+    "aiToolsDesc": "ChatGPT, Gemini 등 AI 도구 비교 리뷰",
+    "techGadgetsDesc": "스마트워치, 이어버드, 스마트폰 비교",
+    "softwareDesc": "OTT, 클라우드, 생산성 앱 비교",
+    "metaTitle": "NEXARECO - 다음에 살 제품, 여기서 비교하세요",
+    "metaDescription": "AI 도구, 테크 가젯, 소프트웨어 서비스의 솔직한 비교 리뷰 사이트"
+  },
+  "footer": {
+    "about": "소개",
+    "contact": "문의하기",
+    "privacy": "개인정보처리방침",
+    "terms": "이용약관",
+    "copyright": "© 2026 NEXARECO. All rights reserved."
+  }
+}

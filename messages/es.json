@@ -1,0 +1,55 @@
+{
+  "common": {
+    "siteName": "NEXARECO",
+    "tagline": "Tu próxima compra, comparada aquí",
+    "readMore": "Leer más",
+    "buyNow": "Comprar ahora",
+    "minutes": "min"
+  },
+  "nav": {
+    "home": "Inicio",
+    "blog": "Blog",
+    "aiTools": "Herramientas IA",
+    "techGadgets": "Tech y Gadgets",
+    "software": "Software",
+    "about": "Acerca de",
+    "contact": "Contacto"
+  },
+  "comparison": {
+    "winner": "Ganador",
+    "specs": "Especificaciones",
+    "pros": "Ventajas",
+    "cons": "Desventajas",
+    "verdict": "Veredicto"
+  },
+  "blog": {
+    "title": "Blog",
+    "allCategories": "Todo",
+    "categoryAiTools": "Herramientas IA",
+    "categoryTechGadgets": "Tech y Gadgets",
+    "categorySoftware": "Software",
+    "readTime": "{minutes} min de lectura",
+    "relatedPosts": "Artículos relacionados",
+    "checkPrice": "Ver precio",
+    "noPosts": "Aún no hay publicaciones.",
+    "affiliateDisclosure": "Este artículo contiene enlaces de afiliados. Podemos recibir una comisión si realizas una compra a través de estos enlaces."
+  },
+  "home": {
+    "latestReviews": "Últimas Reseñas",
+    "viewAll": "Ver Todo",
+    "exploreReviews": "Explorar Reseñas",
+    "categoryIntro": "Categorías",
+    "aiToolsDesc": "Compara herramientas IA como ChatGPT, Gemini y más",
+    "techGadgetsDesc": "Smartwatches, auriculares, smartphones comparados",
+    "softwareDesc": "OTT, almacenamiento en la nube, apps de productividad",
+    "metaTitle": "NEXARECO - Tu próxima compra, comparada aquí",
+    "metaDescription": "Reseñas comparativas honestas de herramientas IA, gadgets y servicios de software"
+  },
+  "footer": {
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "privacy": "Política de privacidad",
+    "terms": "Términos de servicio",
+    "copyright": "© 2026 NEXARECO. All rights reserved."
+  }
+}

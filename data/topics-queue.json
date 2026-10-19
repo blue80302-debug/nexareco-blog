@@ -1,0 +1,7 @@
+[
+  {"slug": "copilot-vs-codewhisperer", "format": "comparison", "category": "ai-tools", "products": ["GitHub Copilot", "Amazon CodeWhisperer"], "status": "pending"},
+  {"slug": "best-robot-vacuums-2026", "format": "top-list", "category": "tech-gadgets", "products": ["Roborock S8 MaxV", "iRobot Roomba j9+", "Dreame X40"], "status": "pending"},
+  {"slug": "figma-vs-sketch-vs-canva", "format": "comparison", "category": "software-services", "products": ["Figma", "Sketch", "Canva"], "status": "pending"},
+  {"slug": "best-noise-cancelling-headphones", "format": "top-list", "category": "tech-gadgets", "products": ["Sony WH-1000XM6", "Bose QC Ultra", "AirPods Max 2"], "status": "pending"},
+  {"slug": "perplexity-vs-google-search", "format": "comparison", "category": "ai-tools", "products": ["Perplexity AI", "Google Search"], "status": "pending"}
+]
