@@ -23,10 +23,10 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
-const categories: { key: Category; emoji: string; nameKey: string; descKey: string; href: string }[] = [
-  { key: "ai-tools", emoji: "\u{1F916}", nameKey: "categoryAiTools", descKey: "aiToolsDesc", href: "/blog?category=ai-tools" },
-  { key: "tech-gadgets", emoji: "\u{1F4F1}", nameKey: "categoryTechGadgets", descKey: "techGadgetsDesc", href: "/blog?category=tech-gadgets" },
-  { key: "software-services", emoji: "\u{1F4BB}", nameKey: "categorySoftware", descKey: "softwareDesc", href: "/blog?category=software-services" },
+const categories: { key: Category; icon: string; color: string; nameKey: string; descKey: string; href: string }[] = [
+  { key: "ai-tools", icon: "AI", color: "bg-purple-100 text-purple-600", nameKey: "categoryAiTools", descKey: "aiToolsDesc", href: "/blog?category=ai-tools" },
+  { key: "tech-gadgets", icon: "TG", color: "bg-blue-100 text-blue-600", nameKey: "categoryTechGadgets", descKey: "techGadgetsDesc", href: "/blog?category=tech-gadgets" },
+  { key: "software-services", icon: "SW", color: "bg-green-100 text-green-600", nameKey: "categorySoftware", descKey: "softwareDesc", href: "/blog?category=software-services" },
 ];
 
 export default async function Home({ params }: Props) {
@@ -93,7 +93,7 @@ export default async function Home({ params }: Props) {
                 href={cat.href}
                 className="flex flex-col items-center rounded-xl border border-gray-200 bg-white p-8 text-center transition hover:shadow-lg"
               >
-                <span className="text-4xl">{cat.emoji}</span>
+                <span className={`inline-flex h-14 w-14 items-center justify-center rounded-xl text-xl font-bold ${cat.color}`}>{cat.icon}</span>
                 <h3 className="mt-4 text-lg font-bold text-gray-900">
                   {tBlog(cat.nameKey)}
                 </h3>
