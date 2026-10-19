@@ -71,17 +71,12 @@ export default function BlogCard({ post }: { post: PostMeta }) {
       className="group block overflow-hidden rounded-xl border border-gray-200 bg-white transition hover:shadow-lg"
     >
       <div
-        className="aspect-[16/9] overflow-hidden flex items-center justify-center relative"
+        className="aspect-[16/9] overflow-hidden flex items-center justify-center relative p-6"
         style={{ background: `linear-gradient(${angle}deg, ${pair[0]}, ${pair[1]})` }}
       >
-        <span className="text-6xl opacity-25 group-hover:scale-110 transition-transform duration-300">
-          {icon}
-        </span>
-        <div className="absolute inset-0 flex items-end p-4">
-          <span className="text-white/90 text-xs font-medium drop-shadow-lg line-clamp-1">
-            {post.title}
-          </span>
-        </div>
+        <h3 className="text-white font-bold text-lg sm:text-xl leading-snug text-center drop-shadow-lg line-clamp-3">
+          {post.title}
+        </h3>
       </div>
       <div className="p-5">
         <span
