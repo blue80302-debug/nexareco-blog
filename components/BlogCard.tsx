@@ -14,32 +14,71 @@ const categoryKeys: Record<string, string> = {
   "software-services": "categorySoftware",
 };
 
-const categoryGradients: Record<string, string> = {
-  "ai-tools": "from-purple-500 via-indigo-500 to-blue-500",
-  "tech-gadgets": "from-blue-500 via-cyan-500 to-teal-500",
-  "software-services": "from-green-500 via-emerald-500 to-teal-500",
+const postIcons: Record<string, string> = {
+  "chatgpt-vs-gemini": "🧠",
+  "claude-vs-chatgpt": "⚡",
+  "best-ai-writing-tools-2026": "✍️",
+  "midjourney-vs-dall-e": "🎨",
+  "notion-ai-vs-obsidian": "📓",
+  "github-copilot-vs-cursor": "👨‍💻",
+  "airpods-pro-3-vs-galaxy-buds-4": "🎧",
+  "apple-watch-ultra-3-vs-galaxy-watch-7": "⌚",
+  "best-budget-smartphones-2026": "📱",
+  "iphone-17-pro-vs-galaxy-s26-ultra": "📲",
+  "best-wireless-earbuds-buying-guide": "🎵",
+  "netflix-vs-disney-plus": "🎬",
+  "google-drive-vs-dropbox-vs-icloud": "☁️",
+  "best-vpn-services-2026": "🔒",
+  "spotify-vs-apple-music-vs-youtube-music": "🎶",
+  "best-password-managers-2026": "🔑",
 };
 
-const categoryIcons: Record<string, string> = {
-  "ai-tools": "🤖",
-  "tech-gadgets": "📱",
-  "software-services": "💻",
-};
+function slugToHash(slug: string): number {
+  let hash = 0;
+  for (let i = 0; i < slug.length; i++) {
+    hash = slug.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  return Math.abs(hash);
+}
+
+const gradientPairs = [
+  ["#7c3aed", "#2563eb"],
+  ["#6366f1", "#06b6d4"],
+  ["#8b5cf6", "#ec4899"],
+  ["#3b82f6", "#10b981"],
+  ["#0ea5e9", "#6366f1"],
+  ["#14b8a6", "#3b82f6"],
+  ["#f59e0b", "#ef4444"],
+  ["#10b981", "#0ea5e9"],
+  ["#ec4899", "#8b5cf6"],
+  ["#ef4444", "#f59e0b"],
+  ["#06b6d4", "#8b5cf6"],
+  ["#a855f7", "#06b6d4"],
+];
+
+const gradientAngles = [135, 150, 120, 160, 140, 170, 125, 145, 155, 130];
 
 export default function BlogCard({ post }: { post: PostMeta }) {
   const t = useTranslations("blog");
+  const hash = slugToHash(post.slug);
+  const pair = gradientPairs[hash % gradientPairs.length];
+  const angle = gradientAngles[hash % gradientAngles.length];
+  const icon = postIcons[post.slug] ?? "📝";
 
   return (
     <Link
       href={`/blog/${post.slug}`}
       className="group block overflow-hidden rounded-xl border border-gray-200 bg-white transition hover:shadow-lg"
     >
-      <div className={`aspect-[16/9] bg-gradient-to-br ${categoryGradients[post.category] ?? "from-gray-400 to-gray-600"} overflow-hidden flex items-center justify-center relative`}>
-        <span className="text-5xl opacity-30 group-hover:scale-110 transition-transform duration-300">
-          {categoryIcons[post.category] ?? "📝"}
+      <div
+        className="aspect-[16/9] overflow-hidden flex items-center justify-center relative"
+        style={{ background: `linear-gradient(${angle}deg, ${pair[0]}, ${pair[1]})` }}
+      >
+        <span className="text-6xl opacity-25 group-hover:scale-110 transition-transform duration-300">
+          {icon}
         </span>
         <div className="absolute inset-0 flex items-end p-4">
-          <span className="text-white/80 text-xs font-medium drop-shadow-md">
+          <span className="text-white/90 text-xs font-medium drop-shadow-lg line-clamp-1">
             {post.title}
           </span>
         </div>
