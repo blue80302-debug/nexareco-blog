@@ -8,7 +8,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
 const categories = [
   { key: "aiTools" as const, category: "ai-tools" },
   { key: "techGadgets" as const, category: "tech-gadgets" },
-  { key: "software" as const, category: "software" },
+  { key: "software" as const, category: "software-services" },
 ];
 
 export default function Header() {
