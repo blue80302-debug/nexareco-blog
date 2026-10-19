@@ -61,7 +61,11 @@ products: ${productsJson}
 본문만 출력하세요. 설명이나 메타 코멘트는 포함하지 마세요.`;
 }
 
-async function generateContent(prompt: string): Promise<string> {
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function generateContent(prompt: string, maxRetries = 3): Promise<string> {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     throw new Error(
@@ -69,32 +73,42 @@ async function generateContent(prompt: string): Promise<string> {
     );
   }
 
-  const response = await fetch(`${GEMINI_URL}?key=${apiKey}`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      contents: [{ parts: [{ text: prompt }] }],
-      generationConfig: { temperature: 0.8, maxOutputTokens: 8192 },
-    }),
-  });
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    const response = await fetch(`${GEMINI_URL}?key=${apiKey}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: { temperature: 0.8, maxOutputTokens: 8192 },
+      }),
+    });
 
-  if (!response.ok) {
+    if (response.ok) {
+      const data = (await response.json()) as {
+        candidates: Array<{
+          content: { parts: Array<{ text: string }> };
+        }>;
+      };
+
+      const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (!text) {
+        throw new Error("Gemini API 응답에서 텍스트를 추출할 수 없습니다.");
+      }
+      return text;
+    }
+
+    if (response.status === 503 || response.status === 429) {
+      const waitSec = attempt * 15;
+      console.log(`    API 과부하 (${response.status}), ${waitSec}초 후 재시도... (${attempt}/${maxRetries})`);
+      await sleep(waitSec * 1000);
+      continue;
+    }
+
     const errorBody = await response.text();
     throw new Error(`Gemini API 오류 (${response.status}): ${errorBody}`);
   }
 
-  const data = (await response.json()) as {
-    candidates: Array<{
-      content: { parts: Array<{ text: string }> };
-    }>;
-  };
-
-  const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-  if (!text) {
-    throw new Error("Gemini API 응답에서 텍스트를 추출할 수 없습니다.");
-  }
-
-  return text;
+  throw new Error(`Gemini API 재시도 ${maxRetries}회 초과`);
 }
 
 async function main(): Promise<void> {
