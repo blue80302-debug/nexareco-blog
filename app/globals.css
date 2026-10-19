@@ -55,34 +55,55 @@ body {
 
 .mdx-content table {
   width: 100%;
-  margin-top: 1rem;
-  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
   border-collapse: collapse;
   font-size: 0.875rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
 }
 
 .mdx-content thead tr {
-  border-bottom: 2px solid #e5e7eb;
+  background: linear-gradient(135deg, #1e3a5f, #2563eb);
 }
 
 .mdx-content th {
-  padding: 0.75rem 1rem;
+  padding: 0.875rem 1rem;
   text-align: left;
   font-weight: 600;
-  color: #111827;
+  color: #ffffff;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
 }
 
 .mdx-content td {
-  padding: 0.75rem 1rem;
-  color: #4b5563;
+  padding: 0.875rem 1rem;
+  color: #374151;
+  line-height: 1.5;
 }
 
 .mdx-content tbody tr:nth-child(even) {
-  background-color: #f9fafb;
+  background-color: #f0f5ff;
+}
+
+.mdx-content tbody tr:nth-child(odd) {
+  background-color: #ffffff;
 }
 
 .mdx-content tbody tr {
-  border-bottom: 1px solid #f3f4f6;
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.15s;
+}
+
+.mdx-content tbody tr:hover {
+  background-color: #e0e7ff;
+}
+
+.mdx-content td:first-child {
+  font-weight: 500;
+  color: #111827;
 }
 
 .mdx-content code {
