@@ -18,7 +18,8 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-gray-200 bg-white">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
-        <Link href="/" className="text-xl font-bold tracking-tight">
+        <Link href="/" className="flex items-center gap-2 text-xl font-bold tracking-tight">
+          <img src="/logo.svg" alt="NEXARECO" width={32} height={32} />
           NEXARECO
         </Link>
 

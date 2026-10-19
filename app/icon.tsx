@@ -13,11 +13,11 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#0f172a",
-          borderRadius: "6px",
+          background: "linear-gradient(135deg, #2563eb, #7c3aed)",
+          borderRadius: "8px",
           fontSize: "20px",
           fontWeight: 800,
-          color: "#3b82f6",
+          color: "#ffffff",
         }}
       >
         N

@@ -16,7 +16,10 @@ export default function Footer() {
   return (
     <footer className="border-t border-gray-200 bg-white">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 py-6 sm:flex-row sm:justify-between">
-        <span className="text-sm font-bold tracking-tight">NEXARECO</span>
+        <span className="flex items-center gap-2 text-sm font-bold tracking-tight">
+          <img src="/logo.svg" alt="NEXARECO" width={24} height={24} />
+          NEXARECO
+        </span>
 
         <nav className="flex flex-wrap justify-center gap-4">
           {links.map((l) => (
