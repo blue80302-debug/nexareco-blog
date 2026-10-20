@@ -13,6 +13,7 @@ import ComparisonTable from "@/components/ComparisonTable";
 import ProductCard from "@/components/ProductCard";
 import AffiliateButton from "@/components/AffiliateButton";
 import AdSense from "@/components/AdSense";
+import CoupangBanner from "@/components/CoupangBanner";
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>;
@@ -108,6 +109,10 @@ export default async function BlogPostPage({ params }: Props) {
       <div className="mdx-content">
         <MDXRemote source={post.content} components={mdxComponents} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
       </div>
+
+      {post.products && (
+        <CoupangBanner products={post.products} locale={typedLocale} />
+      )}
 
       <AdSense slot="placeholder" format="rectangle" />
 
