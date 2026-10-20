@@ -1,5 +1,5 @@
 import AffiliateButton from "./AffiliateButton";
-import { getCoupangSearchUrl } from "@/lib/affiliate";
+import { getAffiliateUrl } from "@/lib/affiliate";
 
 interface ProductCardProps {
   name: string;
@@ -16,7 +16,7 @@ export default function ProductCard({
   affiliateUrl,
   locale,
 }: ProductCardProps) {
-  const href = affiliateUrl || (locale === "ko" ? getCoupangSearchUrl(name) : "#");
+  const href = affiliateUrl || (locale ? getAffiliateUrl(name, locale) : "#");
   const showButton = href !== "#";
 
   return (
