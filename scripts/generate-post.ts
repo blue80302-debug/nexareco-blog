@@ -2,7 +2,7 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 
 const ANTHROPIC_URL = "https://api.anthropic.com/v1/messages";
-const MODEL = "claude-sonnet-5-5-20261015";
+const MODEL = "claude-sonnet-5-5";
 
 const LOCALES = ["ko", "en", "ja", "es"] as const;
 type Locale = (typeof LOCALES)[number];
@@ -95,10 +95,9 @@ async function generateContent(prompt: string, maxRetries = 3): Promise<string> 
       body: JSON.stringify({
         model: MODEL,
         max_tokens: 8192,
-        temperature: 0.8,
         tools: [
           {
-            type: "web_search_20250305",
+            type: "web_search_20260209",
             name: "web_search",
             max_uses: 5,
           },

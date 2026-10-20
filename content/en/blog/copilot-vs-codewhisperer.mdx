@@ -1,0 +1,114 @@
+---
+title: "GitHub Copilot vs Amazon CodeWhisperer (Now Amazon Q Developer): Which One Actually Earns Its Seat?"
+excerpt: "I bounced between GitHub Copilot and Amazon's CodeWhisperer, which is now folded into Amazon Q Developer, for real projects. Here's the price, feature, and day-to-day comparison, with a clear answer on who should pick which."
+category: "ai-tools"
+format: "comparison"
+date: "2026-10-20"
+coverImage: "/images/posts/copilot-vs-codewhisperer.jpg"
+products: ["GitHub Copilot","Amazon CodeWhisperer"]
+---
+
+I've lived in both of these tools. Copilot sat in VS Code for my side projects and client web work. CodeWhisperer, and later its successor Amazon Q Developer, sat in my JetBrains and AWS-heavy backend work. I'm not going to pretend there's a clean winner for everyone, but there is a clear answer depending on what you do all day.
+
+## First, a naming problem
+
+If you're searching for "Amazon CodeWhisperer" today, you won't find it as a standalone product. AWS folded it into **Amazon Q Developer** in 2024. The inline completions you remember are still there, but they now sit next to chat, an agent that can edit multiple files, code transformation (Java upgrades, for example), and security scanning. So when I say "CodeWhisperer" below, I mean the tool as it exists inside Q Developer.
+
+Copilot also changed a lot. It's no longer "autocomplete plus a chat sidebar." It now has agent-style workflows, multi-model choice, and a free tier. Both products are moving fast, so check the official pricing pages (github.com/features/copilot/plans and aws.amazon.com/q/developer/pricing) before you pay for anything.
+
+## Quick comparison table
+
+Prices below are what I last saw on the official pricing pages. Verify them, because both vendors change plans often.
+
+| | GitHub Copilot | Amazon CodeWhisperer / Q Developer |
+|---|---|---|
+| Free tier | Yes, with monthly caps on completions and chat | Yes, with monthly caps on chat and agent requests |
+| Individual paid | Pro, about $10/month; Pro+, about $39/month | Pro tier, about $19/user/month |
+| Business / team | Business, about $19/user/month; Enterprise, about $39/user/month | Same Pro tier, managed through AWS IAM Identity Center |
+| IDEs | VS Code, Visual Studio, JetBrains, Neovim, Xcode and more | VS Code, JetBrains, Visual Studio, Eclipse (preview), CLI |
+| Models | Multiple (OpenAI, Anthropic, Google, depending on plan) | AWS-managed models (Bedrock-backed), no model picker |
+| Languages | Very broad | Strongest in Java, Python, JavaScript, TypeScript, C#; others work but feel weaker |
+| Security scanning | Via GitHub Advanced Security (separate) | Built in, with monthly scan limits by tier |
+| Open-source license tracking | Optional public-code filter | Reference tracker shows license and repo for similar code |
+| Special strength | Ecosystem, PR and issue integration, model choice | AWS service knowledge, console and CLI help, Java transformation |
+| Special perk | Free Pro for verified students and some open-source maintainers | Generous free tier for individuals |
+
+## How they felt day to day
+
+### Autocomplete
+
+This is where I spent 70% of my time, and Copilot felt a step ahead. Its suggestions were more often what I wanted on the first try, especially for React components, test boilerplate, SQL, and regex. Multi-line completions usually matched the style of the file I was in. The "next edit" style suggestions, where it predicts the next place you'll change, saved me real keystrokes during refactors.
+
+CodeWhisperer was solid, not magical. In Python and Java it was perfectly usable, and the suggestions were conservative. In less common stacks (a bit of Go, some Rust) I got noticeably more "close but wrong" output, and I dismissed more suggestions than I accepted.
+
+### AWS work: where the tables turn
+
+I'm not saying this to be diplomatic. When I was writing Lambda handlers, IAM policies, CDK stacks, and DynamoDB access code, Q Developer was better. It knew the SDK call shapes, picked sensible defaults, and its chat could explain AWS errors in context. Copilot can do AWS too, but it hallucinated parameter names more often in my experience, especially on newer services.
+
+The built-in security scan was also a nice touch. It flagged things like hardcoded credentials and some injection patterns without me wiring up another tool. It's not a replacement for a proper SAST pipeline, but for a solo dev it's a free safety net.
+
+### Chat and agent mode
+
+Copilot's chat, with model switching, is more flexible. If one model gets stuck on a bug, I switch to another and often get unstuck. That alone justified the price for me. Its agent mode handled multi-file edits and fixing failing tests reasonably well, though you do need to review diffs carefully.
+
+Q Developer's agent can also read your workspace, make changes across files, and run through feature-development tasks. It worked best with clearly scoped requests. I felt it was less polished in UI and speed than Copilot, and I couldn't choose the model.
+
+### Team and enterprise angle
+
+If your company is a GitHub shop, Copilot Business or Enterprise drops in easily: policy controls, audit logs, and integration with pull requests. If your company is an AWS shop with IAM Identity Center, Q Developer's admin story is just as natural, and the code transformation features (such as upgrading old Java versions) can be a real time-saver for legacy codebases.
+
+## Pros and cons
+
+**GitHub Copilot**
+
+Pros:
+- Best general-purpose suggestion quality I've used across many languages
+- Multiple models to choose from
+- Works in nearly every major editor
+- Cheap individual plan, plus free for students and some maintainers
+- Tight GitHub integration (PRs, issues, code review)
+
+Cons:
+- The best models and the highest limits sit behind the pricier plans
+- Premium request limits can surprise heavy users
+- AWS-specific knowledge is less reliable
+- Security scanning isn't built in the same way
+
+**Amazon CodeWhisperer / Q Developer**
+
+Pros:
+- Excellent for AWS-centric development
+- Built-in security scanning and a reference tracker for license-related code
+- Useful free tier
+- Java upgrade and transformation tooling
+- Natural fit for AWS-managed organizations
+
+Cons:
+- Suggestions felt less sharp outside mainstream languages
+- No model choice
+- The name change creates confusion in docs and tutorials
+- Pro costs roughly double Copilot Pro for individuals
+
+## Price reality check
+
+For a solo developer, Copilot Pro at about $10 a month is hard to beat on value. Q Developer's Pro at about $19 makes more sense when you're inside an AWS organization that's already standardizing on it. For teams, the gap narrows: Copilot Business and Q Developer Pro are priced about the same, so the decision comes down to ecosystem and workflow, not cost.
+
+If you're not sure, both free tiers are good enough to test seriously for a week. I'd recommend doing exactly that on your own codebase instead of trusting anyone's benchmark, including mine. Public benchmark numbers for these tools are often vendor-run and measured on different tasks, so they rarely transfer to your repo.
+
+## My verdict
+
+**Pick GitHub Copilot if:**
+- You work in a mix of languages or frameworks (web, mobile, data, scripts)
+- You're a student, freelancer, or solo dev who wants the best value
+- You like switching models when one gets stuck
+- Your team lives in GitHub
+
+**Pick Amazon Q Developer (the CodeWhisperer successor) if:**
+- Most of your work is on AWS: Lambda, CDK, IAM, DynamoDB, and so on
+- You maintain old Java applications and need upgrade help
+- Your employer already uses AWS identity and wants built-in security scanning
+- You want a free tool that covers the basics for AWS work
+
+**If you want my personal setup:** I pay for Copilot for everyday coding, and I keep Q Developer's free tier installed for AWS-specific questions and scans. If I had to pick just one for a general developer, it's Copilot. If I were a cloud engineer who writes infrastructure code all day, I'd flip that and start with Q Developer.
+
+Whichever you choose, don't skip code review. Both tools will confidently hand you wrong code, and the one that saves you time is the one you verify.

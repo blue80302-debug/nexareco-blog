@@ -1,0 +1,87 @@
+---
+title: "GitHub Copilot vs Amazon CodeWhisperer (ahora Amazon Q Developer): cuál me quedo después de usarlos en serio"
+excerpt: "Comparé GitHub Copilot y Amazon CodeWhisperer con precios, lenguajes, seguridad y opiniones de usuarios. Spoiler: depende mucho de si tu vida gira alrededor de AWS o no."
+category: "ai-tools"
+format: "comparison"
+date: "2026-10-20"
+coverImage: "/images/posts/copilot-vs-codewhisperer.jpg"
+products: ["GitHub Copilot","Amazon CodeWhisperer"]
+---
+
+Llevo meses alternando entre estos dos asistentes. Uno lo tengo casi por reflejo en el editor, y el otro lo abro cuando toca pelearme con la consola de AWS. Antes de escribir esto repasé precios, reseñas y comparativas recientes, porque los precios de estas herramientas cambian cada pocos meses y no quería citar cifras de memoria.
+
+Un detalle importante: **CodeWhisperer ya no existe con ese nombre.** AWS lo integró en Amazon Q Developer. Mucha gente, y casi todas las comparativas que se indexan, lo sigue llamando CodeWhisperer, así que uso el nombre viejo en el título y el nuevo cuando toca.
+
+## Precios: aquí Copilot cambió las reglas
+
+Esto me pilló por sorpresa. Según el desglose de precios de Fast.io (consultado en julio de 2026), el 1 de junio de 2026 GitHub pasó a un modelo de uso basado en "créditos de IA", donde cada crédito vale 0,01 USD. Lo que encontré:
+
+- **Copilot Free:** limitado a 2.000 completados de código al mes.
+- **Copilot Pro:** 10 USD al mes, con completados ilimitados y 15 USD en créditos mensuales.
+- **Copilot Pro+:** 39 USD al mes, con 70 USD en créditos (7.000 créditos) y acceso a modelos premium.
+- **Copilot Business:** 19 USD por usuario al mes, con controles de políticas, indemnización de propiedad intelectual y créditos compartidos entre el equipo.
+- **Copilot Enterprise:** 39 USD por usuario al mes.
+
+Del lado de Amazon, la propuesta de siempre es un nivel gratuito generoso y un nivel Pro de pago. Hoy no pude reconfirmar la cifra exacta del plan Pro en las fuentes que consulté. Mira la página oficial de precios de AWS antes de decidir. Lo que sí vi es que el índice de comparativas de Index.dev lo describe como "free tier available, paid Professional tier". Los artículos más antiguos, como el de BestLifePulse, ya lo presentaban como la opción más barata para proyectos personales.
+
+## Comparativa rápida
+
+| Criterio | GitHub Copilot | Amazon CodeWhisperer / Q Developer |
+|---|---|---|
+| Plan gratuito | Sí (2.000 completados/mes) | Sí (nivel gratuito) |
+| Plan individual de pago | Pro 10 USD/mes · Pro+ 39 USD/mes | Nivel Pro (verifica el precio actual en AWS) |
+| Plan de equipo | Business 19 USD/usuario · Enterprise 39 USD/usuario | Nivel Pro/organizaciones vía AWS |
+| Modelo de cobro | Suscripción + créditos de IA (desde junio de 2026) | Suscripción + nivel gratuito |
+| Fortaleza principal | Versatilidad y calidad en muchos lenguajes | Integración con servicios AWS |
+| Escaneo de seguridad | Requiere herramientas externas (según CloudThat) | Integrado |
+| Seguimiento de referencias/licencias | Detección de duplicados y filtro de código público | Seguimiento de referencias integrado |
+| Valoración en PeerSpot | 8,2 sobre 10 (34 reseñas), 97 % lo recomendaría | Sin reseñas, puesto 14 en su categoría |
+| Mindshare (PeerSpot, ago. 2026) | 9,0 % (puesto 3) | 2,9 % |
+
+## Cómo lo sentí en el día a día
+
+**Copilot** es el que me hace olvidar que lo estoy usando. Escribo un comentario o el nombre de una función y casi siempre me sugiere un bloque razonable. La comparativa de CloudThat coincide con mi impresión: Copilot destaca en código relevante al contexto y genera funciones enteras a partir de un comentario. Donde más lo noto es en el boilerplate: un endpoint REST, un repositorio CRUD o tests repetitivos. BestLifePulse lo dice casi igual, que Copilot gana cuando necesitas generar ese tipo de código base.
+
+**CodeWhisperer** es más conservador. Sus sugerencias suelen ser menos creativas, pero cuando trabajo con SDKs de AWS (Lambda, S3, DynamoDB, políticas IAM) me da sugerencias más ajustadas y menos inventadas. El escaneo de seguridad integrado es una ventaja real. InfoWorld ya lo destacaba en su reseña, donde probó el escaneo de vulnerabilidades y el seguimiento de referencias a código abierto. Con Copilot esa parte me toca resolverla con otras herramientas.
+
+## Sobre los "benchmarks"
+
+Hay que ser honesto: no hay un benchmark público limpio y reciente que enfrente a los dos. Lo más concreto que encontré es una cifra citada por BestLifePulse. Habla de un benchmark interno de una gran empresa fintech en 2023, con una tasa de aceptación en Java del 34 % para CodeWhisperer frente al 52 % de Copilot. Es una sola fuente, no verificable y ya algo antigua, así que la tomo como indicio y no como verdad. Aun así, coincide con lo que he visto: acepto más sugerencias de Copilot en lógica de varias líneas.
+
+También vi que InfoWorld decía que CodeWhisperer soportaba bien solo cinco lenguajes y otros diez con menor calidad. Otros artículos hablan de "más de 15 lenguajes" para Amazon, mientras que Copilot rinde muy bien en Python, JavaScript, TypeScript, Rust, Go y Ruby. Más lenguajes en la ficha no significa mejor calidad en cada uno.
+
+## Ventajas y desventajas
+
+**GitHub Copilot**
+- ✅ Muy buena calidad de sugerencias en muchos lenguajes y frameworks.
+- ✅ Ecosistema enorme y mucha comunidad. En PeerSpot tiene 34 reseñas y 97 % de recomendación.
+- ✅ Escala de Free a Enterprise según lo que necesites.
+- ❌ El modelo de créditos desde junio de 2026 complica calcular el gasto real si usas modelos premium.
+- ❌ No trae escaneo de seguridad propio.
+- ❌ El plan Free se queda corto: 2.000 completados al mes se agotan rápido.
+
+**Amazon CodeWhisperer / Q Developer**
+- ✅ Muy bueno con servicios y SDKs de AWS.
+- ✅ Escaneo de seguridad y seguimiento de referencias integrados.
+- ✅ Nivel gratuito atractivo para empezar sin tarjeta.
+- ❌ Fuera de AWS, las sugerencias me parecen más flojas y conservadoras.
+- ❌ Poca presencia en opiniones de usuarios: ningún comentario en PeerSpot y mindshare de solo 2,9 %.
+- ❌ El cambio de nombre a Q Developer confunde: encuentras documentación y tutoriales mezclados.
+
+## Mi conclusión
+
+**Elige Copilot si:**
+- Programas en varios lenguajes o cambias de stack con frecuencia.
+- Quieres el asistente más pulido para el día a día, sobre todo en JavaScript, TypeScript, Python y Go.
+- Estás en un equipo que ya vive en GitHub. Business a 19 USD por usuario tiene sentido por los controles y la indemnización de IP.
+
+**Elige CodeWhisperer / Q Developer si:**
+- Pasas la mayor parte del día en AWS (infraestructura como código, Lambda, servicios gestionados).
+- Trabajas en un entorno con requisitos de cumplimiento y quieres escaneo de seguridad sin montar nada más.
+- Quieres probar un asistente sin pagar y tu proyecto es personal o pequeño.
+
+**Mi configuración actual:** Copilot como asistente principal y Q Developer activo para los proyectos de AWS, aprovechando el nivel gratuito. Si tuviera que quedarme con uno solo para un desarrollador generalista, sería Copilot. Si mi trabajo fuera 80 % AWS, me quedaría con Amazon.
+
+Una última recomendación: antes de pagar, usa los planes gratuitos de ambos durante una semana con tu código real. Las comparativas ayudan, pero tu stack decide.
+
+*Fuentes consultadas: Fast.io (precios de Copilot, 2026), PeerSpot (valoraciones y mindshare, agosto de 2026), CloudThat, InfoWorld, Index.dev, OpenXcell y BestLifePulse.*
