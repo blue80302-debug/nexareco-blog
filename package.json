@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "generate": "tsx scripts/generate-post.ts"
+    "generate": "tsx scripts/generate-post.ts",
+    "refill": "tsx scripts/refill-topics.ts"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
