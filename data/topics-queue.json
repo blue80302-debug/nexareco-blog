@@ -3,210 +3,325 @@
     "slug": "macbook-pro-m4-vs-dell-xps-16",
     "format": "comparison",
     "category": "laptops",
-    "products": ["MacBook Pro M4", "Dell XPS 16"],
-    "status": "pending"
+    "products": [
+      "MacBook Pro M4",
+      "Dell XPS 16"
+    ],
+    "status": "completed"
   },
   {
     "slug": "best-mechanical-keyboards-2026",
     "format": "top-list",
     "category": "tech-gadgets",
-    "products": ["Keychron Q1 Max", "Logitech MX Mechanical", "Razer BlackWidow V5"],
+    "products": [
+      "Keychron Q1 Max",
+      "Logitech MX Mechanical",
+      "Razer BlackWidow V5"
+    ],
     "status": "pending"
   },
   {
     "slug": "samsung-galaxy-tab-s10-vs-ipad-pro-m4",
     "format": "comparison",
     "category": "tablets",
-    "products": ["Samsung Galaxy Tab S10", "iPad Pro M4"],
+    "products": [
+      "Samsung Galaxy Tab S10",
+      "iPad Pro M4"
+    ],
     "status": "pending"
   },
   {
     "slug": "best-monitor-for-work-2026",
     "format": "buying-guide",
     "category": "monitors",
-    "products": ["LG 32UN880", "Dell U3223QE", "Samsung ViewFinity S8"],
+    "products": [
+      "LG 32UN880",
+      "Dell U3223QE",
+      "Samsung ViewFinity S8"
+    ],
     "status": "pending"
   },
   {
     "slug": "google-pixel-9-pro-vs-iphone-17",
     "format": "comparison",
     "category": "smartphones",
-    "products": ["Google Pixel 9 Pro", "iPhone 17"],
+    "products": [
+      "Google Pixel 9 Pro",
+      "iPhone 17"
+    ],
     "status": "pending"
   },
   {
     "slug": "best-wireless-chargers-2026",
     "format": "top-list",
     "category": "tech-gadgets",
-    "products": ["Anker MagGo Qi2", "Belkin BoostCharge Pro", "Apple MagSafe"],
+    "products": [
+      "Anker MagGo Qi2",
+      "Belkin BoostCharge Pro",
+      "Apple MagSafe"
+    ],
     "status": "pending"
   },
   {
     "slug": "linear-vs-jira-vs-asana",
     "format": "comparison",
     "category": "software-services",
-    "products": ["Linear", "Jira", "Asana"],
+    "products": [
+      "Linear",
+      "Jira",
+      "Asana"
+    ],
     "status": "pending"
   },
   {
     "slug": "best-external-ssd-2026",
     "format": "top-list",
     "category": "tech-gadgets",
-    "products": ["Samsung T9", "SanDisk Extreme Pro", "WD My Passport SSD"],
+    "products": [
+      "Samsung T9",
+      "SanDisk Extreme Pro",
+      "WD My Passport SSD"
+    ],
     "status": "pending"
   },
   {
     "slug": "cursor-vs-windsurf-vs-zed",
     "format": "comparison",
     "category": "ai-tools",
-    "products": ["Cursor", "Windsurf", "Zed"],
+    "products": [
+      "Cursor",
+      "Windsurf",
+      "Zed"
+    ],
     "status": "pending"
   },
   {
     "slug": "best-gaming-mouse-2026",
     "format": "top-list",
     "category": "tech-gadgets",
-    "products": ["Logitech G Pro X Superlight 2", "Razer Viper V3 Pro", "Pulsar X2H"],
+    "products": [
+      "Logitech G Pro X Superlight 2",
+      "Razer Viper V3 Pro",
+      "Pulsar X2H"
+    ],
     "status": "pending"
   },
   {
     "slug": "youtube-premium-vs-spotify-premium",
     "format": "comparison",
     "category": "software-services",
-    "products": ["YouTube Premium", "Spotify Premium"],
+    "products": [
+      "YouTube Premium",
+      "Spotify Premium"
+    ],
     "status": "pending"
   },
   {
     "slug": "best-air-purifiers-2026",
     "format": "top-list",
     "category": "home-appliances",
-    "products": ["Samsung Bespoke", "LG PuriCare", "Dyson Purifier Big Quiet"],
+    "products": [
+      "Samsung Bespoke",
+      "LG PuriCare",
+      "Dyson Purifier Big Quiet"
+    ],
     "status": "pending"
   },
   {
     "slug": "slack-vs-teams-vs-discord",
     "format": "comparison",
     "category": "software-services",
-    "products": ["Slack", "Microsoft Teams", "Discord"],
+    "products": [
+      "Slack",
+      "Microsoft Teams",
+      "Discord"
+    ],
     "status": "pending"
   },
   {
     "slug": "best-smart-home-hub-2026",
     "format": "buying-guide",
     "category": "smart-home",
-    "products": ["Apple HomePod Mini", "Amazon Echo Hub", "Google Nest Hub Max"],
+    "products": [
+      "Apple HomePod Mini",
+      "Amazon Echo Hub",
+      "Google Nest Hub Max"
+    ],
     "status": "pending"
   },
   {
     "slug": "vercel-vs-netlify-vs-cloudflare-pages",
     "format": "comparison",
     "category": "dev-tools",
-    "products": ["Vercel", "Netlify", "Cloudflare Pages"],
+    "products": [
+      "Vercel",
+      "Netlify",
+      "Cloudflare Pages"
+    ],
     "status": "pending"
   },
   {
     "slug": "best-action-cameras-2026",
     "format": "top-list",
     "category": "tech-gadgets",
-    "products": ["GoPro Hero 13", "DJI Osmo Action 5", "Insta360 Ace Pro 2"],
+    "products": [
+      "GoPro Hero 13",
+      "DJI Osmo Action 5",
+      "Insta360 Ace Pro 2"
+    ],
     "status": "pending"
   },
   {
     "slug": "gpt-4o-vs-claude-sonnet-vs-gemini-pro",
     "format": "comparison",
     "category": "ai-tools",
-    "products": ["GPT-4o", "Claude Sonnet 5.5", "Gemini 2.5 Pro"],
+    "products": [
+      "GPT-4o",
+      "Claude Sonnet 5.5",
+      "Gemini 2.5 Pro"
+    ],
     "status": "pending"
   },
   {
     "slug": "best-electric-standing-desks-2026",
     "format": "top-list",
     "category": "office",
-    "products": ["FlexiSpot E7 Pro", "Uplift V2", "Autonomous SmartDesk"],
+    "products": [
+      "FlexiSpot E7 Pro",
+      "Uplift V2",
+      "Autonomous SmartDesk"
+    ],
     "status": "pending"
   },
   {
     "slug": "sony-a7c-ii-vs-fujifilm-x-t5",
     "format": "comparison",
     "category": "cameras",
-    "products": ["Sony A7C II", "Fujifilm X-T5"],
+    "products": [
+      "Sony A7C II",
+      "Fujifilm X-T5"
+    ],
     "status": "pending"
   },
   {
     "slug": "best-mesh-wifi-systems-2026",
     "format": "top-list",
     "category": "networking",
-    "products": ["TP-Link Deco BE85", "ASUS ZenWiFi BQ16 Pro", "Netgear Orbi 970"],
+    "products": [
+      "TP-Link Deco BE85",
+      "ASUS ZenWiFi BQ16 Pro",
+      "Netgear Orbi 970"
+    ],
     "status": "pending"
   },
   {
     "slug": "todoist-vs-ticktick-vs-things3",
     "format": "comparison",
     "category": "software-services",
-    "products": ["Todoist", "TickTick", "Things 3"],
+    "products": [
+      "Todoist",
+      "TickTick",
+      "Things 3"
+    ],
     "status": "pending"
   },
   {
     "slug": "best-portable-projectors-2026",
     "format": "top-list",
     "category": "tech-gadgets",
-    "products": ["Samsung The Freestyle 2", "XGIMI MoGo 3 Pro", "Anker Nebula Capsule 3"],
+    "products": [
+      "Samsung The Freestyle 2",
+      "XGIMI MoGo 3 Pro",
+      "Anker Nebula Capsule 3"
+    ],
     "status": "pending"
   },
   {
     "slug": "arc-browser-vs-chrome-vs-firefox",
     "format": "comparison",
     "category": "software-services",
-    "products": ["Arc Browser", "Google Chrome", "Firefox"],
+    "products": [
+      "Arc Browser",
+      "Google Chrome",
+      "Firefox"
+    ],
     "status": "pending"
   },
   {
     "slug": "best-webcams-for-remote-work-2026",
     "format": "buying-guide",
     "category": "tech-gadgets",
-    "products": ["Insta360 Link 2", "Logitech Brio 4K", "Elgato Facecam Pro"],
+    "products": [
+      "Insta360 Link 2",
+      "Logitech Brio 4K",
+      "Elgato Facecam Pro"
+    ],
     "status": "pending"
   },
   {
     "slug": "tailwind-css-vs-bootstrap-vs-shadcn",
     "format": "comparison",
     "category": "dev-tools",
-    "products": ["Tailwind CSS", "Bootstrap 5", "shadcn/ui"],
+    "products": [
+      "Tailwind CSS",
+      "Bootstrap 5",
+      "shadcn/ui"
+    ],
     "status": "pending"
   },
   {
     "slug": "best-e-readers-2026",
     "format": "top-list",
     "category": "tech-gadgets",
-    "products": ["Kindle Paperwhite 2026", "Kobo Libra Colour", "Boox Tab Ultra C Pro"],
+    "products": [
+      "Kindle Paperwhite 2026",
+      "Kobo Libra Colour",
+      "Boox Tab Ultra C Pro"
+    ],
     "status": "pending"
   },
   {
     "slug": "chatgpt-plus-vs-claude-pro-vs-gemini-advanced",
     "format": "comparison",
     "category": "ai-tools",
-    "products": ["ChatGPT Plus", "Claude Pro", "Gemini Advanced"],
+    "products": [
+      "ChatGPT Plus",
+      "Claude Pro",
+      "Gemini Advanced"
+    ],
     "status": "pending"
   },
   {
     "slug": "best-wireless-gaming-headsets-2026",
     "format": "top-list",
     "category": "tech-gadgets",
-    "products": ["SteelSeries Arctis Nova Pro", "HyperX Cloud III Wireless", "Razer BlackShark V2 Pro"],
+    "products": [
+      "SteelSeries Arctis Nova Pro",
+      "HyperX Cloud III Wireless",
+      "Razer BlackShark V2 Pro"
+    ],
     "status": "pending"
   },
   {
     "slug": "obsidian-vs-logseq-vs-roam",
     "format": "comparison",
     "category": "software-services",
-    "products": ["Obsidian", "Logseq", "Roam Research"],
+    "products": [
+      "Obsidian",
+      "Logseq",
+      "Roam Research"
+    ],
     "status": "pending"
   },
   {
     "slug": "best-robot-mops-2026",
     "format": "top-list",
     "category": "home-appliances",
-    "products": ["Roborock S8 MaxV Ultra", "Dreame L40 Ultra", "Narwal Freo X Ultra"],
+    "products": [
+      "Roborock S8 MaxV Ultra",
+      "Dreame L40 Ultra",
+      "Narwal Freo X Ultra"
+    ],
     "status": "pending"
   }
 ]
