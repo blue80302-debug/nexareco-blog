@@ -16,7 +16,7 @@ export function getAmazonSearchUrl(productName: string, locale: string): string 
 }
 
 export function getAffiliateUrl(productName: string, locale: string): string {
-  if (locale === "ko") return getCoupangSearchUrl(productName);
+  if (locale === "ko") return "";
   if (locale === "ja") return getAmazonSearchUrl(productName, "ja");
   return getAmazonSearchUrl(productName, "en");
 }
