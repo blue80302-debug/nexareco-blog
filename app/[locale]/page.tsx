@@ -36,8 +36,19 @@ export default async function Home({ params }: Props) {
   const tBlog = await getTranslations({ locale, namespace: "blog" });
   const posts = getAllPosts(locale as Locale).slice(0, 6);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "NEXARECO",
+    url: `https://nexareco.com/${locale}`,
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero */}
       <section className="bg-gradient-to-b from-blue-50 to-white py-24 text-center">
         <div className="mx-auto max-w-3xl px-4">

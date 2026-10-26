@@ -82,8 +82,24 @@ export default async function BlogPostPage({ params }: Props) {
     .filter((p) => p.slug !== slug)
     .slice(0, 3);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    author: { "@type": "Organization", name: "NEXARECO" },
+    publisher: { "@type": "Organization", name: "NEXARECO" },
+    ...(post.coverImage && { image: post.coverImage }),
+    mainEntityOfPage: `https://nexareco.com/${locale}/blog/${slug}`,
+  };
+
   return (
     <article className="mx-auto max-w-3xl px-4 py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <p className="mb-6 text-xs text-gray-400">
         {t("affiliateDisclosure")}
       </p>
