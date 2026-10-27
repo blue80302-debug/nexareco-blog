@@ -1,5 +1,6 @@
 import { getAllPosts, type Locale } from "@/lib/posts";
 import { getTranslations } from "next-intl/server";
+import { buildAlternates } from "@/lib/seo";
 import BlogListClient from "@/components/BlogListClient";
 
 interface Props {
@@ -12,6 +13,7 @@ export async function generateMetadata({ params }: Props) {
   const t = await getTranslations({ locale, namespace: "blog" });
   return {
     title: `${t("title")} | NEXARECO`,
+    alternates: buildAlternates(locale, "/blog"),
   };
 }
 

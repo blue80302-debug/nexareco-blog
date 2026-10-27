@@ -1,6 +1,7 @@
 import { Link } from "@/i18n/navigation";
 import { getAllPosts, type Locale, type Category } from "@/lib/posts";
 import { getTranslations } from "next-intl/server";
+import { buildAlternates } from "@/lib/seo";
 import BlogCard from "@/components/BlogCard";
 
 interface Props {
@@ -13,6 +14,7 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
+    alternates: buildAlternates(locale, ""),
     openGraph: {
       title: t("metaTitle"),
       description: t("metaDescription"),

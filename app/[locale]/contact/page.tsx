@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildAlternates } from "@/lib/seo";
 
 type Locale = "ko" | "en" | "ja" | "es";
 
@@ -50,6 +51,7 @@ export async function generateMetadata({
   return {
     title: content[loc].title,
     description: content[loc].meta,
+    alternates: buildAlternates(locale, "/contact"),
   };
 }
 

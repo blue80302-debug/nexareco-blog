@@ -14,6 +14,7 @@ import ProductCard from "@/components/ProductCard";
 import AffiliateButton from "@/components/AffiliateButton";
 import AdSense from "@/components/AdSense";
 import CoupangBanner from "@/components/CoupangBanner";
+import { buildAlternates } from "@/lib/seo";
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>;
@@ -26,6 +27,7 @@ export async function generateMetadata({ params }: Props) {
     return {
       title: `${post.title} | NEXARECO`,
       description: post.excerpt,
+      alternates: buildAlternates(locale, `/blog/${slug}`),
       openGraph: {
         title: post.title,
         description: post.excerpt,
