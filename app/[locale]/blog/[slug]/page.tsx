@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props) {
       openGraph: {
         title: post.title,
         description: post.excerpt,
-        images: post.coverImage ? [post.coverImage] : [],
+        images: [],
       },
     };
   } catch {
