@@ -323,5 +323,155 @@
       "Narwal Freo X Ultra"
     ],
     "status": "pending"
+  },
+  {
+    "slug": "best-gaming-laptop-2026",
+    "format": "top-list",
+    "category": "gaming",
+    "products": [
+      "ASUS ROG Strix G16",
+      "Lenovo Legion Pro 7",
+      "MSI Raider GE78"
+    ],
+    "status": "pending"
+  },
+  {
+    "slug": "ps5-pro-vs-xbox-series-x",
+    "format": "comparison",
+    "category": "gaming",
+    "products": [
+      "PS5 Pro",
+      "Xbox Series X"
+    ],
+    "status": "pending"
+  },
+  {
+    "slug": "best-gaming-monitor-2026",
+    "format": "buying-guide",
+    "category": "gaming",
+    "products": [
+      "LG 27GR95QE",
+      "Samsung Odyssey G7",
+      "ASUS ROG Swift PG27AQN"
+    ],
+    "status": "pending"
+  },
+  {
+    "slug": "best-dashcam-2026",
+    "format": "top-list",
+    "category": "automotive",
+    "products": [
+      "아이나비 QXD5000",
+      "파인뷰 LX7000",
+      "팅크웨어 아이나비 Z9000"
+    ],
+    "status": "pending"
+  },
+  {
+    "slug": "hyundai-ioniq6-vs-tesla-model3",
+    "format": "comparison",
+    "category": "automotive",
+    "products": [
+      "현대 아이오닉 6",
+      "Tesla Model 3"
+    ],
+    "status": "pending"
+  },
+  {
+    "slug": "sony-a7cr-vs-canon-r8",
+    "format": "comparison",
+    "category": "camera",
+    "products": [
+      "Sony A7CR",
+      "Canon EOS R8"
+    ],
+    "status": "pending"
+  },
+  {
+    "slug": "best-vlog-camera-2026",
+    "format": "top-list",
+    "category": "camera",
+    "products": [
+      "Sony ZV-E10 II",
+      "Canon EOS R50",
+      "DJI Osmo Pocket 3"
+    ],
+    "status": "pending"
+  },
+  {
+    "slug": "best-stroller-2026",
+    "format": "top-list",
+    "category": "baby-kids",
+    "products": [
+      "스토케 익스플로리 X",
+      "부가부 폭스5",
+      "사이벡스 프리암"
+    ],
+    "status": "pending"
+  },
+  {
+    "slug": "best-carseat-2026",
+    "format": "buying-guide",
+    "category": "baby-kids",
+    "products": [
+      "다이치 원픽스360",
+      "사이벡스 솔루션 Z",
+      "브라이택스 어드밴스텍스"
+    ],
+    "status": "pending"
+  },
+  {
+    "slug": "best-auto-pet-feeder-2026",
+    "format": "top-list",
+    "category": "pet",
+    "products": [
+      "페토이 자동급식기",
+      "카타카 스마트 급식기",
+      "펫키트 에버풀"
+    ],
+    "status": "pending"
+  },
+  {
+    "slug": "best-cat-litter-robot-2026",
+    "format": "comparison",
+    "category": "pet",
+    "products": [
+      "리터로봇 4",
+      "카타카 스마트 화장실",
+      "페토이 자동화장실"
+    ],
+    "status": "pending"
+  },
+  {
+    "slug": "best-treadmill-2026",
+    "format": "top-list",
+    "category": "fitness",
+    "products": [
+      "숀리 9200",
+      "모비스 M9",
+      "허벅지왕 T500"
+    ],
+    "status": "pending"
+  },
+  {
+    "slug": "best-massage-gun-2026",
+    "format": "comparison",
+    "category": "fitness",
+    "products": [
+      "하이퍼볼트 3",
+      "테라건 프로",
+      "르젠 마사지건"
+    ],
+    "status": "pending"
+  },
+  {
+    "slug": "apple-watch-ultra3-vs-garmin-fenix8",
+    "format": "comparison",
+    "category": "fitness",
+    "products": [
+      "Apple Watch Ultra 3",
+      "Garmin Fenix 8"
+    ],
+    "status": "pending"
   }
 ]
