@@ -25,14 +25,24 @@ const LOCALE_LABELS: Record<string, string> = {
   es: "Spanish",
 };
 
+const STRUCTURE_VARIANTS = [
+  "비교표를 먼저 보여준 뒤, 각 항목을 깊이 파고드는 구조로 작성하세요.",
+  "사용 시나리오별로 나누어 추천하세요 (예: 학생용, 직장인용, 전문가용).",
+  "Q&A 형식을 섞어서 독자의 궁금증에 답하는 구조로 작성하세요.",
+  "핵심 차이점 3가지를 먼저 요약하고, 각각을 깊이 설명하는 구조로 작성하세요.",
+  "가격대별로 나누어 분석한 뒤, 종합 비교표를 마지막에 배치하세요.",
+  "각 제품의 강점을 중심으로 서술하고, 어떤 사람에게 맞는지 프로필로 정리하세요.",
+];
+
 function buildPrompt(
   topic: TopicEntry,
   locale: Locale,
   date: string
 ): string {
   const productsJson = JSON.stringify(topic.products);
+  const structure = STRUCTURE_VARIANTS[Math.floor(Math.random() * STRUCTURE_VARIANTS.length)];
 
-  return `당신은 IT 제품을 직접 사용해본 블로거입니다.
+  return `당신은 IT 제품 리서치 전문 에디터입니다.
 
 먼저 웹 검색을 통해 아래 제품들의 최신 가격, 스펙, 사용자 리뷰를 조사하세요.
 그 다음, 조사한 실제 데이터를 기반으로 비교 리뷰를 ${LOCALE_LABELS[locale]} 언어로 작성해주세요.
@@ -41,15 +51,22 @@ function buildPrompt(
 포맷: ${topic.format} (comparison/top-list/buying-guide)
 카테고리: ${topic.category}
 
+글 구조: ${structure}
+
 규칙:
 - 2,500자 이상
-- 1인칭 블로그 구어체 (직접 써본 느낌)
-- 비교표(마크다운 표) 필수
+- 독자에게 말을 거는 친근한 에디터 톤 (리서치 기반, 사실 중심)
 - 장단점 명확히
 - 확실한 결론 (이런 사람은 A, 저런 사람은 B)
-- "이 글에서는 ~에 대해 알아보겠습니다" 같은 상투적 표현 금지
 - 웹 검색에서 얻은 실제 데이터(가격, 스펙, 벤치마크) 활용
 - 출처 자연스럽게 언급
+- 매번 같은 구조 금지 — 위의 글 구조 지시를 따르되 자유롭게 변형하세요
+
+절대 금지 표현:
+- "직접 사용해 본 결과", "한 달간 써보고", "두 달 번갈아 써보고", "실제로 써보니"
+- "직접 체험", "손에 쥐어보니", "개봉해 보니", "일주일간 테스트"
+- "이 글에서는 ~에 대해 알아보겠습니다", "오늘은 ~를 비교해 보겠습니다"
+- 허위 사용 경험 서술 일체 — 리서치 데이터와 사용자 리뷰를 인용하세요
 
 MDX frontmatter 포함:
 ---

@@ -8,6 +8,12 @@ const categoryColors: Record<string, string> = {
   "software-services": "bg-green-100 text-green-700",
   "home-appliances": "bg-orange-100 text-orange-700",
   "health-beauty": "bg-pink-100 text-pink-700",
+  "gaming": "bg-indigo-100 text-indigo-700",
+  "automotive": "bg-slate-100 text-slate-700",
+  "camera": "bg-violet-100 text-violet-700",
+  "baby-kids": "bg-rose-100 text-rose-700",
+  "pet": "bg-emerald-100 text-emerald-700",
+  "fitness": "bg-red-100 text-red-700",
 };
 
 const categoryKeys: Record<string, string> = {
@@ -16,6 +22,12 @@ const categoryKeys: Record<string, string> = {
   "software-services": "categorySoftware",
   "home-appliances": "categoryHomeAppliances",
   "health-beauty": "categoryHealthBeauty",
+  "gaming": "categoryGaming",
+  "automotive": "categoryAutomotive",
+  "camera": "categoryCamera",
+  "baby-kids": "categoryBabyKids",
+  "pet": "categoryPet",
+  "fitness": "categoryFitness",
 };
 
 const postIcons: Record<string, string> = {

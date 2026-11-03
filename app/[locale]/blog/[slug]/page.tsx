@@ -24,6 +24,7 @@ export async function generateMetadata({ params }: Props) {
   const { locale, slug } = await params;
   try {
     const post = getPostBySlug(locale as Locale, slug);
+    const ogImage = `/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(post.category)}`;
     return {
       title: `${post.title} | NEXARECO`,
       description: post.excerpt,
@@ -31,7 +32,13 @@ export async function generateMetadata({ params }: Props) {
       openGraph: {
         title: post.title,
         description: post.excerpt,
-        images: [],
+        images: [{ url: ogImage, width: 1200, height: 630 }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: post.title,
+        description: post.excerpt,
+        images: [ogImage],
       },
     };
   } catch {
@@ -56,6 +63,12 @@ const categoryColors: Record<string, string> = {
   "software-services": "bg-green-100 text-green-700",
   "home-appliances": "bg-orange-100 text-orange-700",
   "health-beauty": "bg-pink-100 text-pink-700",
+  "gaming": "bg-indigo-100 text-indigo-700",
+  "automotive": "bg-slate-100 text-slate-700",
+  "camera": "bg-violet-100 text-violet-700",
+  "baby-kids": "bg-rose-100 text-rose-700",
+  "pet": "bg-emerald-100 text-emerald-700",
+  "fitness": "bg-red-100 text-red-700",
 };
 
 const categoryKeys: Record<string, string> = {
@@ -64,6 +77,12 @@ const categoryKeys: Record<string, string> = {
   "software-services": "categorySoftware",
   "home-appliances": "categoryHomeAppliances",
   "health-beauty": "categoryHealthBeauty",
+  "gaming": "categoryGaming",
+  "automotive": "categoryAutomotive",
+  "camera": "categoryCamera",
+  "baby-kids": "categoryBabyKids",
+  "pet": "categoryPet",
+  "fitness": "categoryFitness",
 };
 
 const mdxComponents = {
@@ -88,6 +107,7 @@ export default async function BlogPostPage({ params }: Props) {
     .filter((p) => p.slug !== slug)
     .slice(0, 3);
 
+  const ogImageUrl = `https://nexareco.com/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(post.category)}`;
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -96,7 +116,7 @@ export default async function BlogPostPage({ params }: Props) {
     datePublished: post.date,
     author: { "@type": "Organization", name: "NEXARECO" },
     publisher: { "@type": "Organization", name: "NEXARECO" },
-    ...(post.coverImage && { image: post.coverImage }),
+    image: ogImageUrl,
     mainEntityOfPage: `https://nexareco.com/${locale}/blog/${slug}`,
   };
 

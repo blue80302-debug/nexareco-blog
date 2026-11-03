@@ -11,6 +11,12 @@ const categories = [
   { key: "software-services", translationKey: "categorySoftware" },
   { key: "home-appliances", translationKey: "categoryHomeAppliances" },
   { key: "health-beauty", translationKey: "categoryHealthBeauty" },
+  { key: "gaming", translationKey: "categoryGaming" },
+  { key: "automotive", translationKey: "categoryAutomotive" },
+  { key: "camera", translationKey: "categoryCamera" },
+  { key: "baby-kids", translationKey: "categoryBabyKids" },
+  { key: "pet", translationKey: "categoryPet" },
+  { key: "fitness", translationKey: "categoryFitness" },
 ] as const;
 
 export default function CategoryFilter() {

@@ -31,6 +31,12 @@ const categories: { key: Category; icon: string; color: string; nameKey: string;
   { key: "software-services", icon: "SW", color: "bg-green-100 text-green-600", nameKey: "categorySoftware", descKey: "softwareDesc", href: "/blog?category=software-services" },
   { key: "home-appliances", icon: "HA", color: "bg-orange-100 text-orange-600", nameKey: "categoryHomeAppliances", descKey: "homeAppliancesDesc", href: "/blog?category=home-appliances" },
   { key: "health-beauty", icon: "HB", color: "bg-pink-100 text-pink-600", nameKey: "categoryHealthBeauty", descKey: "healthBeautyDesc", href: "/blog?category=health-beauty" },
+  { key: "gaming", icon: "GM", color: "bg-indigo-100 text-indigo-600", nameKey: "categoryGaming", descKey: "gamingDesc", href: "/blog?category=gaming" },
+  { key: "automotive", icon: "AT", color: "bg-slate-100 text-slate-600", nameKey: "categoryAutomotive", descKey: "automotiveDesc", href: "/blog?category=automotive" },
+  { key: "camera", icon: "CM", color: "bg-violet-100 text-violet-600", nameKey: "categoryCamera", descKey: "cameraDesc", href: "/blog?category=camera" },
+  { key: "baby-kids", icon: "BK", color: "bg-rose-100 text-rose-600", nameKey: "categoryBabyKids", descKey: "babyKidsDesc", href: "/blog?category=baby-kids" },
+  { key: "pet", icon: "PT", color: "bg-emerald-100 text-emerald-600", nameKey: "categoryPet", descKey: "petDesc", href: "/blog?category=pet" },
+  { key: "fitness", icon: "FT", color: "bg-red-100 text-red-600", nameKey: "categoryFitness", descKey: "fitnessDesc", href: "/blog?category=fitness" },
 ];
 
 export default async function Home({ params }: Props) {
