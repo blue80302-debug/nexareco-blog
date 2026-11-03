@@ -2,26 +2,26 @@
 
 Spotify, Apple Music, YouTube Music의 음원 수, 음질, 요금제, 추천 알고리즘을 비교하고 용도별 추천을 정리했습니다.
 
-📌 이 글에서 다루는 내용
+[이 글에서 다루는 내용]
 • 월 만 원짜리 구독, 아무거나 고르면 안 됩니다
 • 요금제 비교
 • 음질: Apple Music의 독보적 우위
 • 추천 알고리즘: Spotify가 여전히 왕
 
-📊 핵심 비교표
-▸ 항목: 무료 플랜 / Spotify: 있음 (광고 포함) / Apple Music: 없음 / YouTube Music: 있음 (광고 포함)
-▸ 항목: 개인 요금 / Spotify: 월 10,900원 / Apple Music: 월 11,000원 / YouTube Music: 월 10,900원
-▸ 항목: 가족 요금 (최대 6명) / Spotify: 월 16,900원 / Apple Music: 월 16,900원 / YouTube Music: 월 16,900원
-▸ 항목: 학생 요금 / Spotify: 월 5,900원 / Apple Music: 월 5,900원 / YouTube Music: 월 5,900원
-▸ 항목: 듀오 요금 / Spotify: 월 14,900원 / Apple Music: 없음 / YouTube Music: 없음
-▸ 항목: 음질 / Spotify: 최대 320kbps (OGG) / Apple Music: 로스리스 (ALAC, 최대 24bit/192kHz) / YouTube Music: 최대 256kbps (AAC)
-▸ 항목: 오프라인 저장 / Spotify: 가능 / Apple Music: 가능 / YouTube Music: 가능
-▸ 항목: 공간 음향 / Spotify: 지원 (일부) / Apple Music: Dolby Atmos 지원 / YouTube Music: 미지원
+[핵심 비교표]
+- 항목: 무료 플랜 / Spotify: 있음 (광고 포함) / Apple Music: 없음 / YouTube Music: 있음 (광고 포함)
+- 항목: 개인 요금 / Spotify: 월 10,900원 / Apple Music: 월 11,000원 / YouTube Music: 월 10,900원
+- 항목: 가족 요금 (최대 6명) / Spotify: 월 16,900원 / Apple Music: 월 16,900원 / YouTube Music: 월 16,900원
+- 항목: 학생 요금 / Spotify: 월 5,900원 / Apple Music: 월 5,900원 / YouTube Music: 월 5,900원
+- 항목: 듀오 요금 / Spotify: 월 14,900원 / Apple Music: 없음 / YouTube Music: 없음
+- 항목: 음질 / Spotify: 최대 320kbps (OGG) / Apple Music: 로스리스 (ALAC, 최대 24bit/192kHz) / YouTube Music: 최대 256kbps (AAC)
+- 항목: 오프라인 저장 / Spotify: 가능 / Apple Music: 가능 / YouTube Music: 가능
+- 항목: 공간 음향 / Spotify: 지원 (일부) / Apple Music: Dolby Atmos 지원 / YouTube Music: 미지원
 
-💡 결론
+[결론]
 **Spotify가 맞는 사람:** 새로운 음악 발견을 좋아하고, 팟캐스트도 한 앱에서 듣고, 안드로이드·Windows·Mac 등 여러 기기를 오가며 쓰는 분. 추천 알고리즘을 포기할 수 없다면 Spotify입니다.
 
-👉 전체 비교 리뷰 보기
+[전체 비교 리뷰 보기]
 https://nexareco.com/ko/blog/spotify-vs-apple-music-vs-youtube-music
 
 ---

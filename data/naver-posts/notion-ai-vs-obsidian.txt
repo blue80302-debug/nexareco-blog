@@ -2,24 +2,24 @@ Notion AI vs Obsidian 비교 2026: 생산성 앱 추천
 
 Notion AI와 Obsidian의 기능, 가격, 협업 지원을 비교합니다. 협업용과 개인 지식관리용 중 어떤 앱이 맞는지 추천합니다.
 
-📌 이 글에서 다루는 내용
+[이 글에서 다루는 내용]
 • 6개월간 두 앱을 동시에 써봤습니다
 • 가격부터 비교하자
 • AI 기능 비교
 • 핵심 기능 비교
 
-📊 핵심 비교표
-▸ 항목: 기본 플랜 / Notion: 무료 (개인, 제한적) / Obsidian: 무료 (개인 사용)
-▸ 항목: 유료 플랜 / Notion: Plus $10/월 / Obsidian: Sync $50/년 (~$4.2/월)
-▸ 항목: AI 기능 / Notion: AI 애드온 $10/월 / Obsidian: 커뮤니티 플러그인 (무료~유료)
-▸ 항목: AI 포함 총비용 / Notion: $20/월 / Obsidian: $4.2/월 + API 비용
-▸ 항목: 팀 플랜 / Notion: Business $18/인/월 / Obsidian: 없음 (개인 도구)
-▸ 항목: 퍼블리시 / Notion: 기본 제공 / Obsidian: Publish $16/월
+[핵심 비교표]
+- 항목: 기본 플랜 / Notion: 무료 (개인, 제한적) / Obsidian: 무료 (개인 사용)
+- 항목: 유료 플랜 / Notion: Plus $10/월 / Obsidian: Sync $50/년 (~$4.2/월)
+- 항목: AI 기능 / Notion: AI 애드온 $10/월 / Obsidian: 커뮤니티 플러그인 (무료~유료)
+- 항목: AI 포함 총비용 / Notion: $20/월 / Obsidian: $4.2/월 + API 비용
+- 항목: 팀 플랜 / Notion: Business $18/인/월 / Obsidian: 없음 (개인 도구)
+- 항목: 퍼블리시 / Notion: 기본 제공 / Obsidian: Publish $16/월
 
-💡 결론
+[결론]
 **Notion을 선택해야 하는 사람:**
 
-👉 전체 비교 리뷰 보기
+[전체 비교 리뷰 보기]
 https://nexareco.com/ko/blog/notion-ai-vs-obsidian
 
 ---

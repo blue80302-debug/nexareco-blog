@@ -2,23 +2,23 @@
 
 구글 드라이브, Dropbox, iCloud의 용량, 가격, 동기화 속도를 비교합니다. 용도별 클라우드 스토리지 추천을 정리했습니다.
 
-📌 이 글에서 다루는 내용
+[이 글에서 다루는 내용]
 • 클라우드 스토리지, 어디에 맡길까
 • 요금제 비교
 • 파일 동기화 성능
 • 협업 기능
 
-📊 핵심 비교표
-▸ 항목: 무료 용량 / Google Drive: 15GB / Dropbox: 2GB / iCloud: 5GB
-▸ 항목: 100~200GB / Google Drive: 월 2,400원 (100GB) / Dropbox: 없음 / iCloud: 월 1,100원 (50GB)
-▸ 항목: 2TB / Google Drive: 월 11,900원 / Dropbox: 월 $11.99 (~16,000원) / iCloud: 월 11,900원
-▸ 항목: 가족 공유 / Google Drive: 최대 6명 / Dropbox: Dropbox Family 6명 / iCloud: 최대 6명
-▸ 항목: 비즈니스 플랜 / Google Drive: Google Workspace / Dropbox: Dropbox Business / iCloud: Apple Business
+[핵심 비교표]
+- 항목: 무료 용량 / Google Drive: 15GB / Dropbox: 2GB / iCloud: 5GB
+- 항목: 100~200GB / Google Drive: 월 2,400원 (100GB) / Dropbox: 없음 / iCloud: 월 1,100원 (50GB)
+- 항목: 2TB / Google Drive: 월 11,900원 / Dropbox: 월 $11.99 (~16,000원) / iCloud: 월 11,900원
+- 항목: 가족 공유 / Google Drive: 최대 6명 / Dropbox: Dropbox Family 6명 / iCloud: 최대 6명
+- 항목: 비즈니스 플랜 / Google Drive: Google Workspace / Dropbox: Dropbox Business / iCloud: Apple Business
 
-💡 결론
+[결론]
 **안드로이드 + Windows 사용자:** Google Drive 일택입니다. 무료 15GB에 협업까지, 가장 범용적입니다.
 
-👉 전체 비교 리뷰 보기
+[전체 비교 리뷰 보기]
 https://nexareco.com/ko/blog/google-drive-vs-dropbox-vs-icloud
 
 ---

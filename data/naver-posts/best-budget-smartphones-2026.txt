@@ -2,21 +2,21 @@
 
 30만원대 가성비 스마트폰 5종의 성능, 카메라, 배터리를 비교했습니다. Galaxy A56, Pixel 9a, Nothing Phone 3a, Redmi Note 15 Pro, Motorola Edge 50 Neo.
 
-📌 이 글에서 다루는 내용
+[이 글에서 다루는 내용]
 • 30만원대로 이 정도 스펙이?
 • 한눈에 보는 비교표
 • 1위: Galaxy A56 — 가성비의 정석
 • 2위: Pixel 9a — AI와 카메라의 조합
 
-📊 핵심 비교표
-▸ 항목: 가격 / Galaxy A56: ~$349 (약 46만원) / Pixel 9a: ~$449 (약 59만원) / Nothing Phone 3a: ~$349 (약 46만원) / Redmi Note 15 Pro: ~$279 (약 37만원) / Moto Edge 50 Neo: ~$399 (약 53만원)
-▸ 항목: 디스플레이 / Galaxy A56: 6.6" AMOLED 120Hz / Pixel 9a: 6.1" OLED 120Hz / Nothing Phone 3a: 6.7" AMOLED 120Hz / Redmi Note 15 Pro: 6.67" AMOLED 120Hz / Moto Edge 50 Neo: 6.4" pOLED 120Hz
-▸ 항목: 프로세서 / Galaxy A56: Exynos 1580 / Pixel 9a: Tensor G4 / Nothing Phone 3a: SD 7s Gen 3 / Redmi Note 15 Pro: Dimensity 7300 / Moto Edge 50 Neo: Dimensity 7300
-▸ 항목: 메인 카메라 / Galaxy A56: 50MP OIS / Pixel 9a: 48MP / Nothing Phone 3a: 50MP / Redmi Note 15 Pro: 200MP / Moto Edge 50 Neo: 50MP OIS
-▸ 항목: 배터리 / Galaxy A56: 5000mAh / Pixel 9a: 4500mAh / Nothing Phone 3a: 5000mAh / Redmi Note 15 Pro: 5500mAh / Moto Edge 50 Neo: 4310mAh
-▸ 항목: OS / Galaxy A56: One UI 7 / Pixel 9a: 순정 Android (7년 업데이트) / Nothing Phone 3a: Nothing OS / Redmi Note 15 Pro: MIUI/HyperOS / Moto Edge 50 Neo: 거의 순정 Android
+[핵심 비교표]
+- 항목: 가격 / Galaxy A56: ~$349 (약 46만원) / Pixel 9a: ~$449 (약 59만원) / Nothing Phone 3a: ~$349 (약 46만원) / Redmi Note 15 Pro: ~$279 (약 37만원) / Moto Edge 50 Neo: ~$399 (약 53만원)
+- 항목: 디스플레이 / Galaxy A56: 6.6" AMOLED 120Hz / Pixel 9a: 6.1" OLED 120Hz / Nothing Phone 3a: 6.7" AMOLED 120Hz / Redmi Note 15 Pro: 6.67" AMOLED 120Hz / Moto Edge 50 Neo: 6.4" pOLED 120Hz
+- 항목: 프로세서 / Galaxy A56: Exynos 1580 / Pixel 9a: Tensor G4 / Nothing Phone 3a: SD 7s Gen 3 / Redmi Note 15 Pro: Dimensity 7300 / Moto Edge 50 Neo: Dimensity 7300
+- 항목: 메인 카메라 / Galaxy A56: 50MP OIS / Pixel 9a: 48MP / Nothing Phone 3a: 50MP / Redmi Note 15 Pro: 200MP / Moto Edge 50 Neo: 50MP OIS
+- 항목: 배터리 / Galaxy A56: 5000mAh / Pixel 9a: 4500mAh / Nothing Phone 3a: 5000mAh / Redmi Note 15 Pro: 5500mAh / Moto Edge 50 Neo: 4310mAh
+- 항목: OS / Galaxy A56: One UI 7 / Pixel 9a: 순정 Android (7년 업데이트) / Nothing Phone 3a: Nothing OS / Redmi Note 15 Pro: MIUI/HyperOS / Moto Edge 50 Neo: 거의 순정 Android
 
-👉 전체 비교 리뷰 보기
+[전체 비교 리뷰 보기]
 https://nexareco.com/ko/blog/best-budget-smartphones-2026
 
 ---

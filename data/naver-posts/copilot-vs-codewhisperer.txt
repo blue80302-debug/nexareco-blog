@@ -2,24 +2,24 @@ GitHub Copilot vs Amazon Q Developer 비교 2026: AI 코딩 도구 추천
 
 GitHub Copilot과 Amazon Q Developer(구 CodeWhisperer)의 가격, 기능, 코드 완성 품질을 비교합니다. 개발자 유형별 추천을 정리했습니다.
 
-📌 이 글에서 다루는 내용
+[이 글에서 다루는 내용]
 • 한눈에 보는 비교표
 • 가격: 개인이면 Copilot이 체감상 훨씬 가볍다
 • 자동완성 품질: 일상 코딩은 Copilot이 한 수 위
 • 에이전트와 채팅: 선택지는 Copilot, 깊이는 Q Developer
 
-📊 핵심 비교표
-▸ 항목: 무료 플랜 / GitHub Copilot: 있음 (월 2,000회 코드 완성, 50회 채팅 수준) / Amazon Q Developer (구 CodeWhisperer): 있음 (월 에이전트·채팅 요청 한도 제한)
-▸ 항목: 개인 유료 / GitHub Copilot: Pro 월 $10 / Pro+ 월 $39 / Amazon Q Developer (구 CodeWhisperer): Pro 월 $19 (사용자당)
-▸ 항목: 팀·기업 / GitHub Copilot: Business 월 $19 / Enterprise 월 $39 (사용자당) / Amazon Q Developer (구 CodeWhisperer): Pro 월 $19 (IAM Identity Center 연동)
-▸ 항목: 주요 IDE / GitHub Copilot: VS Code, Visual Studio, JetBrains, Neovim, Xcode 등 / Amazon Q Developer (구 CodeWhisperer): VS Code, JetBrains, Visual Studio, Eclipse, CLI, AWS 콘솔
-▸ 항목: 모델 / GitHub Copilot: OpenAI, Anthropic, Google 모델 중 선택 / Amazon Q Developer (구 CodeWhisperer): AWS 관리형 (Bedrock 기반), 모델 선택 폭은 좁음
-▸ 항목: 에이전트 기능 / GitHub Copilot: Agent mode, 코딩 에이전트(이슈 → PR) / Amazon Q Developer (구 CodeWhisperer): 에이전트형 코딩, 코드 변환(Java 업그레이드 등)
-▸ 항목: 보안 스캔 / GitHub Copilot: 코드 스캐닝·Autofix는 GitHub Advanced Security 쪽 / Amazon Q Developer (구 CodeWhisperer): 보안 취약점 스캔 기본 내장
-▸ 항목: AWS 특화 / GitHub Copilot: 일반적인 수준 / Amazon Q Developer (구 CodeWhisperer): 콘솔, 비용 분석, 리소스 질의 연동
-▸ 항목: 오픈소스 유사 코드 / GitHub Copilot: 코드 참조 필터 제공 / Amazon Q Developer (구 CodeWhisperer): 참조 트래커로 라이선스 표시
+[핵심 비교표]
+- 항목: 무료 플랜 / GitHub Copilot: 있음 (월 2,000회 코드 완성, 50회 채팅 수준) / Amazon Q Developer (구 CodeWhisperer): 있음 (월 에이전트·채팅 요청 한도 제한)
+- 항목: 개인 유료 / GitHub Copilot: Pro 월 $10 / Pro+ 월 $39 / Amazon Q Developer (구 CodeWhisperer): Pro 월 $19 (사용자당)
+- 항목: 팀·기업 / GitHub Copilot: Business 월 $19 / Enterprise 월 $39 (사용자당) / Amazon Q Developer (구 CodeWhisperer): Pro 월 $19 (IAM Identity Center 연동)
+- 항목: 주요 IDE / GitHub Copilot: VS Code, Visual Studio, JetBrains, Neovim, Xcode 등 / Amazon Q Developer (구 CodeWhisperer): VS Code, JetBrains, Visual Studio, Eclipse, CLI, AWS 콘솔
+- 항목: 모델 / GitHub Copilot: OpenAI, Anthropic, Google 모델 중 선택 / Amazon Q Developer (구 CodeWhisperer): AWS 관리형 (Bedrock 기반), 모델 선택 폭은 좁음
+- 항목: 에이전트 기능 / GitHub Copilot: Agent mode, 코딩 에이전트(이슈 → PR) / Amazon Q Developer (구 CodeWhisperer): 에이전트형 코딩, 코드 변환(Java 업그레이드 등)
+- 항목: 보안 스캔 / GitHub Copilot: 코드 스캐닝·Autofix는 GitHub Advanced Security 쪽 / Amazon Q Developer (구 CodeWhisperer): 보안 취약점 스캔 기본 내장
+- 항목: AWS 특화 / GitHub Copilot: 일반적인 수준 / Amazon Q Developer (구 CodeWhisperer): 콘솔, 비용 분석, 리소스 질의 연동
+- 항목: 오픈소스 유사 코드 / GitHub Copilot: 코드 참조 필터 제공 / Amazon Q Developer (구 CodeWhisperer): 참조 트래커로 라이선스 표시
 
-👉 전체 비교 리뷰 보기
+[전체 비교 리뷰 보기]
 https://nexareco.com/ko/blog/copilot-vs-codewhisperer
 
 ---

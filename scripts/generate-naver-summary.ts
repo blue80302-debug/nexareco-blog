@@ -72,8 +72,8 @@ function extractFirstTable(body: string): string | null {
 
   for (let i = 1; i < rows.length; i++) {
     const cells = rows[i];
-    const line = cells.map((cell, j) => (headers[j] ? `${headers[j]}: ${cell}` : cell)).join(" / ");
-    result.push(`▸ ${line}`);
+    const parts = cells.map((cell, j) => (headers[j] ? `${headers[j]}: ${cell}` : cell)).join(" / ");
+    result.push(`- ${parts}`);
   }
 
   return result.join("\n");
@@ -129,7 +129,7 @@ function generateNaverPost(slug: string, frontmatter: Frontmatter, body: string)
   post += `${excerpt}\n\n`;
 
   if (keyPoints.length > 0) {
-    post += `📌 이 글에서 다루는 내용\n`;
+    post += `[이 글에서 다루는 내용]\n`;
     for (const point of keyPoints) {
       post += `• ${point}\n`;
     }
@@ -137,14 +137,14 @@ function generateNaverPost(slug: string, frontmatter: Frontmatter, body: string)
   }
 
   if (table) {
-    post += `📊 핵심 비교표\n${table}\n\n`;
+    post += `[핵심 비교표]\n${table}\n\n`;
   }
 
   if (conclusion) {
-    post += `💡 결론\n${conclusion}\n\n`;
+    post += `[결론]\n${conclusion}\n\n`;
   }
 
-  post += `👉 전체 비교 리뷰 보기\n${link}\n\n`;
+  post += `[전체 비교 리뷰 보기]\n${link}\n\n`;
   post += `---\n`;
   post += `태그: ${[...tags, ...productTags, title.replace(/[^가-힣a-zA-Z0-9]/g, "").slice(0, 15)].join(", ")}\n`;
 

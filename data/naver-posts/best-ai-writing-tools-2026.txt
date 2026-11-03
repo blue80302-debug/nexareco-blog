@@ -2,22 +2,22 @@
 
 Jasper, Copy.ai, Writesonic, Rytr, ChatGPT의 기능·가격·품질을 비교하고 용도별 추천을 정리했습니다.
 
-📌 이 글에서 다루는 내용
+[이 글에서 다루는 내용]
 • 블로그 글 하나 쓰는 데 3시간이 걸렸다
 • 한눈에 보는 비교표
 • 1위: Jasper — 마케팅 팀이라면 이거
 • 2위: ChatGPT — 만능 도구의 대명사
 
-📊 핵심 비교표
-▸ 항목: 월 요금 / Jasper: $49 (Creator) / Copy.ai: 무료 / $49 (Pro) / Writesonic: 무료 / $16 / Rytr: 무료 / $9 / ChatGPT: $20 (Plus)
-▸ 항목: 주력 분야 / Jasper: 마케팅 카피 / Copy.ai: 템플릿 기반 콘텐츠 / Writesonic: SEO 블로그 / Rytr: 가성비 글쓰기 / ChatGPT: 범용
-▸ 항목: 템플릿 수 / Jasper: 50+ / Copy.ai: 90+ / Writesonic: 80+ / Rytr: 40+ / ChatGPT: 없음 (프롬프트)
-▸ 항목: SEO 기능 / Jasper: Surfer SEO 연동 / Copy.ai: 기본 / Writesonic: 내장 SEO 도구 / Rytr: 기본 / ChatGPT: 없음
-▸ 항목: 다국어 지원 / Jasper: 30+ 언어 / Copy.ai: 25+ 언어 / Writesonic: 25+ 언어 / Rytr: 30+ 언어 / ChatGPT: 95+ 언어
-▸ 항목: 팀 협업 / Jasper: 있음 ($125/mo~) / Copy.ai: 있음 / Writesonic: 있음 / Rytr: 없음 / ChatGPT: Teams $25/인
-▸ 항목: 브랜드 보이스 / Jasper: 우수 / Copy.ai: 보통 / Writesonic: 보통 / Rytr: 기본 / ChatGPT: 커스텀 지시
+[핵심 비교표]
+- 항목: 월 요금 / Jasper: $49 (Creator) / Copy.ai: 무료 / $49 (Pro) / Writesonic: 무료 / $16 / Rytr: 무료 / $9 / ChatGPT: $20 (Plus)
+- 항목: 주력 분야 / Jasper: 마케팅 카피 / Copy.ai: 템플릿 기반 콘텐츠 / Writesonic: SEO 블로그 / Rytr: 가성비 글쓰기 / ChatGPT: 범용
+- 항목: 템플릿 수 / Jasper: 50+ / Copy.ai: 90+ / Writesonic: 80+ / Rytr: 40+ / ChatGPT: 없음 (프롬프트)
+- 항목: SEO 기능 / Jasper: Surfer SEO 연동 / Copy.ai: 기본 / Writesonic: 내장 SEO 도구 / Rytr: 기본 / ChatGPT: 없음
+- 항목: 다국어 지원 / Jasper: 30+ 언어 / Copy.ai: 25+ 언어 / Writesonic: 25+ 언어 / Rytr: 30+ 언어 / ChatGPT: 95+ 언어
+- 항목: 팀 협업 / Jasper: 있음 ($125/mo~) / Copy.ai: 있음 / Writesonic: 있음 / Rytr: 없음 / ChatGPT: Teams $25/인
+- 항목: 브랜드 보이스 / Jasper: 우수 / Copy.ai: 보통 / Writesonic: 보통 / Rytr: 기본 / ChatGPT: 커스텀 지시
 
-👉 전체 비교 리뷰 보기
+[전체 비교 리뷰 보기]
 https://nexareco.com/ko/blog/best-ai-writing-tools-2026
 
 ---

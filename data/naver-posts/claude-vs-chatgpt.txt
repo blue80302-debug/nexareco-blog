@@ -2,26 +2,26 @@ Claude vs ChatGPT 비교 2026: 코딩용 AI 추천
 
 Claude와 ChatGPT의 코드 생성, 디버깅, 리팩토링 성능을 비교하고 개발자 용도별 추천을 정리했습니다.
 
-📌 이 글에서 다루는 내용
+[이 글에서 다루는 내용]
 • ChatGPT 쓰다가 Claude로 넘어간 이유
 • 가격부터 비교하자
 • 코드 생성: 체감 차이가 꽤 큼
 • 디버깅: 에러 메시지 던지면 누가 더 잘 잡나
 
-📊 핵심 비교표
-▸ 항목: 월 구독료 / Claude Pro: $20 / ChatGPT Plus: $20
-▸ 항목: 최상위 모델 / Claude Pro: Opus 4 / ChatGPT Plus: GPT-4o
-▸ 항목: 컨텍스트 윈도우 / Claude Pro: 200K 토큰 / ChatGPT Plus: 128K 토큰
-▸ 항목: API 입력 가격 (최상위) / Claude Pro: $15/1M 토큰 (Opus) / ChatGPT Plus: $5/1M 토큰 (GPT-4o)
-▸ 항목: API 출력 가격 (최상위) / Claude Pro: $75/1M 토큰 (Opus) / ChatGPT Plus: $15/1M 토큰 (GPT-4o)
-▸ 항목: API 경량 모델 / Claude Pro: Haiku ($0.25/1M 입력) / ChatGPT Plus: GPT-4o mini ($0.15/1M 입력)
-▸ 항목: 파일 업로드 / Claude Pro: 지원 / ChatGPT Plus: 지원
-▸ 항목: 코드 실행 / Claude Pro: Artifacts / ChatGPT Plus: Code Interpreter
+[핵심 비교표]
+- 항목: 월 구독료 / Claude Pro: $20 / ChatGPT Plus: $20
+- 항목: 최상위 모델 / Claude Pro: Opus 4 / ChatGPT Plus: GPT-4o
+- 항목: 컨텍스트 윈도우 / Claude Pro: 200K 토큰 / ChatGPT Plus: 128K 토큰
+- 항목: API 입력 가격 (최상위) / Claude Pro: $15/1M 토큰 (Opus) / ChatGPT Plus: $5/1M 토큰 (GPT-4o)
+- 항목: API 출력 가격 (최상위) / Claude Pro: $75/1M 토큰 (Opus) / ChatGPT Plus: $15/1M 토큰 (GPT-4o)
+- 항목: API 경량 모델 / Claude Pro: Haiku ($0.25/1M 입력) / ChatGPT Plus: GPT-4o mini ($0.15/1M 입력)
+- 항목: 파일 업로드 / Claude Pro: 지원 / ChatGPT Plus: 지원
+- 항목: 코드 실행 / Claude Pro: Artifacts / ChatGPT Plus: Code Interpreter
 
-💡 결론
+[결론]
 **풀스택 개발자, 리팩토링 위주의 작업이 많은 사람** → Claude를 추천합니다. 200K 컨텍스트와 깊이 있는 코드 분석은 실무에서 체감 차이가 큽니다.
 
-👉 전체 비교 리뷰 보기
+[전체 비교 리뷰 보기]
 https://nexareco.com/ko/blog/claude-vs-chatgpt
 
 ---
