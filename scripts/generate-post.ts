@@ -4,7 +4,7 @@ import * as path from "node:path";
 const ANTHROPIC_URL = "https://api.anthropic.com/v1/messages";
 const MODEL = "claude-sonnet-5-5";
 
-const LOCALES = ["ko", "en", "ja", "es"] as const;
+const LOCALES = ["ko"] as const;
 type Locale = (typeof LOCALES)[number];
 
 interface TopicEntry {
@@ -15,7 +15,7 @@ interface TopicEntry {
   status: string;
 }
 
-const LOCALE_LABELS: Record<Locale, string> = {
+const LOCALE_LABELS: Record<string, string> = {
   ko: "Korean",
   en: "English",
   ja: "Japanese",
