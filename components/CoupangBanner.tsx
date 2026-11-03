@@ -28,34 +28,17 @@ const amazonConfig: Record<string, { title: string; cta: string; disclosure: str
   },
 };
 
-function CoupangDynamicBanner() {
-  return (
-    <div className="my-10">
-      <iframe
-        src="https://ads-partners.coupang.com/widgets.html?id=1043287&template=carousel&trackingCode=AF1651276&subId=&width=680&height=140"
-        width="680"
-        height="140"
-        frameBorder="0"
-        scrolling="no"
-        referrerPolicy="unsafe-url"
-        className="mx-auto block max-w-full"
-        style={{ maxWidth: "100%" }}
-      />
-      <p className="mt-3 text-center text-xs text-gray-500">
-        이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
-      </p>
-    </div>
-  );
-}
+const coupangConfig = {
+  title: "쿠팡에서 최저가 확인",
+  cta: "→",
+  disclosure: "이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.",
+  color: "bg-red-500", hover: "hover:bg-red-600", bg: "bg-red-50", border: "border-red-200", titleColor: "text-red-900",
+};
 
 export default function CoupangBanner({ products, locale }: AffiliateBannerProps) {
   if (products.length === 0) return null;
 
-  if (locale === "ko") {
-    return <CoupangDynamicBanner />;
-  }
-
-  const c = amazonConfig[locale] ?? amazonConfig.en;
+  const c = locale === "ko" ? coupangConfig : (amazonConfig[locale] ?? amazonConfig.en);
 
   return (
     <div className={`my-10 rounded-xl border ${c.border} ${c.bg} p-6`}>
