@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "NEXARECO",
   },
+  verification: {
+    other: {
+      "naver-site-verification": "ed17f4ce5fec93d3ccd6d3426daa6dd4474cac82",
+    },
+  },
 };
 
 export default function RootLayout({
