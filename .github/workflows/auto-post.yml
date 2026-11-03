@@ -1,8 +1,7 @@
 name: Auto Generate Post
 on:
-  # schedule 일시 중지 — AdSense 승인 후 재개
-  # schedule:
-  #   - cron: "0 0 * * 1,4"  # 주 2회 (월/목)
+  schedule:
+    - cron: "0 0 * * 1,4"
   workflow_dispatch:
 
 jobs:
