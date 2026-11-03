@@ -9,17 +9,15 @@
 • 퍼플렉시티의 아쉬운 점
 
 📊 핵심 비교표
-| 항목 | Perplexity AI | Google Search |
-|---|---|---|
-| 기본 가격 | 무료 플랜 있음 | 무료 |
-| 유료 플랜 | Pro 월 $20 (연 $200), Max 월 $200, 학생 $10 | 검색 자체는 유료 플랜 없음 |
-| 결과 형태 | 출처 인용이 달린 요약 답변 중심 | 링크 목록 + 지도·쇼핑·이미지 + AI 개요(일부 검색) |
-| 후속 질문 | 대화 이어가기 자연스러움 | AI 모드에서 가능, 기본은 새 검색 |
-| 심층 조사 | Deep Research (Pro 하루 20회) | 일반 검색 반복 또는 AI 기능 |
-| 지도·쇼핑·길찾기 | 약함 | 압도적 |
-| 시장 지위 | 월 사용자 약 4,500만 명 수준(서드파티 추정) | 연간 5조 건 이상 검색 처리 |
-| 광고 | 2026년 2월 이후 무료 플랜 광고 제거(서드파티 보도) | 검색 광고 있음 |
-| 사실성 지표 | 2025년 Tow Center 테스트 인용 오류 37% (8개 도구 중 최저) | AI Overviews SimpleQA 정확도 91% (NYT·Oumi) |
+▸ 항목: 기본 가격 / Perplexity AI: 무료 플랜 있음 / Google Search: 무료
+▸ 항목: 유료 플랜 / Perplexity AI: Pro 월 $20 (연 $200), Max 월 $200, 학생 $10 / Google Search: 검색 자체는 유료 플랜 없음
+▸ 항목: 결과 형태 / Perplexity AI: 출처 인용이 달린 요약 답변 중심 / Google Search: 링크 목록 + 지도·쇼핑·이미지 + AI 개요(일부 검색)
+▸ 항목: 후속 질문 / Perplexity AI: 대화 이어가기 자연스러움 / Google Search: AI 모드에서 가능, 기본은 새 검색
+▸ 항목: 심층 조사 / Perplexity AI: Deep Research (Pro 하루 20회) / Google Search: 일반 검색 반복 또는 AI 기능
+▸ 항목: 지도·쇼핑·길찾기 / Perplexity AI: 약함 / Google Search: 압도적
+▸ 항목: 시장 지위 / Perplexity AI: 월 사용자 약 4,500만 명 수준(서드파티 추정) / Google Search: 연간 5조 건 이상 검색 처리
+▸ 항목: 광고 / Perplexity AI: 2026년 2월 이후 무료 플랜 광고 제거(서드파티 보도) / Google Search: 검색 광고 있음
+▸ 항목: 사실성 지표 / Perplexity AI: 2025년 Tow Center 테스트 인용 오류 37% (8개 도구 중 최저) / Google Search: AI Overviews SimpleQA 정확도 91% (NYT·Oumi)
 
 💡 결론
 **퍼플렉시티(Pro)가 맞는 사람**

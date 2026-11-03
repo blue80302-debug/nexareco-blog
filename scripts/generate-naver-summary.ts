@@ -57,7 +57,26 @@ function extractFirstTable(body: string): string | null {
     }
   }
 
-  return tableLines.length >= 3 ? tableLines.join("\n") : null;
+  if (tableLines.length < 3) return null;
+
+  const rows = tableLines
+    .filter((l) => !l.match(/^\|[\s-:|]+\|$/))
+    .map((l) =>
+      l.split("|").filter((c) => c.trim()).map((c) => c.trim())
+    );
+
+  if (rows.length < 2) return null;
+
+  const headers = rows[0];
+  const result: string[] = [];
+
+  for (let i = 1; i < rows.length; i++) {
+    const cells = rows[i];
+    const line = cells.map((cell, j) => (headers[j] ? `${headers[j]}: ${cell}` : cell)).join(" / ");
+    result.push(`▸ ${line}`);
+  }
+
+  return result.join("\n");
 }
 
 function extractKeyPoints(body: string): string[] {

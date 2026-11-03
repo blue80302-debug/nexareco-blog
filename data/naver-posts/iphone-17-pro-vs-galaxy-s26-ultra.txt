@@ -9,18 +9,16 @@
 • 카메라: 숫자 vs 색감
 
 📊 핵심 비교표
-| 항목 | iPhone 17 Pro | Galaxy S26 Ultra |
-|------|--------------|-----------------|
-| 가격 | $1,099~ | $1,299~ |
-| 디스플레이 | 6.3" ProMotion LTPO OLED | 6.9" Dynamic AMOLED 2X |
-| 프로세서 | A19 Pro | Snapdragon 8 Elite Gen 2 |
-| 메인 카메라 | 48MP 트리플 (페리스코프 망원) | 200MP 쿼드 |
-| 배터리 | ~28시간 | ~27시간 |
-| 충전 포트 | USB-C | USB-C |
-| OS | iOS 20 | One UI 8 (Android 17) |
-| AI 기능 | Apple Intelligence | Galaxy AI |
-| 저장 용량 | 256GB / 512GB / 1TB | 256GB / 512GB / 1TB |
-| 특이사항 | 다이나믹 아일랜드, 액션 버튼 | S Pen 내장 |
+▸ 항목: 가격 / iPhone 17 Pro: $1,099~ / Galaxy S26 Ultra: $1,299~
+▸ 항목: 디스플레이 / iPhone 17 Pro: 6.3" ProMotion LTPO OLED / Galaxy S26 Ultra: 6.9" Dynamic AMOLED 2X
+▸ 항목: 프로세서 / iPhone 17 Pro: A19 Pro / Galaxy S26 Ultra: Snapdragon 8 Elite Gen 2
+▸ 항목: 메인 카메라 / iPhone 17 Pro: 48MP 트리플 (페리스코프 망원) / Galaxy S26 Ultra: 200MP 쿼드
+▸ 항목: 배터리 / iPhone 17 Pro: ~28시간 / Galaxy S26 Ultra: ~27시간
+▸ 항목: 충전 포트 / iPhone 17 Pro: USB-C / Galaxy S26 Ultra: USB-C
+▸ 항목: OS / iPhone 17 Pro: iOS 20 / Galaxy S26 Ultra: One UI 8 (Android 17)
+▸ 항목: AI 기능 / iPhone 17 Pro: Apple Intelligence / Galaxy S26 Ultra: Galaxy AI
+▸ 항목: 저장 용량 / iPhone 17 Pro: 256GB / 512GB / 1TB / Galaxy S26 Ultra: 256GB / 512GB / 1TB
+▸ 항목: 특이사항 / iPhone 17 Pro: 다이나믹 아일랜드, 액션 버튼 / Galaxy S26 Ultra: S Pen 내장
 
 💡 결론
 카메라 디테일과 대화면, AI 기능을 중시한다면 Galaxy S26 Ultra입니다. 특히 통화 번역을 자주 쓸 환경이거나 S Pen이 필요한 분이라면 고민할 것도 없어요.

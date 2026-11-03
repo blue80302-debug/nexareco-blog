@@ -9,13 +9,11 @@ GitHub Copilot과 Cursor의 기능, 가격, 코드 완성 품질을 비교합니
 • 채팅 및 에이전트 기능
 
 📊 핵심 비교표
-| 항목 | GitHub Copilot | Cursor |
-|------|---------------|--------|
-| 무료 플랜 | 월 2,000회 코드 완성 제한 | 월 2,000회 완성 + 50회 프리미엄 요청 |
-| 개인 유료 | $10/월 (Individual) | $20/월 (Pro) |
-| 비즈니스 | $19/월/인 (Business) | $40/월/인 (Business) |
-| 학생/OSS | 무료 | 별도 할인 없음 |
-| 모델 선택 | GPT-4o, Claude 등 선택 가능 | GPT-4o, Claude, 자체 모델 등 |
+▸ 항목: 무료 플랜 / GitHub Copilot: 월 2,000회 코드 완성 제한 / Cursor: 월 2,000회 완성 + 50회 프리미엄 요청
+▸ 항목: 개인 유료 / GitHub Copilot: $10/월 (Individual) / Cursor: $20/월 (Pro)
+▸ 항목: 비즈니스 / GitHub Copilot: $19/월/인 (Business) / Cursor: $40/월/인 (Business)
+▸ 항목: 학생/OSS / GitHub Copilot: 무료 / Cursor: 별도 할인 없음
+▸ 항목: 모델 선택 / GitHub Copilot: GPT-4o, Claude 등 선택 가능 / Cursor: GPT-4o, Claude, 자체 모델 등
 
 💡 결론
 **Copilot을 추천하는 경우:**

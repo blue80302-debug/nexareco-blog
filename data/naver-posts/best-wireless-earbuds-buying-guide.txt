@@ -9,14 +9,12 @@
 • 예산별 추천 정리
 
 📊 핵심 비교표
-| 항목 | AirPods Pro 3 | Galaxy Buds 4 | Sony WF-1000XM6 | Bose QC Ultra | Nothing Ear 3 |
-|------|---------------|---------------|------------------|---------------|---------------|
-| 가격 | $249 | $179 | $279 | $299 | $129 |
-| ANC | 적응형 ANC (H3 칩) | 향상된 ANC | 업계 최고 수준 | 우수 | 가격 대비 우수 |
-| 배터리 (단독+케이스) | 6h + 30h | 5h + 20h | 8h + 24h | 6h + 24h | 6h + 30h |
-| 방수 | IP54 | IP57 | IPX4 | IPX4 | IP54 |
-| 코덱 | AAC, LC3 | Samsung Seamless, AAC | LDAC, AAC | aptX Adaptive | LDAC, AAC |
-| 추천 대상 | 애플 유저 | 삼성 유저 | 음질·노캔 최우선 | 노캔 중시 안드로이드 | 가성비 |
+▸ 항목: 가격 / AirPods Pro 3: $249 / Galaxy Buds 4: $179 / Sony WF-1000XM6: $279 / Bose QC Ultra: $299 / Nothing Ear 3: $129
+▸ 항목: ANC / AirPods Pro 3: 적응형 ANC (H3 칩) / Galaxy Buds 4: 향상된 ANC / Sony WF-1000XM6: 업계 최고 수준 / Bose QC Ultra: 우수 / Nothing Ear 3: 가격 대비 우수
+▸ 항목: 배터리 (단독+케이스) / AirPods Pro 3: 6h + 30h / Galaxy Buds 4: 5h + 20h / Sony WF-1000XM6: 8h + 24h / Bose QC Ultra: 6h + 24h / Nothing Ear 3: 6h + 30h
+▸ 항목: 방수 / AirPods Pro 3: IP54 / Galaxy Buds 4: IP57 / Sony WF-1000XM6: IPX4 / Bose QC Ultra: IPX4 / Nothing Ear 3: IP54
+▸ 항목: 코덱 / AirPods Pro 3: AAC, LC3 / Galaxy Buds 4: Samsung Seamless, AAC / Sony WF-1000XM6: LDAC, AAC / Bose QC Ultra: aptX Adaptive / Nothing Ear 3: LDAC, AAC
+▸ 항목: 추천 대상 / AirPods Pro 3: 애플 유저 / Galaxy Buds 4: 삼성 유저 / Sony WF-1000XM6: 음질·노캔 최우선 / Bose QC Ultra: 노캔 중시 안드로이드 / Nothing Ear 3: 가성비
 
 💡 결론
 이어버드 고르는 핵심은 결국 "내가 어디서, 어떻게 쓸 건가"입니다. 만능 제품은 없고, 용도에 맞는 제품이 있을 뿐이에요. 위 기준과 추천을 참고해서 본인한테 딱 맞는 이어버드 찾으시길 바랍니다.

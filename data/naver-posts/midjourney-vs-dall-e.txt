@@ -9,13 +9,11 @@ Midjourney와 DALL-E 3의 이미지 품질, 가격, 사용법을 비교합니다
 • 워크플로우: 디스코드 vs ChatGPT
 
 📊 핵심 비교표
-| 항목 | Midjourney | DALL-E 3 |
-|------|-----------|----------|
-| 기본 플랜 | $10/월 (Basic) | ChatGPT Plus $20/월에 포함 |
-| 표준 플랜 | $30/월 (Standard) | API 종량제 (이미지당 $0.04~$0.08) |
-| 프로 플랜 | $60/월 (Pro) | - |
-| 무료 사용 | 불가 | ChatGPT 무료에서 제한적 사용 |
-| 상업적 사용 | 유료 플랜 모두 가능 | 생성 이미지 상업 사용 가능 |
+▸ 항목: 기본 플랜 / Midjourney: $10/월 (Basic) / DALL-E 3: ChatGPT Plus $20/월에 포함
+▸ 항목: 표준 플랜 / Midjourney: $30/월 (Standard) / DALL-E 3: API 종량제 (이미지당 $0.04~$0.08)
+▸ 항목: 프로 플랜 / Midjourney: $60/월 (Pro) / DALL-E 3: -
+▸ 항목: 무료 사용 / Midjourney: 불가 / DALL-E 3: ChatGPT 무료에서 제한적 사용
+▸ 항목: 상업적 사용 / Midjourney: 유료 플랜 모두 가능 / DALL-E 3: 생성 이미지 상업 사용 가능
 
 👉 전체 비교 리뷰 보기
 https://nexareco.com/ko/blog/midjourney-vs-dall-e

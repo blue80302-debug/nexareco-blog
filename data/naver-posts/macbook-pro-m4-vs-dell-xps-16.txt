@@ -9,18 +9,16 @@ MacBook Pro M4와 Dell XPS 16의 스펙, 벤치마크, 배터리, 가격을 비�
 • 디스플레이: 취향이 갈리는데, 저는 이렇게 봤어요
 
 📊 핵심 비교표
-| 항목 | MacBook Pro M4 (14인치 기준) | Dell XPS 16 |
-|---|---|---|
-| 시작 가격 | $1,599 (M4/16GB/512GB), M4 Pro $1,999~, M4 Max $3,199~ (Tom's Guide) | 구성별 편차가 큼. 구매 전 Dell 공식몰 가격 확인 필요 |
-| 칩 | Apple M4 (10코어 CPU/10코어 GPU), Pro·Max 선택 가능 | Intel Core Ultra (9640은 Series 1, 최신은 팬서레이크) |
-| 디스플레이 | 14.2인치 Liquid Retina XDR, 3024×1964, 120Hz, 나노텍스처 옵션 | 16.3인치 4K+ OLED, 120Hz (NanoNotice 기준) |
-| 그래픽 | 통합 GPU (Max는 최대 40코어) | 9640은 RTX 4070 선택 가능 |
-| 메모리 | 통합 메모리, 최대 128GB (16인치 Max) | 최대 64GB DDR5 (9640) |
-| 포트 | Thunderbolt 4 ×3, HDMI, SDXC, 3.5mm | USB-C 중심 (Thunderbolt 4 포함) |
-| 무게 | 약 3.4파운드(약 1.54kg) | 16인치급이라 더 무거움 |
-| 배터리 | 100Wh (16인치), 애플 공식 영상 재생 최대 24시간 | 9640: 99.5Wh / 신형: 70Wh |
-| 충전 | 최대 140W, 완충 약 1시간 25분 (16인치, NanoReview) | 130W, 완충 약 2시간 20분 (9640, NanoReview) |
-| OS | macOS | Windows |
+▸ 항목: 시작 가격 / MacBook Pro M4 (14인치 기준): $1,599 (M4/16GB/512GB), M4 Pro $1,999~, M4 Max $3,199~ (Tom's Guide) / Dell XPS 16: 구성별 편차가 큼. 구매 전 Dell 공식몰 가격 확인 필요
+▸ 항목: 칩 / MacBook Pro M4 (14인치 기준): Apple M4 (10코어 CPU/10코어 GPU), Pro·Max 선택 가능 / Dell XPS 16: Intel Core Ultra (9640은 Series 1, 최신은 팬서레이크)
+▸ 항목: 디스플레이 / MacBook Pro M4 (14인치 기준): 14.2인치 Liquid Retina XDR, 3024×1964, 120Hz, 나노텍스처 옵션 / Dell XPS 16: 16.3인치 4K+ OLED, 120Hz (NanoNotice 기준)
+▸ 항목: 그래픽 / MacBook Pro M4 (14인치 기준): 통합 GPU (Max는 최대 40코어) / Dell XPS 16: 9640은 RTX 4070 선택 가능
+▸ 항목: 메모리 / MacBook Pro M4 (14인치 기준): 통합 메모리, 최대 128GB (16인치 Max) / Dell XPS 16: 최대 64GB DDR5 (9640)
+▸ 항목: 포트 / MacBook Pro M4 (14인치 기준): Thunderbolt 4 ×3, HDMI, SDXC, 3.5mm / Dell XPS 16: USB-C 중심 (Thunderbolt 4 포함)
+▸ 항목: 무게 / MacBook Pro M4 (14인치 기준): 약 3.4파운드(약 1.54kg) / Dell XPS 16: 16인치급이라 더 무거움
+▸ 항목: 배터리 / MacBook Pro M4 (14인치 기준): 100Wh (16인치), 애플 공식 영상 재생 최대 24시간 / Dell XPS 16: 9640: 99.5Wh / 신형: 70Wh
+▸ 항목: 충전 / MacBook Pro M4 (14인치 기준): 최대 140W, 완충 약 1시간 25분 (16인치, NanoReview) / Dell XPS 16: 130W, 완충 약 2시간 20분 (9640, NanoReview)
+▸ 항목: OS / MacBook Pro M4 (14인치 기준): macOS / Dell XPS 16: Windows
 
 👉 전체 비교 리뷰 보기
 https://nexareco.com/ko/blog/macbook-pro-m4-vs-dell-xps-16
