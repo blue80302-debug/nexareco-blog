@@ -29,6 +29,8 @@ const categories: { key: Category; icon: string; color: string; nameKey: string;
   { key: "ai-tools", icon: "AI", color: "bg-purple-100 text-purple-600", nameKey: "categoryAiTools", descKey: "aiToolsDesc", href: "/blog?category=ai-tools" },
   { key: "tech-gadgets", icon: "TG", color: "bg-blue-100 text-blue-600", nameKey: "categoryTechGadgets", descKey: "techGadgetsDesc", href: "/blog?category=tech-gadgets" },
   { key: "software-services", icon: "SW", color: "bg-green-100 text-green-600", nameKey: "categorySoftware", descKey: "softwareDesc", href: "/blog?category=software-services" },
+  { key: "home-appliances", icon: "HA", color: "bg-orange-100 text-orange-600", nameKey: "categoryHomeAppliances", descKey: "homeAppliancesDesc", href: "/blog?category=home-appliances" },
+  { key: "health-beauty", icon: "HB", color: "bg-pink-100 text-pink-600", nameKey: "categoryHealthBeauty", descKey: "healthBeautyDesc", href: "/blog?category=health-beauty" },
 ];
 
 export default async function Home({ params }: Props) {

@@ -4,7 +4,7 @@ import matter from "gray-matter";
 import readingTime from "reading-time";
 
 export type Locale = "ko" | "en" | "ja" | "es";
-export type Category = "ai-tools" | "tech-gadgets" | "software-services";
+export type Category = "ai-tools" | "tech-gadgets" | "software-services" | "home-appliances" | "health-beauty";
 export type ContentFormat = "comparison" | "top-list" | "buying-guide";
 
 export interface PostMeta {

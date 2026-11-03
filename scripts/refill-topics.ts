@@ -14,26 +14,67 @@ interface TopicEntry {
   status: string;
 }
 
+const SEASONAL_SEEDS: Record<string, { ko: string[]; en: string[] }> = {
+  winter: {
+    ko: ["히터 추천", "가습기 비교", "전기장판 추천", "온풍기 비교", "겨울 패딩 추천"],
+    en: ["best space heater", "humidifier comparison", "best heated blanket", "winter jacket vs"],
+  },
+  spring: {
+    ko: ["공기청정기 추천", "미세먼지 마스크 비교", "제습기 추천", "알레르기 공기청정기"],
+    en: ["best air purifier", "dehumidifier comparison", "best allergy air purifier"],
+  },
+  summer: {
+    ko: ["에어컨 추천", "선풍기 비교", "제습기 추천", "휴대용 선풍기 추천", "서큘레이터 비교"],
+    en: ["best portable AC", "fan comparison", "best dehumidifier", "portable fan vs"],
+  },
+  fall: {
+    ko: ["건조기 추천", "의류관리기 비교", "가습기 추천", "전기히터 비교"],
+    en: ["best dryer", "clothes steamer comparison", "best humidifier", "space heater vs"],
+  },
+};
+
+function getCurrentSeason(): string {
+  const month = new Date().getMonth() + 1;
+  if (month >= 3 && month <= 5) return "spring";
+  if (month >= 6 && month <= 8) return "summer";
+  if (month >= 9 && month <= 11) return "fall";
+  return "winter";
+}
+
 const CATEGORIES = [
   {
     id: "ai-tools",
     seeds: {
-      ko: ["AI 도구 추천", "AI 비교", "AI 서비스", "챗봇 비교", "코딩 AI", "AI 이미지 생성"],
-      en: ["best AI tools", "AI comparison", "AI assistant vs", "AI code editor", "AI image generator"],
+      ko: ["AI 도구 추천", "AI 비교", "AI 서비스", "챗봇 비교", "코딩 AI", "AI 이미지 생성", "AI 번역기 비교", "AI 요약 도구"],
+      en: ["best AI tools", "AI comparison", "AI assistant vs", "AI code editor", "AI image generator", "AI writing tool vs", "AI translator comparison"],
     },
   },
   {
     id: "tech-gadgets",
     seeds: {
-      ko: ["이어폰 추천", "노트북 비교", "태블릿 추천", "스마트워치 비교", "키보드 추천", "모니터 추천", "로봇청소기 비교"],
-      en: ["best earbuds", "laptop comparison", "tablet vs", "smartwatch comparison", "best keyboard", "best monitor"],
+      ko: ["이어폰 추천", "노트북 비교", "태블릿 추천", "스마트워치 비교", "키보드 추천", "모니터 추천", "로봇청소기 비교", "마우스 추천", "웹캠 비교", "외장SSD 추천", "충전기 추천"],
+      en: ["best earbuds", "laptop comparison", "tablet vs", "smartwatch comparison", "best keyboard", "best monitor", "best mouse", "best webcam", "best portable SSD", "best charger"],
     },
   },
   {
     id: "software-services",
     seeds: {
-      ko: ["앱 비교", "클라우드 추천", "VPN 비교", "생산성 앱 추천", "디자인 툴 비교", "스트리밍 비교"],
-      en: ["best app", "cloud storage comparison", "productivity tool vs", "design tool comparison", "streaming service vs"],
+      ko: ["앱 비교", "클라우드 추천", "VPN 비교", "생산성 앱 추천", "디자인 툴 비교", "스트리밍 비교", "영어학습 앱 추천", "가계부 앱 비교", "화상회의 비교", "메모 앱 추천"],
+      en: ["best app", "cloud storage comparison", "productivity tool vs", "design tool comparison", "streaming service vs", "language learning app vs", "video conferencing comparison", "note taking app vs", "project management tool vs"],
+    },
+  },
+  {
+    id: "home-appliances",
+    seeds: {
+      ko: ["공기청정기 추천", "세탁기 비교", "건조기 추천", "식기세척기 비교", "의류관리기 추천", "가습기 비교", "커피머신 추천", "전자레인지 비교", "음식물처리기 추천"],
+      en: ["best air purifier", "washing machine comparison", "best dryer", "dishwasher vs", "best coffee machine", "best microwave", "air fryer comparison", "best vacuum cleaner"],
+    },
+  },
+  {
+    id: "health-beauty",
+    seeds: {
+      ko: ["안마의자 추천", "전동칫솔 비교", "헤어드라이어 추천", "체중계 비교", "눈 마사지기 추천", "정수기 비교"],
+      en: ["best electric toothbrush", "hair dryer comparison", "best massage gun", "smart scale vs", "best water purifier", "best fitness tracker"],
     },
   },
 ];
@@ -133,6 +174,28 @@ async function collectKeywords(): Promise<Array<{ keyword: string; score: number
 
       await sleep(200);
     }
+  }
+
+  const season = getCurrentSeason();
+  const seasonSeeds = SEASONAL_SEEDS[season];
+  const seasonalAll = [...seasonSeeds.ko, ...seasonSeeds.en];
+  for (const seed of seasonalAll) {
+    const [googleResults, naverResults] = await Promise.all([
+      fetchGoogleSuggest(seed),
+      fetchNaverSuggest(seed),
+    ]);
+    for (const kw of [...googleResults, ...naverResults]) {
+      const normalized = kw.toLowerCase().trim();
+      if (seen.has(normalized)) continue;
+      if (!hasPurchaseIntent(kw)) continue;
+      seen.add(normalized);
+      results.push({
+        keyword: kw,
+        score: scoreKeyword(kw) + 2,
+        category: "home-appliances",
+      });
+    }
+    await sleep(200);
   }
 
   return results.sort((a, b) => b.score - a.score);

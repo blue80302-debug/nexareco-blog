@@ -12,6 +12,8 @@
     "aiTools": "AI Tools",
     "techGadgets": "Tech & Gadgets",
     "software": "Software",
+    "homeAppliances": "Home Appliances",
+    "healthBeauty": "Health & Beauty",
     "about": "About",
     "contact": "Contact"
   },
@@ -28,6 +30,8 @@
     "categoryAiTools": "AI Tools",
     "categoryTechGadgets": "Tech & Gadgets",
     "categorySoftware": "Software",
+    "categoryHomeAppliances": "Home Appliances",
+    "categoryHealthBeauty": "Health & Beauty",
     "readTime": "{minutes} min read",
     "relatedPosts": "Related Posts",
     "checkPrice": "Check Price",
@@ -42,6 +46,8 @@
     "aiToolsDesc": "Compare AI tools like ChatGPT, Gemini and more",
     "techGadgetsDesc": "Smartwatches, earbuds, smartphones compared",
     "softwareDesc": "OTT, cloud storage, productivity apps compared",
+    "homeAppliancesDesc": "Air purifiers, washers, coffee machines and more",
+    "healthBeautyDesc": "Electric toothbrushes, massage chairs, water purifiers",
     "metaTitle": "NEXARECO - Your next purchase, compared here",
     "metaDescription": "Honest comparison reviews of AI tools, tech gadgets, and software services"
   },

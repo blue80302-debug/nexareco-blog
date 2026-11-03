@@ -12,6 +12,8 @@
     "aiTools": "AIツール",
     "techGadgets": "テック＆ガジェット",
     "software": "ソフトウェア",
+    "homeAppliances": "生活家電",
+    "healthBeauty": "健康・ビューティー",
     "about": "紹介",
     "contact": "お問い合わせ"
   },
@@ -28,6 +30,8 @@
     "categoryAiTools": "AIツール",
     "categoryTechGadgets": "テック＆ガジェット",
     "categorySoftware": "ソフトウェア",
+    "categoryHomeAppliances": "生活家電",
+    "categoryHealthBeauty": "健康・ビューティー",
     "readTime": "{minutes}分で読める",
     "relatedPosts": "関連記事",
     "checkPrice": "最安値を確認",
@@ -42,6 +46,8 @@
     "aiToolsDesc": "ChatGPT、Geminiなど AIツール比較レビュー",
     "techGadgetsDesc": "スマートウォッチ、イヤホン、スマホ比較",
     "softwareDesc": "OTT、クラウド、生産性アプリ比較",
+    "homeAppliancesDesc": "空気清浄機、洗濯機、コーヒーメーカーなど生活家電比較",
+    "healthBeautyDesc": "電動歯ブラシ、マッサージチェア、浄水器など健康家電比較",
     "metaTitle": "NEXARECO - 次に買う製品、ここで比較",
     "metaDescription": "AIツール、テックガジェット、ソフトウェアサービスの正直な比較レビューサイト"
   },

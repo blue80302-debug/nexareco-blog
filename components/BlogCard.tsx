@@ -6,12 +6,16 @@ const categoryColors: Record<string, string> = {
   "ai-tools": "bg-purple-100 text-purple-700",
   "tech-gadgets": "bg-blue-100 text-blue-700",
   "software-services": "bg-green-100 text-green-700",
+  "home-appliances": "bg-orange-100 text-orange-700",
+  "health-beauty": "bg-pink-100 text-pink-700",
 };
 
 const categoryKeys: Record<string, string> = {
   "ai-tools": "categoryAiTools",
   "tech-gadgets": "categoryTechGadgets",
   "software-services": "categorySoftware",
+  "home-appliances": "categoryHomeAppliances",
+  "health-beauty": "categoryHealthBeauty",
 };
 
 const postIcons: Record<string, string> = {

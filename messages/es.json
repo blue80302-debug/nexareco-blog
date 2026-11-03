@@ -12,6 +12,8 @@
     "aiTools": "Herramientas IA",
     "techGadgets": "Tech y Gadgets",
     "software": "Software",
+    "homeAppliances": "Electrodomésticos",
+    "healthBeauty": "Salud y Belleza",
     "about": "Acerca de",
     "contact": "Contacto"
   },
@@ -28,6 +30,8 @@
     "categoryAiTools": "Herramientas IA",
     "categoryTechGadgets": "Tech y Gadgets",
     "categorySoftware": "Software",
+    "categoryHomeAppliances": "Electrodomésticos",
+    "categoryHealthBeauty": "Salud y Belleza",
     "readTime": "{minutes} min de lectura",
     "relatedPosts": "Artículos relacionados",
     "checkPrice": "Ver precio",
@@ -42,6 +46,8 @@
     "aiToolsDesc": "Compara herramientas IA como ChatGPT, Gemini y más",
     "techGadgetsDesc": "Smartwatches, auriculares, smartphones comparados",
     "softwareDesc": "OTT, almacenamiento en la nube, apps de productividad",
+    "homeAppliancesDesc": "Purificadores, lavadoras, cafeteras y más",
+    "healthBeautyDesc": "Cepillos eléctricos, sillas de masaje, purificadores de agua",
     "metaTitle": "NEXARECO - Tu próxima compra, comparada aquí",
     "metaDescription": "Reseñas comparativas honestas de herramientas IA, gadgets y servicios de software"
   },

@@ -9,6 +9,8 @@ const categories = [
   { key: "ai-tools", translationKey: "categoryAiTools" },
   { key: "tech-gadgets", translationKey: "categoryTechGadgets" },
   { key: "software-services", translationKey: "categorySoftware" },
+  { key: "home-appliances", translationKey: "categoryHomeAppliances" },
+  { key: "health-beauty", translationKey: "categoryHealthBeauty" },
 ] as const;
 
 export default function CategoryFilter() {

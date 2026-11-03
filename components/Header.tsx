@@ -9,6 +9,8 @@ const categories = [
   { key: "aiTools" as const, category: "ai-tools" },
   { key: "techGadgets" as const, category: "tech-gadgets" },
   { key: "software" as const, category: "software-services" },
+  { key: "homeAppliances" as const, category: "home-appliances" },
+  { key: "healthBeauty" as const, category: "health-beauty" },
 ];
 
 export default function Header() {
