@@ -77,6 +77,48 @@ const CATEGORIES = [
       en: ["best electric toothbrush", "hair dryer comparison", "best massage gun", "smart scale vs", "best water purifier", "best fitness tracker"],
     },
   },
+  {
+    id: "gaming",
+    seeds: {
+      ko: ["게이밍 노트북 추천", "게이밍 모니터 비교", "게이밍 의자 추천", "게이밍 키보드 비교", "게이밍 마우스 추천", "PS5 vs 닌텐도 스위치", "게이밍 헤드셋 추천"],
+      en: ["best gaming laptop", "gaming monitor comparison", "gaming chair vs", "best gaming mouse", "PS5 vs Xbox", "best gaming headset", "gaming keyboard comparison"],
+    },
+  },
+  {
+    id: "automotive",
+    seeds: {
+      ko: ["블랙박스 추천", "차량용 공기청정기 비교", "전기차 비교", "네비게이션 추천", "차량용 충전기 추천", "하이패스 단말기 비교", "차량용 방향제 추천"],
+      en: ["best dash cam", "car air purifier comparison", "EV comparison", "best car charger", "car vacuum vs", "best car phone mount"],
+    },
+  },
+  {
+    id: "camera",
+    seeds: {
+      ko: ["미러리스 카메라 추천", "브이로그 카메라 비교", "액션캠 추천", "입문용 카메라 비교", "카메라 렌즈 추천", "짐벌 비교"],
+      en: ["best mirrorless camera", "vlog camera comparison", "action camera vs", "best camera for beginners", "best gimbal", "camera lens comparison"],
+    },
+  },
+  {
+    id: "baby-kids",
+    seeds: {
+      ko: ["유모차 추천", "카시트 비교", "분유제조기 추천", "아기 모니터 비교", "공부 책상 추천", "코딩 교구 비교", "아기띠 추천"],
+      en: ["best stroller", "car seat comparison", "baby monitor vs", "best high chair", "kids tablet comparison", "best baby carrier"],
+    },
+  },
+  {
+    id: "pet",
+    seeds: {
+      ko: ["자동급식기 추천", "펫캠 비교", "강아지 정수기 추천", "고양이 자동화장실 비교", "반려동물 공기청정기 추천", "강아지 유모차 비교"],
+      en: ["best automatic pet feeder", "pet camera comparison", "best cat litter robot", "dog water fountain vs", "best pet air purifier"],
+    },
+  },
+  {
+    id: "fitness",
+    seeds: {
+      ko: ["런닝머신 추천", "홈트 기구 비교", "마사지건 추천", "스마트워치 운동 비교", "요가매트 추천", "홈짐 비교", "실내자전거 추천"],
+      en: ["best treadmill", "home gym equipment comparison", "massage gun vs", "best fitness tracker", "exercise bike comparison", "best yoga mat"],
+    },
+  },
 ];
 
 async function fetchGoogleSuggest(query: string): Promise<string[]> {

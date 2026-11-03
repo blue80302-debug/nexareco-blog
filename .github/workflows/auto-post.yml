@@ -2,7 +2,13 @@ name: Auto Generate Post
 on:
   schedule:
     - cron: "0 0 * * *"
+    - cron: "0 3 * * 0"
   workflow_dispatch:
+    inputs:
+      multi_lang:
+        description: "Generate all languages (ko/en/ja/es)"
+        type: boolean
+        default: false
 
 jobs:
   refill-and-generate:
@@ -25,6 +31,7 @@ jobs:
         run: npm run generate
         env:
           CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
+          MULTI_LANG: ${{ github.event.schedule == '0 3 * * 0' || inputs.multi_lang == 'true' }}
 
       - name: Commit and push
         run: |

@@ -4,8 +4,11 @@ import * as path from "node:path";
 const ANTHROPIC_URL = "https://api.anthropic.com/v1/messages";
 const MODEL = "claude-sonnet-5-5";
 
-const LOCALES = ["ko"] as const;
-type Locale = (typeof LOCALES)[number];
+const ALL_LOCALES = ["ko", "en", "ja", "es"] as const;
+type Locale = (typeof ALL_LOCALES)[number];
+
+const isMultiLang = process.env.MULTI_LANG === "true";
+const LOCALES = isMultiLang ? ALL_LOCALES : (["ko"] as const);
 
 interface TopicEntry {
   slug: string;
