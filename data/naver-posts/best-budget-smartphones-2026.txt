@@ -1,0 +1,25 @@
+2026년 가성비 스마트폰 추천 TOP 5
+
+30만원대 가성비 스마트폰 5종의 성능, 카메라, 배터리를 비교했습니다. Galaxy A56, Pixel 9a, Nothing Phone 3a, Redmi Note 15 Pro, Motorola Edge 50 Neo.
+
+📌 이 글에서 다루는 내용
+• 30만원대로 이 정도 스펙이?
+• 한눈에 보는 비교표
+• 1위: Galaxy A56 — 가성비의 정석
+• 2위: Pixel 9a — AI와 카메라의 조합
+
+📊 핵심 비교표
+| 항목 | Galaxy A56 | Pixel 9a | Nothing Phone 3a | Redmi Note 15 Pro | Moto Edge 50 Neo |
+|------|-----------|----------|-------------------|-------------------|------------------|
+| 가격 | ~$349 (약 46만원) | ~$449 (약 59만원) | ~$349 (약 46만원) | ~$279 (약 37만원) | ~$399 (약 53만원) |
+| 디스플레이 | 6.6" AMOLED 120Hz | 6.1" OLED 120Hz | 6.7" AMOLED 120Hz | 6.67" AMOLED 120Hz | 6.4" pOLED 120Hz |
+| 프로세서 | Exynos 1580 | Tensor G4 | SD 7s Gen 3 | Dimensity 7300 | Dimensity 7300 |
+| 메인 카메라 | 50MP OIS | 48MP | 50MP | 200MP | 50MP OIS |
+| 배터리 | 5000mAh | 4500mAh | 5000mAh | 5500mAh | 4310mAh |
+| OS | One UI 7 | 순정 Android (7년 업데이트) | Nothing OS | MIUI/HyperOS | 거의 순정 Android |
+
+👉 전체 비교 리뷰 보기
+https://nexareco.com/ko/blog/best-budget-smartphones-2026
+
+---
+태그: 가젯추천, IT기기비교, 테크리뷰, GalaxyA56, Pixel9a, NothingPhone3a, RedmiNote15Pro, MotorolaEdge50Neo, 2026년가성비스마트폰추천T

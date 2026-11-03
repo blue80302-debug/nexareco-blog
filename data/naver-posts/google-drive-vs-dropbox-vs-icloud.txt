@@ -1,0 +1,27 @@
+구글 드라이브 vs Dropbox vs iCloud 비교 2026: 클라우드 추천
+
+구글 드라이브, Dropbox, iCloud의 용량, 가격, 동기화 속도를 비교합니다. 용도별 클라우드 스토리지 추천을 정리했습니다.
+
+📌 이 글에서 다루는 내용
+• 클라우드 스토리지, 어디에 맡길까
+• 요금제 비교
+• 파일 동기화 성능
+• 협업 기능
+
+📊 핵심 비교표
+| 항목 | Google Drive | Dropbox | iCloud |
+|------|-------------|---------|--------|
+| 무료 용량 | 15GB | 2GB | 5GB |
+| 100~200GB | 월 2,400원 (100GB) | 없음 | 월 1,100원 (50GB) |
+| 2TB | 월 11,900원 | 월 $11.99 (~16,000원) | 월 11,900원 |
+| 가족 공유 | 최대 6명 | Dropbox Family 6명 | 최대 6명 |
+| 비즈니스 플랜 | Google Workspace | Dropbox Business | Apple Business |
+
+💡 결론
+**안드로이드 + Windows 사용자:** Google Drive 일택입니다. 무료 15GB에 협업까지, 가장 범용적입니다.
+
+👉 전체 비교 리뷰 보기
+https://nexareco.com/ko/blog/google-drive-vs-dropbox-vs-icloud
+
+---
+태그: 앱추천, 소프트웨어비교, 서비스리뷰, GoogleDrive, Dropbox, iCloud, 구글드라이브vsDropbox

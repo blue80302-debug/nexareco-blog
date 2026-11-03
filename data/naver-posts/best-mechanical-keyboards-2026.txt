@@ -1,0 +1,28 @@
+2026 무선 기계식 키보드 3종 비교: Keychron Q1 Max vs Logitech MX Mechanical vs Razer BlackWidow V5 Pro
+
+Keychron Q1 Max, Logitech MX Mechanical, Razer BlackWidow V5 Pro를 가격, 스펙, 해외 리뷰 기준으로 순위를 매겼습니다. 타자감, 사무용, 게이밍 중 무엇이 우선인지에 따라 어떤 키보드를 사야 하는지 정리했습니다.
+
+📌 이 글에서 다루는 내용
+• 먼저 결론부터
+• 한눈에 보는 비교표
+• 1위. Keychron Q1 Max – 돈값은 타자감으로 돌려받는 키보드
+• 2위. Logitech MX Mechanical – 사무실용으로는 최고, 가격표만 문제
+
+📊 핵심 비교표
+| 항목 | Keychron Q1 Max | Logitech MX Mechanical | Razer BlackWidow V5 Pro |
+|---|---|---|---|
+| 배열 | 75% (넘패드 없음) | 풀사이즈 / Mini(텐키리스) | 확인된 정보 부족 |
+| 스위치 | Gateron Jupiter (Banana/Brown/Red) | Kailh 로우프로파일 (Brown 택타일 / Blue 클릭 / Red 리니어) | 확인된 정보 부족 (V4 Pro는 Razer 택타일 스위치) |
+| 핫스왑 | 지원 | 미지원 | 확인된 정보 부족 |
+| 연결 | 2.4GHz, 블루투스 5.1, USB-C 유선 | 블루투스, Logi Bolt | 확인된 정보 부족 |
+| 폴링레이트 | 1,000Hz (2.4GHz/유선), 90Hz (블루투스) | 공식 수치 미확인 | 확인된 정보 부족 |
+| 배터리 | 4,000mAh, 백라이트 끔 최대 180시간 / 최저 RGB 최대 100시간 | 1,500mAh, 백라이트 켬 약 15일 / 끔 최대 10개월 | 확인된 정보 부족 |
+| 소재/무게 | 알루미늄, 약 1,724g | 로우프로파일 (Laptop Mag는 틸트 조절 지원 언급) | 확인된 정보 부족 |
+| 소프트웨어 | QMK/VIA | 로지텍 전용 소프트웨어 | Razer 전용 소프트웨어 |
+| 가격(USD) | 배어본 $189~, 조립 완제품 약 $229.99 | 정가 $169 (Mini $149), 할인가 $107~120대 | 출시 2026년 4월 1일, 확정 가격 확인 못 함 |
+
+👉 전체 비교 리뷰 보기
+https://nexareco.com/ko/blog/best-mechanical-keyboards-2026
+
+---
+태그: 가젯추천, IT기기비교, 테크리뷰, KeychronQ1Max, LogitechMXMechanical, RazerBlackWidowV5Pro, 2026무선기계식키보드3종비

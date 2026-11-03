@@ -1,0 +1,27 @@
+GitHub Copilot vs Cursor 비교 2026: AI 코딩 도구 추천
+
+GitHub Copilot과 Cursor의 기능, 가격, 코드 완성 품질을 비교합니다. 용도에 따라 어떤 도구가 맞는지 추천합니다.
+
+📌 이 글에서 다루는 내용
+• 솔직히 말하면, 둘 다 좋습니다
+• 가격부터 비교하자
+• 코드 완성 품질
+• 채팅 및 에이전트 기능
+
+📊 핵심 비교표
+| 항목 | GitHub Copilot | Cursor |
+|------|---------------|--------|
+| 무료 플랜 | 월 2,000회 코드 완성 제한 | 월 2,000회 완성 + 50회 프리미엄 요청 |
+| 개인 유료 | $10/월 (Individual) | $20/월 (Pro) |
+| 비즈니스 | $19/월/인 (Business) | $40/월/인 (Business) |
+| 학생/OSS | 무료 | 별도 할인 없음 |
+| 모델 선택 | GPT-4o, Claude 등 선택 가능 | GPT-4o, Claude, 자체 모델 등 |
+
+💡 결론
+**Copilot을 추천하는 경우:**
+
+👉 전체 비교 리뷰 보기
+https://nexareco.com/ko/blog/github-copilot-vs-cursor
+
+---
+태그: AI추천, AI비교, AI도구, GitHubCopilot, Cursor, GitHubCopilotvs
