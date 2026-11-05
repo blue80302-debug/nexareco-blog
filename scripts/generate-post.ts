@@ -82,6 +82,58 @@ products: ${productsJson}
 본문만 출력하세요. 설명이나 메타 코멘트는 포함하지 마세요.`;
 }
 
+function sanitizeContent(raw: string, topic: TopicEntry, date: string): string {
+  let text = raw.trim();
+
+  // Strip markdown code fences wrapping the entire output
+  if (text.startsWith("```")) {
+    text = text.replace(/^```[a-z]*\n?/, "").replace(/\n?```$/, "").trim();
+  }
+
+  // If frontmatter is properly formatted, just ensure no leading junk before ---
+  const fmMatch = text.match(/^([\s\S]*?)(---\s*\n[\s\S]*?\n---)([\s\S]*)$/);
+  if (fmMatch) {
+    const body = fmMatch[3].trim();
+    // Re-extract frontmatter to validate required fields
+    const fm = fmMatch[2];
+    if (fm.includes("title:") && body.length > 100) {
+      // Strip any text before the frontmatter
+      return `${fm}\n\n${body}`;
+    }
+  }
+
+  // Frontmatter missing or malformed — rebuild from topic metadata
+  // Remove any inline frontmatter-like text (title: "...", excerpt: "..." etc.)
+  let body = text
+    .replace(/^title:\s*"[^"]*"\s*/m, "")
+    .replace(/^excerpt:\s*"[^"]*"\s*/m, "")
+    .replace(/^category:\s*"[^"]*"\s*/m, "")
+    .replace(/^format:\s*"[^"]*"\s*/m, "")
+    .replace(/^date:\s*"[^"]*"\s*/m, "")
+    .replace(/^coverImage:\s*"[^"]*"\s*/m, "")
+    .replace(/^products:\s*\[.*?\]\s*/m, "")
+    .trim();
+
+  // Extract title from first heading if available
+  const headingMatch = body.match(/^#\s+(.+)$/m);
+  const title = headingMatch ? headingMatch[1].trim() : topic.products.join(" vs ");
+
+  // Build clean frontmatter
+  const frontmatter = [
+    "---",
+    `title: "${title}"`,
+    `excerpt: ""`,
+    `category: "${topic.category}"`,
+    `format: "${topic.format}"`,
+    `date: "${date}"`,
+    `coverImage: "/images/posts/${topic.slug}.jpg"`,
+    `products: ${JSON.stringify(topic.products)}`,
+    "---",
+  ].join("\n");
+
+  return `${frontmatter}\n\n${body}`;
+}
+
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -176,7 +228,8 @@ async function main(): Promise<void> {
     console.log(`  [${locale}] 생성 중...`);
 
     const prompt = buildPrompt(topic, locale, date);
-    const content = await generateContent(prompt);
+    const raw = await generateContent(prompt);
+    const content = sanitizeContent(raw, topic, date);
 
     const outputDir = path.join(projectRoot, "content", locale, "blog");
     fs.mkdirSync(outputDir, { recursive: true });
