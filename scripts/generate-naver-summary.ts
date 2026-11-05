@@ -4,6 +4,12 @@ import * as path from "node:path";
 const BLOG_DIR = path.resolve(import.meta.dirname ?? __dirname, "..", "content", "ko", "blog");
 const OUTPUT_DIR = path.resolve(import.meta.dirname ?? __dirname, "..", "data", "naver-posts");
 const SITE_URL = "https://nexareco.com";
+const COUPANG_AF_CODE = "AF1651276";
+
+function getCoupangLink(productName: string): string {
+  const query = encodeURIComponent(productName);
+  return `https://link.coupang.com/a/${COUPANG_AF_CODE}?lptag=AF${COUPANG_AF_CODE}&pageKey=0&traceid=V0-153&itemId=0&vendorItemId=0&q=${query}`;
+}
 
 interface Frontmatter {
   title: string;
@@ -94,12 +100,35 @@ function extractKeyPoints(body: string): string[] {
 }
 
 function extractConclusion(body: string): string | null {
-  const conclusionMatch = body.match(/(?:##\s*(?:결론|마무리|마치며|최종 추천)[\s\S]*?\n\n)([\s\S]*?)(?:\n##|\n*$)/);
+  const conclusionMatch = body.match(/(?:##\s*(?:결론|마무리|마치며|최종 추천|어떤 사람|누구에게|추천 정리)[\s\S]*?\n\n)([\s\S]*?)(?:\n##|\n*$)/);
   if (conclusionMatch) {
-    const text = conclusionMatch[1].trim().split("\n")[0];
-    if (text.length > 20 && text.length < 200) return text;
+    const text = conclusionMatch[1].trim();
+    if (text.length > 20) return text;
   }
   return null;
+}
+
+function extractSectionSummaries(body: string): string[] {
+  const sections: string[] = [];
+  const parts = body.split(/^##\s+/m).slice(1);
+
+  for (const part of parts) {
+    const lines = part.split("\n");
+    const heading = lines[0].trim();
+
+    if (["들어가며", "마무리", "결론", "마치며", "FAQ", "한눈에 보는", "스펙 비교"].some(skip => heading.includes(skip))) continue;
+
+    const paragraphs = lines.slice(1).join("\n").split("\n\n")
+      .map(p => p.trim())
+      .filter(p => p.length > 30 && !p.startsWith("|") && !p.startsWith("-"));
+
+    if (paragraphs.length > 0) {
+      const summary = paragraphs.slice(0, 2).join("\n\n");
+      sections.push(`▶ ${heading}\n${summary}`);
+    }
+  }
+
+  return sections.slice(0, 5);
 }
 
 const CATEGORY_TAGS: Record<string, string[]> = {
@@ -117,10 +146,11 @@ const CATEGORY_TAGS: Record<string, string[]> = {
 };
 
 function generateNaverPost(slug: string, frontmatter: Frontmatter, body: string): string {
-  const { title, excerpt, category, products, date } = frontmatter;
+  const { title, excerpt, category, products } = frontmatter;
   const table = extractFirstTable(body);
   const keyPoints = extractKeyPoints(body);
   const conclusion = extractConclusion(body);
+  const sectionSummaries = extractSectionSummaries(body);
   const link = `${SITE_URL}/ko/blog/${slug}`;
   const tags = CATEGORY_TAGS[category] || ["IT추천", "제품비교"];
   const productTags = products.map((p) => p.replace(/\s+/g, ""));
@@ -140,13 +170,19 @@ function generateNaverPost(slug: string, frontmatter: Frontmatter, body: string)
     post += `[핵심 비교표]\n${table}\n\n`;
   }
 
+  if (sectionSummaries.length > 0) {
+    for (const section of sectionSummaries) {
+      post += `${section}\n\n`;
+    }
+  }
+
   if (conclusion) {
     post += `[결론]\n${conclusion}\n\n`;
   }
 
-  post += `[전체 비교 리뷰 보기]\n${link}\n\n`;
+  post += `더 자세한 비교가 궁금하다면?\n${link}\n\n`;
   post += `---\n`;
-  post += `태그: ${[...tags, ...productTags, title.replace(/[^가-힣a-zA-Z0-9]/g, "").slice(0, 15)].join(", ")}\n`;
+  post += `네이버 태그: ${[...tags, ...productTags].join(", ")}\n`;
 
   return post;
 }
