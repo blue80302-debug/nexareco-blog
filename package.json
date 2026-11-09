@@ -9,7 +9,8 @@
     "lint": "eslint",
     "generate": "tsx scripts/generate-post.ts",
     "refill": "tsx scripts/refill-topics.ts",
-    "validate-seo": "tsx scripts/validate-seo.ts"
+    "validate-seo": "tsx scripts/validate-seo.ts",
+    "regenerate": "tsx scripts/regenerate-post.ts"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",

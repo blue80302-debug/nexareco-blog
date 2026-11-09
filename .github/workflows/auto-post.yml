@@ -26,16 +26,21 @@ jobs:
         env:
           CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
 
-      - name: Generate post from queue
+      - name: Generate new post
         run: npm run generate
         env:
           CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
           MULTI_LANG: ${{ inputs.multi_lang == 'true' }}
 
+      - name: Regenerate oldest low-quality post
+        run: npm run regenerate
+        env:
+          CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
+
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add content/ data/
-          git diff --staged --quiet || git commit -m "Auto-generate new blog post"
+          git add content/ data/ public/images/
+          git diff --staged --quiet || git commit -m "Auto-generate new post + regenerate old post"
           git push
