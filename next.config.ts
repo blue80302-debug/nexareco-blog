@@ -22,6 +22,16 @@ const nextConfig: NextConfig = {
         destination: "/blog",
         permanent: true,
       },
+      {
+        source: "/blog/:slug*",
+        destination: "/ko/blog/:slug*",
+        permanent: true,
+      },
+      {
+        source: "/imagine",
+        destination: "/",
+        permanent: true,
+      },
     ];
   },
 };

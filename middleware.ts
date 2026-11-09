@@ -5,6 +5,16 @@ import { routing } from "@/i18n/routing";
 const intlMiddleware = createMiddleware(routing);
 
 export default function middleware(request: NextRequest) {
+  const host = request.headers.get("host") || "";
+  if (
+    host === "nexareco.com" &&
+    process.env.NODE_ENV === "production"
+  ) {
+    const url = request.nextUrl.clone();
+    url.host = "www.nexareco.com";
+    return NextResponse.redirect(url, 301);
+  }
+
   const response = intlMiddleware(request);
 
   if (response.status === 307 && response.headers.get("location")) {
