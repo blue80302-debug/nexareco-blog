@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "generate": "tsx scripts/generate-post.ts",
-    "refill": "tsx scripts/refill-topics.ts"
+    "refill": "tsx scripts/refill-topics.ts",
+    "validate-seo": "tsx scripts/validate-seo.ts"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",

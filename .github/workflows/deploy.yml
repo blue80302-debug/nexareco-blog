@@ -14,6 +14,8 @@ jobs:
           node-version: "20"
       - run: npm ci
       - run: npm run build
+      - name: SEO validation
+        run: npm run validate-seo
 
       - name: Get runner IP
         id: ip
