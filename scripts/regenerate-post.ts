@@ -119,7 +119,8 @@ function parseFrontmatter(content: string): { fm: PostFrontmatter; body: string 
   const body = match[2];
 
   const get = (key: string): string => {
-    const m = fmRaw.match(new RegExp(`^${key}:\\s*"?([^"\\n]*)"?`, "m"));
+    const m = fmRaw.match(new RegExp(`^${key}:\\s*"([^"]*)"`, "m"))
+      || fmRaw.match(new RegExp(`^${key}:\\s*(.+)$`, "m"));
     return m ? m[1].trim() : "";
   };
 
