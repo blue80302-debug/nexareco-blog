@@ -107,7 +107,7 @@ export default async function BlogPostPage({ params }: Props) {
     .filter((p) => p.slug !== slug)
     .slice(0, 3);
 
-  const ogImageUrl = `https://nexareco.com/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(post.category)}`;
+  const ogImageUrl = `https://www.nexareco.com/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(post.category)}`;
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -117,7 +117,7 @@ export default async function BlogPostPage({ params }: Props) {
     author: { "@type": "Organization", name: "NEXARECO" },
     publisher: { "@type": "Organization", name: "NEXARECO" },
     image: ogImageUrl,
-    mainEntityOfPage: `https://nexareco.com/${locale}/blog/${slug}`,
+    mainEntityOfPage: `https://www.nexareco.com/${locale}/blog/${slug}`,
   };
 
   return (

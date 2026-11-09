@@ -1,4 +1,4 @@
-const BASE_URL = "https://nexareco.com";
+const BASE_URL = "https://www.nexareco.com";
 const LOCALES = ["ko", "en", "ja", "es"] as const;
 
 export function buildAlternates(locale: string, path: string) {

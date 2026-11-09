@@ -50,7 +50,7 @@ export default async function Home({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "NEXARECO",
-    url: `https://nexareco.com/${locale}`,
+    url: `https://www.nexareco.com/${locale}`,
   };
 
   return (

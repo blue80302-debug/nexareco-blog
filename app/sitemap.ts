@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { getPostSlugs, type Locale } from "@/lib/posts";
 
-const BASE_URL = "https://nexareco.com";
+const BASE_URL = "https://www.nexareco.com";
 
 const staticPages = [
   { path: "", changeFrequency: "daily" as const, priority: 1.0 },

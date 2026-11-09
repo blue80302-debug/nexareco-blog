@@ -3,7 +3,7 @@ import * as path from "node:path";
 
 const BLOG_DIR = path.resolve(import.meta.dirname ?? __dirname, "..", "content", "ko", "blog");
 const OUTPUT_DIR = path.resolve(import.meta.dirname ?? __dirname, "..", "data", "naver-posts");
-const SITE_URL = "https://nexareco.com";
+const SITE_URL = "https://www.nexareco.com";
 const COUPANG_AF_CODE = "AF1651276";
 
 function getCoupangLink(productName: string): string {
