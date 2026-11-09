@@ -109,7 +109,7 @@ export async function GET(request: NextRequest) {
             color: "rgba(255,255,255,0.5)",
           }}
         >
-          nexareco.com
+          www.nexareco.com
         </div>
       </div>
     ),

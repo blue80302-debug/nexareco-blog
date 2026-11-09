@@ -12,7 +12,6 @@ import BlogCard from "@/components/BlogCard";
 import ComparisonTable from "@/components/ComparisonTable";
 import ProductCard from "@/components/ProductCard";
 import AffiliateButton from "@/components/AffiliateButton";
-import AdSense from "@/components/AdSense";
 import CoupangBanner from "@/components/CoupangBanner";
 import { buildAlternates } from "@/lib/seo";
 
@@ -131,6 +130,16 @@ export default async function BlogPostPage({ params }: Props) {
       </p>
 
       <header className="mb-10">
+        <div className="mb-6 overflow-hidden rounded-xl">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(post.category)}`}
+            alt={post.title}
+            width={1200}
+            height={630}
+            className="w-full h-auto"
+          />
+        </div>
         <span
           className={`inline-block rounded-full px-3 py-1 text-xs font-medium ${categoryColors[post.category] ?? "bg-gray-100 text-gray-700"}`}
         >
@@ -146,8 +155,6 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
       </header>
 
-      <AdSense slot="placeholder" format="horizontal" />
-
       <div className="mdx-content">
         <MDXRemote source={post.content} components={mdxComponents} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
       </div>
@@ -156,7 +163,6 @@ export default async function BlogPostPage({ params }: Props) {
         <CoupangBanner products={post.products} locale={typedLocale} />
       )}
 
-      <AdSense slot="placeholder" format="rectangle" />
 
       {related.length > 0 && (
         <section className="mt-16 border-t border-gray-200 pt-10">

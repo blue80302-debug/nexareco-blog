@@ -18,6 +18,13 @@ interface TopicEntry {
   status: string;
 }
 
+interface ProductImage {
+  product: string;
+  url: string;
+  alt: string;
+  source: string;
+}
+
 const LOCALE_LABELS: Record<string, string> = {
   ko: "Korean",
   en: "English",
@@ -54,7 +61,7 @@ function buildPrompt(
 글 구조: ${structure}
 
 규칙:
-- 2,500자 이상
+- 4,000자 이상 (반드시 지켜야 함. 짧은 글은 검색엔진에서 저품질로 분류됨)
 - 독자에게 말을 거는 친근한 에디터 톤 (리서치 기반, 사실 중심)
 - 장단점 명확히
 - 확실한 결론 (이런 사람은 A, 저런 사람은 B)
@@ -82,28 +89,41 @@ products: ${productsJson}
 본문만 출력하세요. 설명이나 메타 코멘트는 포함하지 마세요.`;
 }
 
+function buildImageSearchPrompt(products: string[], category: string): string {
+  return `Find official product images for the following products. Search for press kit images, official product page images, or official screenshots.
+
+Products: ${products.join(", ")}
+Category: ${category}
+
+For each product, find 1 high-quality image URL that:
+- Comes from the official manufacturer/developer website or official press resources
+- Is a direct image URL (ends in .jpg, .jpeg, .png, .webp, or is a CDN image URL)
+- Shows the product clearly (UI screenshot for software, product photo for hardware)
+
+Return ONLY a JSON array, no other text:
+[
+  {"product": "Product Name", "url": "https://...", "alt": "Brief description", "source": "official site name"}
+]
+
+If you cannot find a direct image URL for a product, omit that product from the array. Only include URLs you are confident are direct image links.`;
+}
+
 function sanitizeContent(raw: string, topic: TopicEntry, date: string): string {
   let text = raw.trim();
 
-  // Strip markdown code fences wrapping the entire output
   if (text.startsWith("```")) {
     text = text.replace(/^```[a-z]*\n?/, "").replace(/\n?```$/, "").trim();
   }
 
-  // If frontmatter is properly formatted, just ensure no leading junk before ---
   const fmMatch = text.match(/^([\s\S]*?)(---\s*\n[\s\S]*?\n---)([\s\S]*)$/);
   if (fmMatch) {
     const body = fmMatch[3].trim();
-    // Re-extract frontmatter to validate required fields
     const fm = fmMatch[2];
     if (fm.includes("title:") && body.length > 100) {
-      // Strip any text before the frontmatter
       return `${fm}\n\n${body}`;
     }
   }
 
-  // Frontmatter missing or malformed — rebuild from topic metadata
-  // Remove any inline frontmatter-like text (title: "...", excerpt: "..." etc.)
   let body = text
     .replace(/^title:\s*"[^"]*"\s*/m, "")
     .replace(/^excerpt:\s*"[^"]*"\s*/m, "")
@@ -114,11 +134,9 @@ function sanitizeContent(raw: string, topic: TopicEntry, date: string): string {
     .replace(/^products:\s*\[.*?\]\s*/m, "")
     .trim();
 
-  // Extract title from first heading if available
   const headingMatch = body.match(/^#\s+(.+)$/m);
   const title = headingMatch ? headingMatch[1].trim() : topic.products.join(" vs ");
 
-  // Build clean frontmatter
   const frontmatter = [
     "---",
     `title: "${title}"`,
@@ -132,6 +150,47 @@ function sanitizeContent(raw: string, topic: TopicEntry, date: string): string {
   ].join("\n");
 
   return `${frontmatter}\n\n${body}`;
+}
+
+function insertImagesIntoContent(content: string, images: { localPath: string; alt: string; source: string }[]): string {
+  if (images.length === 0) return content;
+
+  const fmMatch = content.match(/^(---\s*\n[\s\S]*?\n---)\n\n([\s\S]*)$/);
+  if (!fmMatch) return content;
+
+  const frontmatter = fmMatch[1];
+  const body = fmMatch[2];
+
+  const headings = [...body.matchAll(/^## .+$/gm)];
+  if (headings.length < 2) {
+    const imgMarkdown = images
+      .map((img) => `![${img.alt}](${img.localPath})\n*${img.source}*`)
+      .join("\n\n");
+    return `${frontmatter}\n\n${imgMarkdown}\n\n${body}`;
+  }
+
+  let result = body;
+  let inserted = 0;
+  const positions: number[] = [];
+
+  for (let i = 1; i < headings.length && inserted < images.length; i += 2) {
+    const idx = headings[i].index;
+    if (idx !== undefined) {
+      positions.push(idx);
+      inserted++;
+    }
+  }
+
+  let offset = 0;
+  for (let i = 0; i < positions.length && i < images.length; i++) {
+    const img = images[i];
+    const imgBlock = `\n![${img.alt}](${img.localPath})\n*${img.source}*\n\n`;
+    const pos = positions[i] + offset;
+    result = result.slice(0, pos) + imgBlock + result.slice(pos);
+    offset += imgBlock.length;
+  }
+
+  return `${frontmatter}\n\n${result}`;
 }
 
 function sleep(ms: number): Promise<void> {
@@ -148,13 +207,15 @@ interface AnthropicResponse {
   stop_reason: string;
 }
 
-async function generateContent(prompt: string, maxRetries = 3): Promise<string> {
+async function callClaude(prompt: string, useWebSearch: boolean, maxRetries = 3): Promise<string> {
   const apiKey = process.env.CLAUDE_API_KEY;
   if (!apiKey) {
-    throw new Error(
-      "CLAUDE_API_KEY 환경변수가 설정되지 않았습니다."
-    );
+    throw new Error("CLAUDE_API_KEY 환경변수가 설정되지 않았습니다.");
   }
+
+  const tools = useWebSearch
+    ? [{ type: "web_search_20260209", name: "web_search", max_uses: 5 }]
+    : [];
 
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     const response = await fetch(ANTHROPIC_URL, {
@@ -167,25 +228,17 @@ async function generateContent(prompt: string, maxRetries = 3): Promise<string> 
       body: JSON.stringify({
         model: MODEL,
         max_tokens: 8192,
-        tools: [
-          {
-            type: "web_search_20260209",
-            name: "web_search",
-            max_uses: 5,
-          },
-        ],
+        ...(tools.length > 0 ? { tools } : {}),
         messages: [{ role: "user", content: prompt }],
       }),
     });
 
     if (response.ok) {
       const data = (await response.json()) as AnthropicResponse;
-
       const textBlocks = data.content.filter(
         (block) => block.type === "text" && block.text
       );
       const text = textBlocks.map((block) => block.text).join("\n");
-
       if (!text) {
         throw new Error("Claude API 응답에서 텍스트를 추출할 수 없습니다.");
       }
@@ -206,6 +259,105 @@ async function generateContent(prompt: string, maxRetries = 3): Promise<string> 
   throw new Error(`Claude API 재시도 ${maxRetries}회 초과`);
 }
 
+async function downloadImage(url: string, destPath: string): Promise<boolean> {
+  try {
+    const response = await fetch(url, {
+      headers: {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+        "Accept": "image/webp,image/apng,image/*,*/*;q=0.8",
+      },
+      signal: AbortSignal.timeout(15000),
+    });
+
+    if (!response.ok) {
+      console.log(`    이미지 다운로드 실패 (${response.status}): ${url}`);
+      return false;
+    }
+
+    const contentType = response.headers.get("content-type") || "";
+    if (!contentType.startsWith("image/")) {
+      console.log(`    이미지가 아닌 응답 (${contentType}): ${url}`);
+      return false;
+    }
+
+    const buffer = Buffer.from(await response.arrayBuffer());
+    if (buffer.length < 5000) {
+      console.log(`    이미지가 너무 작음 (${buffer.length}B): ${url}`);
+      return false;
+    }
+
+    const dir = path.dirname(destPath);
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(destPath, buffer);
+    console.log(`    이미지 저장 완료: ${destPath} (${Math.round(buffer.length / 1024)}KB)`);
+    return true;
+  } catch (err) {
+    console.log(`    이미지 다운로드 오류: ${err instanceof Error ? err.message : err}`);
+    return false;
+  }
+}
+
+function getExtFromUrl(url: string): string {
+  const match = url.match(/\.(jpg|jpeg|png|webp|gif)(\?|$)/i);
+  return match ? match[1].toLowerCase() : "jpg";
+}
+
+async function findAndDownloadImages(
+  topic: TopicEntry,
+  projectRoot: string
+): Promise<{ localPath: string; alt: string; source: string }[]> {
+  console.log("  이미지 검색 중...");
+
+  let raw: string;
+  try {
+    raw = await callClaude(
+      buildImageSearchPrompt(topic.products, topic.category),
+      true
+    );
+  } catch (err) {
+    console.log(`  이미지 검색 실패: ${err instanceof Error ? err.message : err}`);
+    return [];
+  }
+
+  let imageInfos: ProductImage[];
+  try {
+    const jsonMatch = raw.match(/\[[\s\S]*\]/);
+    if (!jsonMatch) {
+      console.log("  이미지 JSON 파싱 실패: JSON 배열 없음");
+      return [];
+    }
+    imageInfos = JSON.parse(jsonMatch[0]) as ProductImage[];
+  } catch {
+    console.log("  이미지 JSON 파싱 실패");
+    return [];
+  }
+
+  const results: { localPath: string; alt: string; source: string }[] = [];
+  const imgDir = path.join(projectRoot, "public", "images", "posts", topic.slug);
+
+  for (let i = 0; i < imageInfos.length; i++) {
+    const info = imageInfos[i];
+    if (!info.url || !info.url.startsWith("http")) continue;
+
+    const ext = getExtFromUrl(info.url);
+    const filename = `${i + 1}.${ext}`;
+    const destPath = path.join(imgDir, filename);
+    const localPath = `/images/posts/${topic.slug}/${filename}`;
+
+    const ok = await downloadImage(info.url, destPath);
+    if (ok) {
+      results.push({
+        localPath,
+        alt: info.alt || info.product,
+        source: `이미지 출처: ${info.source || "공식 사이트"}`,
+      });
+    }
+  }
+
+  console.log(`  이미지 ${results.length}/${imageInfos.length}개 다운로드 완료`);
+  return results;
+}
+
 async function main(): Promise<void> {
   const projectRoot = path.resolve(import.meta.dirname ?? __dirname, "..");
   const queuePath = path.join(projectRoot, "data", "topics-queue.json");
@@ -224,12 +376,18 @@ async function main(): Promise<void> {
 
   console.log(`주제 처리 중: ${topic.slug}`);
 
+  // 1. 이미지 검색 및 다운로드 (한 번만, 모든 언어 공유)
+  const images = await findAndDownloadImages(topic, projectRoot);
+
+  // 2. 각 언어별 콘텐츠 생성 + 이미지 삽입
   for (const locale of LOCALES) {
     console.log(`  [${locale}] 생성 중...`);
 
     const prompt = buildPrompt(topic, locale, date);
-    const raw = await generateContent(prompt);
-    const content = sanitizeContent(raw, topic, date);
+    const raw = await callClaude(prompt, true);
+    let content = sanitizeContent(raw, topic, date);
+
+    content = insertImagesIntoContent(content, images);
 
     const outputDir = path.join(projectRoot, "content", locale, "blog");
     fs.mkdirSync(outputDir, { recursive: true });
